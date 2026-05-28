@@ -3,13 +3,15 @@ import { useEffect, useRef, useState } from "react";
 import { FlaskConical } from "lucide-react";
 import iconUsers from "@/assets/icon-users.png";
 import iconNetwork from "@/assets/icon-network.png";
+import sndCursor from "@/assets/snd_cursor.mp3";
+import sndCancel from "@/assets/snd_cancel.mp3";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Home — Personal Site" },
+      { title: "Robert Britton's site" },
       { name: "description", content: "Personal website and home server landing page." },
-      { property: "og:title", content: "Home — Personal Site" },
+      { property: "og:title", content: "Robert Britton's site" },
       { property: "og:description", content: "Personal website and home server landing page." },
     ],
   }),
@@ -55,6 +57,7 @@ const categories: XmbCategory[] = [
       {
         label: "Rusyn Research",
         children: [
+          { label: "Who are The Rusyns?", href: "https://en.wikipedia.org/wiki/Rusyns" },
           { label: "Medzilaborce District 1869 Hungarian Census", href: "https://bit.ly/census-1869" },
           { label: "Medzilaborce District 1930 Czechoslovak Census", href: "https://bit.ly/census-1930" },
           { label: "Find-A-Grave virtual cemetery", href: "https://www.findagrave.com/user/profile/49960056" },
@@ -89,12 +92,29 @@ function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
 
 function Index() {
   const [active, setActive] = useState(0);
-  // For each category: a stack of selected indices. Length = depth+1.
   const [paths, setPaths] = useState<number[][]>(categories.map(() => [0]));
   const [time, setTime] = useState<Date | null>(null);
   const [colWidth, setColWidth] = useState(160);
 
   const containerRef = useRef<HTMLDivElement>(null);
+  const cursorAudioRef = useRef<HTMLAudioElement | null>(null);
+  const cancelAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    cursorAudioRef.current = new Audio(sndCursor);
+    cancelAudioRef.current = new Audio(sndCancel);
+    cursorAudioRef.current.volume = 0.6;
+    cancelAudioRef.current.volume = 0.6;
+  }, []);
+
+  const playCursor = () => {
+    const a = cursorAudioRef.current;
+    if (a) { a.currentTime = 0; a.play().catch(() => {}); }
+  };
+  const playCancel = () => {
+    const a = cancelAudioRef.current;
+    if (a) { a.currentTime = 0; a.play().catch(() => {}); }
+  };
 
   useEffect(() => {
     setTime(new Date());
@@ -105,7 +125,6 @@ function Index() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      // Column width scales with viewport, capped for sanity.
       setColWidth(Math.max(96, Math.min(180, Math.round(w / 6))));
     };
     update();
@@ -128,25 +147,52 @@ function Index() {
     });
   };
 
+  const changeActive = (next: number) => {
+    if (next !== active) {
+      playCursor();
+      setActive(next);
+    }
+  };
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
-        if (depth > 0) updatePath(active, path.slice(0, -1));
-        else setActive((a) => Math.max(0, a - 1));
+        if (depth > 0) {
+          playCancel();
+          updatePath(active, path.slice(0, -1));
+        } else {
+          changeActive(Math.max(0, active - 1));
+        }
       } else if (e.key === "ArrowRight") {
-        if (selectedItem?.children) updatePath(active, [...path, 0]);
-        else setActive((a) => Math.min(categories.length - 1, a + 1));
+        if (selectedItem?.children) {
+          playCursor();
+          updatePath(active, [...path, 0]);
+        } else {
+          changeActive(Math.min(categories.length - 1, active + 1));
+        }
       } else if (e.key === "ArrowUp") {
         const next = [...path];
-        next[next.length - 1] = Math.max(0, next[next.length - 1] - 1);
+        const newIdx = Math.max(0, next[next.length - 1] - 1);
+        if (newIdx !== next[next.length - 1]) playCursor();
+        next[next.length - 1] = newIdx;
         updatePath(active, next);
       } else if (e.key === "ArrowDown") {
         const next = [...path];
-        next[next.length - 1] = Math.min(currentItems.length - 1, next[next.length - 1] + 1);
+        const newIdx = Math.min(currentItems.length - 1, next[next.length - 1] + 1);
+        if (newIdx !== next[next.length - 1]) playCursor();
+        next[next.length - 1] = newIdx;
         updatePath(active, next);
+      } else if (e.key === "Escape") {
+        if (depth > 0) {
+          playCancel();
+          updatePath(active, path.slice(0, -1));
+        }
       } else if (e.key === "Enter" || e.key === " ") {
         if (selectedItem?.href) window.open(selectedItem.href, "_blank", "noopener");
-        else if (selectedItem?.children) updatePath(active, [...path, 0]);
+        else if (selectedItem?.children) {
+          playCursor();
+          updatePath(active, [...path, 0]);
+        }
       }
     };
     window.addEventListener("keydown", onKey);
@@ -156,7 +202,6 @@ function Index() {
   const timeLabel = time ? time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
   const dateLabel = time ? time.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" }) : "";
 
-  // Center the active column horizontally: translate row so active sits at 50vw.
   const translateX = -active * colWidth - colWidth / 2;
 
   return (
@@ -166,7 +211,7 @@ function Index() {
       <div className="xmb-ribbon" style={{ top: "30%" }} />
       <div className="xmb-ribbon" style={{ top: "55%", opacity: 0.3 }} />
 
-      {/* Top bar: clock only */}
+      {/* Top bar: clock */}
       <header className="relative z-10 flex items-center justify-end px-4 pt-4 text-sm font-light xmb-text-glow sm:px-10 sm:pt-6">
         <div className="text-right leading-tight">
           <div className="text-base">{timeLabel}</div>
@@ -174,8 +219,14 @@ function Index() {
         </div>
       </header>
 
-      {/* XMB cross — active column is centered on screen via translateX.
-          Icon row sits at vertical center; submenu drops vertically below the active icon. */}
+      {/* Page header */}
+      <div className="pointer-events-none absolute left-0 right-0 top-4 z-10 flex flex-col items-center px-4 text-center xmb-text-glow sm:top-6">
+        <h1 className="text-lg font-light tracking-wide sm:text-2xl">Robert Britton's site</h1>
+        <p className="mt-1 text-[11px] font-light opacity-70 sm:text-xs">
+          Navigate tabs with arrow keys or mouse.
+        </p>
+      </div>
+
       <section
         ref={containerRef}
         className="absolute left-1/2 top-1/2 z-10"
@@ -184,7 +235,6 @@ function Index() {
           transition: "transform 0.35s cubic-bezier(.2,.7,.2,1)",
         }}
       >
-        {/* Icon row */}
         <div className="flex items-start">
           {categories.map((c, i) => {
             const isActive = i === active;
@@ -194,7 +244,7 @@ function Index() {
                 className={`xmb-col flex flex-col items-center ${isActive ? "active" : ""}`}
                 style={{ width: colWidth }}
                 onClick={() => {
-                  setActive(i);
+                  changeActive(i);
                   updatePath(i, [0]);
                 }}
               >
@@ -218,7 +268,6 @@ function Index() {
           })}
         </div>
 
-        {/* Submenu — vertical list directly under the active icon (true XMB layout) */}
         <ul
           className="absolute text-left text-sm font-light sm:text-base"
           style={{
@@ -228,7 +277,14 @@ function Index() {
           }}
         >
           {depth > 0 && (
-            <li className="mb-2 text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow">
+            <li
+              className="mb-2 cursor-pointer text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow"
+              onClick={(e) => {
+                e.stopPropagation();
+                playCancel();
+                updatePath(active, path.slice(0, -1));
+              }}
+            >
               ‹ back
             </li>
           )}
@@ -246,9 +302,9 @@ function Index() {
               if (item.href) {
                 window.open(item.href, "_blank", "noopener");
               } else if (hasChildren) {
+                playCursor();
                 updatePath(active, [...path.slice(0, -1), j, 0]);
               } else {
-                // selection only (e.g. coming-soon labels)
                 const next = [...path];
                 next[next.length - 1] = j;
                 updatePath(active, next);
@@ -278,9 +334,8 @@ function Index() {
         </ul>
       </section>
 
-      {/* Footer hint */}
       <footer className="absolute bottom-3 left-0 right-0 z-10 flex items-center justify-center px-4 text-[10px] font-light opacity-70 xmb-text-glow sm:bottom-6 sm:text-xs">
-        <span className="text-center">← → navigate · ↑ ↓ select · click or enter to open</span>
+        <span className="text-center">← → navigate · ↑ ↓ select · enter to open · esc to go back</span>
       </footer>
     </main>
   );
