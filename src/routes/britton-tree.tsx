@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/britton-tree")({
   head: () => ({
@@ -11,26 +11,35 @@ export const Route = createFileRoute("/britton-tree")({
   component: BrittonTree,
 });
 
+const clamp = (s: number) => Math.max(0.1, Math.min(10, s));
+
 function BrittonTree() {
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
   const dragging = useRef<{ x: number; y: number } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const clamp = (s: number) => Math.max(0.1, Math.min(10, s));
-
-  const onWheel = useCallback((e: React.WheelEvent) => {
-    e.preventDefault();
-    const factor = e.deltaY < 0 ? 1.1 : 0.9;
-    setScale((s) => {
-      const ns = clamp(s * factor);
-      const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+  // Non-passive wheel listener so preventDefault works
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const rect = el.getBoundingClientRect();
       const ox = e.clientX - rect.left;
       const oy = e.clientY - rect.top;
-      setTx((t) => ox - (ox - t) * (ns / s));
-      setTy((t) => oy - (oy - t) * (ns / s));
-      return ns;
-    });
+      const factor = e.deltaY < 0 ? 1.1 : 0.9;
+      setScale((s) => {
+        const ns = clamp(s * factor);
+        const ratio = ns / s;
+        setTx((t) => ox - (ox - t) * ratio);
+        setTy((t) => oy - (oy - t) * ratio);
+        return ns;
+      });
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
   const onMouseDown = (e: React.MouseEvent) => {
@@ -45,7 +54,6 @@ function BrittonTree() {
 
   const reset = () => { setScale(1); setTx(0); setTy(0); };
 
-  // Prevent body scroll
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -55,8 +63,8 @@ function BrittonTree() {
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-background text-foreground">
       <div
+        ref={containerRef}
         className="absolute inset-0 cursor-grab active:cursor-grabbing"
-        onWheel={onWheel}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
