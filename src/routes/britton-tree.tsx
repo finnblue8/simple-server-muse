@@ -29,14 +29,14 @@ const BANDS_Y = treeData.bandsY as number[];
 
 // Coordinate transform: SVG units (10590 x ~1745) -> display units
 // SVG sibling cx-gap is ~128 minimum; gen spacing in y is ~93.
-// Card footprint must fit inside those so nothing overlaps.
-const SCALE_X = 1.1;
-const SCALE_Y = 1.05;
-const CARD_W = 130;
-const CARD_H = 72;
+// Original SVG has min sibling cx-gap ~128 and gen y-gap ~93.
+// Pick scales so card footprint sits strictly inside both.
+const SCALE_X = 1.25;   // 128 * 1.25 = 160px between sibling centers
+const SCALE_Y = 1.3;    // 93  * 1.3  = 121px between gen centers
+const CARD_W = 150;     // < 160  -> ~10px horizontal gap
+const CARD_H = 96;      // < 121  -> ~25px vertical gap, fits 4 lines
 const PAD_X = 80;
 const PAD_Y = 40;
-
 const SVG_MAX_X = Math.max(...PEOPLE.map((p) => p.cx)) + 100;
 const CANVAS_W = SVG_MAX_X * SCALE_X + PAD_X * 2;
 const CANVAS_H = (BANDS_Y[BANDS_Y.length - 1] + 80) * SCALE_Y + PAD_Y * 2;
