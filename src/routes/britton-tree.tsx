@@ -79,11 +79,11 @@ function BrittonTree() {
             width: "fit-content",
           }}
         >
-          <div
+          <BrittonSvg
             className="britton-svg"
             style={{ display: "block", userSelect: "none" }}
-            dangerouslySetInnerHTML={{ __html: brittonSvg }}
           />
+
 
         </div>
       </div>
