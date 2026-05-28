@@ -244,18 +244,18 @@
 
 .xmb-subitem:hover {
   opacity: 1;
-  color: white;
+  color: oklch(0.1 0 0);
 }
 
 .xmb-subitem.selected {
   opacity: 1;
-  color: white;
+  color: oklch(0.1 0 0);
 }
 
 .xmb-subitem.selected::before {
   content: "▶";
   margin-right: 8px;
   font-size: 0.55em;
-  color: oklch(0.95 0.08 220);
+  color: oklch(0.3 0.05 220);
   vertical-align: middle;
 }
