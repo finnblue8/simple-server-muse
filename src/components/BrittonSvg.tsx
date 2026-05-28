@@ -11,7 +11,7 @@ export function BrittonSvg(props: SVGProps<SVGSVGElement>) {
       {...props}
     >
 <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  <style type="text/css">{`*{stroke-linejoin: round; stroke-linecap: butt}`}</style>
  </defs>
  <g id="figure_1">
   <g id="patch_1">
