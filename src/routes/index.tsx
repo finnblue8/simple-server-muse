@@ -55,18 +55,9 @@ const categories: XmbCategory[] = [
       {
         label: "Rusyn Research",
         children: [
-          {
-            label: "Medzilaborce District 1869 Hungarian Census",
-            href: "https://bit.ly/census-1869",
-          },
-          {
-            label: "Medzilaborce District 1930 Czechoslovak Census",
-            href: "https://bit.ly/census-1930",
-          },
-          {
-            label: "Find-A-Grave virtual cemetery",
-            href: "https://www.findagrave.com/user/profile/49960056",
-          },
+          { label: "Medzilaborce District 1869 Hungarian Census", href: "https://bit.ly/census-1869" },
+          { label: "Medzilaborce District 1930 Czechoslovak Census", href: "https://bit.ly/census-1930" },
+          { label: "Find-A-Grave virtual cemetery", href: "https://www.findagrave.com/user/profile/49960056" },
           {
             label: "Maps of immigrant destinations",
             children: [
@@ -78,7 +69,10 @@ const categories: XmbCategory[] = [
           },
         ],
       },
-      { label: "Britton Research — TBD" },
+      {
+        label: "Britton Research",
+        children: [{ label: "TBD" }],
+      },
     ],
   },
 ];
@@ -95,12 +89,12 @@ function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
 
 function Index() {
   const [active, setActive] = useState(0);
-  // For each category: a stack of selected indices. Length = depth in the tree.
+  // For each category: a stack of selected indices. Length = depth+1.
   const [paths, setPaths] = useState<number[][]>(categories.map(() => [0]));
   const [time, setTime] = useState(() => new Date());
+  const [colWidth, setColWidth] = useState(160);
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const [colWidth, setColWidth] = useState(160);
 
   useEffect(() => {
     const id = setInterval(() => setTime(new Date()), 1000);
@@ -110,8 +104,8 @@ function Index() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth;
-      // Column width scales with viewport. Active column gets centered.
-      setColWidth(Math.max(110, Math.min(180, Math.round(w / 6))));
+      // Column width scales with viewport, capped for sanity.
+      setColWidth(Math.max(96, Math.min(180, Math.round(w / 6))));
     };
     update();
     window.addEventListener("resize", update);
@@ -136,17 +130,11 @@ function Index() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
-        if (depth > 0) {
-          updatePath(active, path.slice(0, -1));
-        } else {
-          setActive((a) => Math.max(0, a - 1));
-        }
+        if (depth > 0) updatePath(active, path.slice(0, -1));
+        else setActive((a) => Math.max(0, a - 1));
       } else if (e.key === "ArrowRight") {
-        if (selectedItem?.children) {
-          updatePath(active, [...path, 0]);
-        } else {
-          setActive((a) => Math.min(categories.length - 1, a + 1));
-        }
+        if (selectedItem?.children) updatePath(active, [...path, 0]);
+        else setActive((a) => Math.min(categories.length - 1, a + 1));
       } else if (e.key === "ArrowUp") {
         const next = [...path];
         next[next.length - 1] = Math.max(0, next[next.length - 1] - 1);
@@ -156,11 +144,8 @@ function Index() {
         next[next.length - 1] = Math.min(currentItems.length - 1, next[next.length - 1] + 1);
         updatePath(active, next);
       } else if (e.key === "Enter" || e.key === " ") {
-        if (selectedItem?.href) {
-          window.open(selectedItem.href, "_blank", "noopener");
-        } else if (selectedItem?.children) {
-          updatePath(active, [...path, 0]);
-        }
+        if (selectedItem?.href) window.open(selectedItem.href, "_blank", "noopener");
+        else if (selectedItem?.children) updatePath(active, [...path, 0]);
       }
     };
     window.addEventListener("keydown", onKey);
@@ -170,11 +155,7 @@ function Index() {
   const timeLabel = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   const dateLabel = time.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
 
-  // Translate the cross so the active column is centered on screen.
-  // Each column slot is colWidth wide, centered around its own center.
-  // active column index = `active`; translate by (centerIndex - active) * colWidth
-  // We'll place the row starting at left: 50%, then translateX(-colWidth/2) so col 0 sits centered,
-  // then shift by -active*colWidth so the active one sits at center.
+  // Center the active column horizontally: translate row so active sits at 50vw.
   const translateX = -active * colWidth - colWidth / 2;
 
   return (
@@ -185,22 +166,24 @@ function Index() {
       <div className="xmb-ribbon" style={{ top: "55%", opacity: 0.3 }} />
 
       {/* Top bar: clock only */}
-      <header className="relative z-10 flex items-center justify-end px-6 pt-6 text-sm font-light xmb-text-glow sm:px-10">
+      <header className="relative z-10 flex items-center justify-end px-4 pt-4 text-sm font-light xmb-text-glow sm:px-10 sm:pt-6">
         <div className="text-right leading-tight">
           <div className="text-base">{timeLabel}</div>
           <div className="text-xs opacity-70">{dateLabel}</div>
         </div>
       </header>
 
-      {/* XMB cross — centered around the active column */}
+      {/* XMB cross — active column is centered on screen via translateX.
+          Icon row sits at vertical center; submenu drops vertically below the active icon. */}
       <section
         ref={containerRef}
-        className="absolute left-1/2 top-1/2 z-10 -translate-y-1/2"
+        className="absolute left-1/2 top-1/2 z-10"
         style={{
           transform: `translate(${translateX}px, -50%)`,
           transition: "transform 0.35s cubic-bezier(.2,.7,.2,1)",
         }}
       >
+        {/* Icon row */}
         <div className="flex items-start">
           {categories.map((c, i) => {
             const isActive = i === active;
@@ -209,7 +192,10 @@ function Index() {
                 key={c.key}
                 className={`xmb-col flex flex-col items-center ${isActive ? "active" : ""}`}
                 style={{ width: colWidth }}
-                onClick={() => setActive(i)}
+                onClick={() => {
+                  setActive(i);
+                  updatePath(i, [0]);
+                }}
               >
                 <div className="xmb-icon">
                   {c.iconSrc ? (
@@ -223,7 +209,7 @@ function Index() {
                     <c.IconComp strokeWidth={1.25} className="h-9 w-9" />
                   ) : null}
                 </div>
-                <div className="xmb-label mt-3 text-xs uppercase tracking-[0.18em] xmb-text-glow">
+                <div className="xmb-label mt-3 text-[11px] uppercase tracking-[0.18em] xmb-text-glow sm:text-xs">
                   {c.label}
                 </div>
               </div>
@@ -231,74 +217,69 @@ function Index() {
           })}
         </div>
 
-        {/* Submenu column for the active category — vertical list anchored under active icon */}
+        {/* Submenu — vertical list directly under the active icon (true XMB layout) */}
         <ul
-          className="absolute top-[120px] text-left text-sm font-light sm:text-base"
+          className="absolute text-left text-sm font-light sm:text-base"
           style={{
-            left: active * colWidth + colWidth / 2 + 28,
-            minWidth: 240,
-            maxWidth: "min(70vw, 460px)",
+            top: 120,
+            left: active * colWidth,
+            width: colWidth,
           }}
         >
+          {depth > 0 && (
+            <li className="mb-2 text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow">
+              ‹ back
+            </li>
+          )}
           {currentItems.map((item, j) => {
             const isSel = j === selectedIdx;
             const hasChildren = !!item.children;
-            const content = (
-              <span className="flex items-center gap-2">
+            const inner = (
+              <span className="flex items-center justify-center gap-2 text-center">
                 <span>{item.label}</span>
                 {hasChildren && <span className="opacity-60">›</span>}
               </span>
             );
+            const handleClick = (e: React.MouseEvent) => {
+              e.stopPropagation();
+              if (item.href) {
+                window.open(item.href, "_blank", "noopener");
+              } else if (hasChildren) {
+                updatePath(active, [...path.slice(0, -1), j, 0]);
+              } else {
+                // selection only (e.g. coming-soon labels)
+                const next = [...path];
+                next[next.length - 1] = j;
+                updatePath(active, next);
+              }
+            };
             return (
               <li
                 key={`${depth}-${j}-${item.label}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (!isSel) {
-                    const next = [...path];
-                    next[next.length - 1] = j;
-                    updatePath(active, next);
-                    return;
-                  }
-                  if (item.href) {
-                    window.open(item.href, "_blank", "noopener");
-                  } else if (hasChildren) {
-                    updatePath(active, [...path, 0]);
-                  }
-                }}
+                onClick={handleClick}
                 className={`xmb-subitem mb-2 cursor-pointer xmb-text-glow ${isSel ? "selected" : ""}`}
               >
-                {item.href && isSel ? (
+                {item.href ? (
                   <a
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    {content}
+                    {inner}
                   </a>
                 ) : (
-                  content
+                  inner
                 )}
               </li>
             );
           })}
         </ul>
-
-        {/* Breadcrumb / back hint when drilled in */}
-        {depth > 0 && (
-          <div
-            className="absolute -top-2 text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow"
-            style={{ left: active * colWidth + colWidth / 2 + 28 }}
-          >
-            ‹ back
-          </div>
-        )}
       </section>
 
       {/* Footer hint */}
-      <footer className="absolute bottom-4 left-0 right-0 z-10 flex items-center justify-center px-6 text-[11px] font-light opacity-70 xmb-text-glow sm:bottom-6 sm:text-xs">
-        <span>← → navigate · ↑ ↓ select · enter to open</span>
+      <footer className="absolute bottom-3 left-0 right-0 z-10 flex items-center justify-center px-4 text-[10px] font-light opacity-70 xmb-text-glow sm:bottom-6 sm:text-xs">
+        <span className="text-center">← → navigate · ↑ ↓ select · click or enter to open</span>
       </footer>
     </main>
   );
