@@ -1,112 +1,213 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
-import { BrittonSvg } from "@/components/BrittonSvg";
-
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import treeData from "@/data/britton-tree.json";
 
 export const Route = createFileRoute("/britton-tree")({
   head: () => ({
     meta: [
       { title: "Britton Family Tree" },
-      { name: "description", content: "Interactive Britton family tree." },
+      { name: "description", content: "Interactive Britton family tree — navigate generations with arrow keys." },
     ],
   }),
   component: BrittonTree,
 });
 
-const clamp = (s: number) => Math.max(0.1, Math.min(10, s));
+type Person = {
+  id: number;
+  gen: number;
+  cx: number;
+  name: string;
+  details: string[];
+  parents: number[];
+  children: number[];
+};
+
+const PEOPLE = treeData.people as Person[];
+const HEADER = treeData.header as string[];
+
+// Pick the canonical root (Adam Britton — generation 0)
+const ROOT_ID = PEOPLE.find((p) => p.gen === 0)?.id ?? 0;
 
 function BrittonTree() {
-  const [scale, setScale] = useState(1);
-  const [tx, setTx] = useState(0);
-  const [ty, setTy] = useState(0);
-  const dragging = useRef<{ x: number; y: number } | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [focusId, setFocusId] = useState<number>(ROOT_ID);
+  const focus = PEOPLE[focusId];
+  const parentIds = focus.parents;
+  const childIds = focus.children;
 
-  // Non-passive wheel listener so preventDefault works
+  // Siblings = children of the (first) parent, OR all gen-mates if no parent.
+  const siblingIds = useMemo(() => {
+    if (parentIds.length > 0) return PEOPLE[parentIds[0]].children;
+    return PEOPLE.filter((p) => p.gen === focus.gen && p.parents.length === 0)
+      .sort((a, b) => a.cx - b.cx)
+      .map((p) => p.id);
+  }, [focus.gen, parentIds]);
+
+  const siblingIndex = Math.max(0, siblingIds.indexOf(focusId));
+
+  const go = useCallback((id: number) => setFocusId(id), []);
+
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      const rect = el.getBoundingClientRect();
-      const ox = e.clientX - rect.left;
-      const oy = e.clientY - rect.top;
-      const factor = e.deltaY < 0 ? 1.1 : 0.9;
-      setScale((s) => {
-        const ns = clamp(s * factor);
-        const ratio = ns / s;
-        setTx((t) => ox - (ox - t) * ratio);
-        setTy((t) => oy - (oy - t) * ratio);
-        return ns;
-      });
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (parentIds.length > 0) go(parentIds[0]);
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (childIds.length > 0) go(childIds[0]);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        if (siblingIndex > 0) go(siblingIds[siblingIndex - 1]);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        if (siblingIndex < siblingIds.length - 1) go(siblingIds[siblingIndex + 1]);
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        go(ROOT_ID);
+      }
     };
-    el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
-  }, []);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [parentIds, childIds, siblingIds, siblingIndex, go]);
 
-  const onMouseDown = (e: React.MouseEvent) => {
-    dragging.current = { x: e.clientX - tx, y: e.clientY - ty };
-  };
-  const onMouseMove = (e: React.MouseEvent) => {
-    if (!dragging.current) return;
-    setTx(e.clientX - dragging.current.x);
-    setTy(e.clientY - dragging.current.y);
-  };
-  const onMouseUp = () => { dragging.current = null; };
+  // Breadcrumb path from root → focus (walk parents[0] up)
+  const path = useMemo(() => {
+    const out: Person[] = [];
+    let cur: Person | undefined = focus;
+    const seen = new Set<number>();
+    while (cur && !seen.has(cur.id)) {
+      out.unshift(cur);
+      seen.add(cur.id);
+      cur = cur.parents[0] !== undefined ? PEOPLE[cur.parents[0]] : undefined;
+    }
+    return out;
+  }, [focus]);
 
-  const reset = () => { setScale(1); setTx(0); setTy(0); };
-
+  const focusRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
-  }, []);
+    focusRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [focusId]);
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden bg-background text-foreground">
-      <div
-        ref={containerRef}
-        className="absolute inset-0 cursor-grab active:cursor-grabbing"
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-      >
-        <div
-          style={{
-            transform: `translate(${tx}px, ${ty}px) scale(${scale})`,
-            transformOrigin: "0 0",
-            width: "fit-content",
-          }}
-        >
-          <BrittonSvg
-            className="britton-svg"
-            width={10590.394054}
-            height={2765.47578}
-            style={{ display: "block", userSelect: "none" }}
-          />
-
-
+    <main className="min-h-screen bg-background text-foreground">
+      <header className="border-b border-foreground/10 px-6 py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4">
+          <Link to="/" className="text-xs opacity-70 hover:opacity-100">← Back</Link>
+          <div className="text-center">
+            <h1 className="text-lg font-semibold">{HEADER[0] ?? "Britton Family Tree"}</h1>
+            <p className="text-[11px] opacity-60">{HEADER[1]}</p>
+          </div>
+          <div className="text-[11px] opacity-50">
+            ↑ parent · ↓ child · ← → siblings · Home: root
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div className="absolute right-4 top-4 z-10 flex items-center gap-2 rounded-md bg-foreground/10 px-3 py-2 backdrop-blur">
-        <button onClick={() => setScale((s) => clamp(s * 0.8))} className="px-2 py-1 text-sm hover:opacity-70">−</button>
-        <span className="min-w-[3rem] text-center text-xs tabular-nums">{Math.round(scale * 100)}%</span>
-        <button onClick={() => setScale((s) => clamp(s * 1.25))} className="px-2 py-1 text-sm hover:opacity-70">+</button>
-        <button onClick={reset} className="ml-2 px-2 py-1 text-xs hover:opacity-70">Reset</button>
-      </div>
+      {/* Breadcrumb / lineage */}
+      <nav className="mx-auto max-w-6xl px-6 pt-4 text-xs opacity-70">
+        {path.map((p, i) => (
+          <span key={p.id}>
+            {i > 0 && <span className="mx-2 opacity-40">›</span>}
+            <button
+              onClick={() => go(p.id)}
+              className={p.id === focusId ? "font-semibold underline" : "hover:underline"}
+            >
+              {p.name}
+            </button>
+          </span>
+        ))}
+      </nav>
 
-      <Link
-        to="/"
-        className="absolute left-4 top-4 z-10 rounded-md bg-foreground/10 px-3 py-2 text-xs backdrop-blur hover:opacity-70"
-      >
-        ← Back
-      </Link>
+      <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+        {/* Parents row */}
+        <Row label="Parent" emptyLabel="— earliest known ancestor —">
+          {parentIds.map((id) => (
+            <PersonCard key={id} person={PEOPLE[id]} onClick={() => go(id)} variant="parent" />
+          ))}
+        </Row>
 
-      <div className="pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 text-[10px] opacity-60">
-        Scroll to zoom · drag to pan
-      </div>
+        {/* Focus + siblings row */}
+        <Row label={`Generation ${focus.gen}${siblingIds.length > 1 ? ` · sibling ${siblingIndex + 1} of ${siblingIds.length}` : ""}`}>
+          {siblingIds.map((id) => {
+            const isFocus = id === focusId;
+            return (
+              <div key={id} ref={isFocus ? focusRef : undefined}>
+                <PersonCard
+                  person={PEOPLE[id]}
+                  onClick={() => go(id)}
+                  variant={isFocus ? "focus" : "sibling"}
+                />
+              </div>
+            );
+          })}
+        </Row>
+
+        {/* Children row */}
+        <Row label={`Children (${childIds.length})`} emptyLabel="— no recorded male issue —">
+          {childIds.map((id) => (
+            <PersonCard key={id} person={PEOPLE[id]} onClick={() => go(id)} variant="child" />
+          ))}
+        </Row>
+      </section>
+
+      <footer className="mx-auto max-w-6xl px-6 pb-8 text-[11px] opacity-50">
+        {HEADER.slice(2).map((line, i) => (
+          <p key={i}>{line}</p>
+        ))}
+      </footer>
     </main>
+  );
+}
+
+function Row({
+  label,
+  emptyLabel,
+  children,
+}: {
+  label: string;
+  emptyLabel?: string;
+  children: React.ReactNode;
+}) {
+  const arr = Array.isArray(children) ? children : [children];
+  const isEmpty = arr.filter(Boolean).length === 0;
+  return (
+    <div>
+      <div className="mb-2 text-[10px] uppercase tracking-widest opacity-50">{label}</div>
+      {isEmpty ? (
+        <div className="text-xs italic opacity-40">{emptyLabel ?? "—"}</div>
+      ) : (
+        <div className="flex flex-wrap gap-2">{children}</div>
+      )}
+    </div>
+  );
+}
+
+function PersonCard({
+  person,
+  onClick,
+  variant,
+}: {
+  person: Person;
+  onClick: () => void;
+  variant: "focus" | "sibling" | "parent" | "child";
+}) {
+  const base =
+    "text-left rounded-md border px-3 py-2 transition-colors min-w-[10rem] max-w-[14rem]";
+  const styles = {
+    focus: "border-foreground bg-foreground text-background shadow-sm",
+    sibling: "border-foreground/20 bg-foreground/5 hover:bg-foreground/10",
+    parent: "border-foreground/30 bg-foreground/10 hover:bg-foreground/15",
+    child: "border-foreground/20 bg-foreground/5 hover:bg-foreground/10",
+  }[variant];
+  return (
+    <button onClick={onClick} className={`${base} ${styles}`}>
+      <div className="text-sm font-medium leading-tight">{person.name}</div>
+      {person.details.length > 0 && (
+        <div className="mt-1 space-y-0.5 text-[11px] opacity-80">
+          {person.details.map((d, i) => (
+            <div key={i}>{d}</div>
+          ))}
+        </div>
+      )}
+    </button>
   );
 }
