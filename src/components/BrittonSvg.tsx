@@ -1,5 +1,4 @@
-// AUTO-GENERATED from src/assets/britton.svg — edit freely.
-// Render this as JSX so it can be styled/interactivized like any React tree.
+// AUTO-GENERATED from the source family-tree SVG — edit freely.
 export function BrittonSvg(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -10,7 +9,7 @@ export function BrittonSvg(props: React.SVGProps<SVGSVGElement>) {
       {...props}
     >
 <defs>
-  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+  <style type="text/css" dangerouslySetInnerHTML={{__html: "*{stroke-linejoin: round; stroke-linecap: butt}"}} />
  </defs>
  <g id="figure_1">
   <g id="patch_1">
@@ -2558,7 +2557,7 @@ z
 " clipPath="url(#p51e455acf5)" style={{"fill":"#faf6ec","stroke":"#7a6a52","strokeWidth":"1.1","strokeLinejoin":"miter"}}/>
    </g>
    <g id="text_1">
-    <!-- The Britton Family of North Devon -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(107.060277 73.026609) scale(0.22 -0.22)">
      <defs>
       <path id="DejaVuSans-Bold-54" d="M 31 4666 
@@ -2952,7 +2951,7 @@ z
     </g>
    </g>
    <g id="text_2">
-    <!-- Complete male-line descent from Adam Britton (c.1550) of Ilfracombe   —   Britton DNA Project, Group 11 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(107.060277 96.13747) scale(0.115 -0.115)">
      <defs>
       <path id="DejaVuSans-Oblique-43" d="M 4447 4306 
@@ -3787,7 +3786,7 @@ z
     </g>
    </g>
    <g id="text_3">
-    <!-- 26 May 2026 copy. -->
+    
     <g style={{"fill":"#4a4234"}} transform="translate(107.060277 118.528951) scale(0.13 -0.13)">
      <defs>
       <path id="DejaVuSans-32" d="M 1228 531 
@@ -4028,7 +4027,7 @@ z
     </g>
    </g>
    <g id="text_4">
-    <!-- Created by Robert Britton, William Ira Britton descendant, Cleveland, Ohio, USA.  Information subject to change as additional research conducted. -->
+    
     <g style={{"fill":"#4a4234"}} transform="translate(107.060277 135.998306) scale(0.13 -0.13)">
      <defs>
       <path id="DejaVuSans-43" d="M 4122 4306 
@@ -4718,7 +4717,7 @@ z
     </g>
    </g>
    <g id="text_5">
-    <!-- Contact: britton32@protonmail.com -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(107.060277 150.164987) scale(0.092 -0.092)">
      <defs>
       <path id="DejaVuSans-3a" d="M 750 794 
@@ -4861,7 +4860,7 @@ z
     </g>
    </g>
    <g id="text_6">
-    <!-- Humphrey Britton (1650) — likely MRCA of the majority of Group 11 test kits -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(124.592556 169.667702) scale(0.084 -0.084)">
      <defs>
       <path id="DejaVuSans-48" d="M 628 4666 
@@ -5069,7 +5068,7 @@ z
     </g>
    </g>
    <g id="text_7">
-    <!-- Lineage anchored or referenced by Y-DNA testing -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(124.592556 188.827639) scale(0.084 -0.084)">
      <defs>
       <path id="DejaVuSans-4c" d="M 628 4666 
@@ -5183,7 +5182,7 @@ z
     </g>
    </g>
    <g id="text_8">
-    <!-- Every known male in every generation is shown, including those with no recorded male issue.  Spouses shown where a marriage is recorded. -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(107.060277 211.821894) scale(0.08 -0.08)">
      <defs>
       <path id="DejaVuSans-Oblique-45" d="M 1081 4666 
@@ -5490,7 +5489,7 @@ z
     </g>
    </g>
    <g id="text_9">
-    <!-- Not pictured — lines of A.H. Britton (Baxter County, Arkansas, USA), 1876 to present, and the Raynham, Massachusetts, USA family, -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(107.060277 221.401862) scale(0.08 -0.08)">
      <defs>
       <path id="DejaVuSans-Oblique-48" d="M 1081 4666 
@@ -5804,7 +5803,7 @@ z
     </g>
    </g>
    <g id="text_10">
-    <!-- 17th or 18th century to present, for lack of clear placement in the tree. -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(107.060277 229.854776) scale(0.08 -0.08)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -5882,7 +5881,7 @@ z
     </g>
    </g>
    <g id="text_11">
-    <!-- The William Ira Britton Line, USA -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(112.861399 1268.958811) scale(0.15 -0.15)">
      <defs>
       <path id="DejaVuSans-Bold-57" d="M 191 4666 
@@ -6027,7 +6026,7 @@ z
     </g>
    </g>
    <g id="text_12">
-    <!-- 1837–present: first documented appearance -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(112.861399 1336.929346) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Oblique-33" d="M 1013 4550 
@@ -6129,7 +6128,7 @@ z
     </g>
    </g>
    <g id="text_13">
-    <!-- Bridgeport, Belmont County, Ohio, -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(112.861399 1354.3987) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Oblique-4f" d="M 2919 4238 
@@ -6198,7 +6197,7 @@ z
     </g>
    </g>
    <g id="text_14">
-    <!-- 1860 U.S. Census. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(112.861399 1371.868055) scale(0.086 -0.086)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -6220,7 +6219,7 @@ z
     </g>
    </g>
    <g id="text_15">
-    <!-- William Ira — Co. D, 43rd Ohio -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(112.861399 1389.337409) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Oblique-57" d="M 616 4666 
@@ -6292,7 +6291,7 @@ z
     </g>
    </g>
    <g id="text_16">
-    <!-- Volunteer Infantry, 1861–65. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(112.861399 1406.806763) scale(0.086 -0.086)">
      <defs>
       <path id="DejaVuSans-Oblique-56" d="M 1319 0 
@@ -6337,7 +6336,7 @@ z
     </g>
    </g>
    <g id="text_17">
-    <!-- Kits B577150 &amp; 118335, descended from John Edward (above): -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1313.628647) scale(0.084 -0.084)">
      <defs>
       <path id="DejaVuSans-Oblique-4b" d="M 1081 4666 
@@ -6471,7 +6470,7 @@ z
     </g>
    </g>
    <g id="text_18">
-    <!-- exact match to 25 markers, 2-step at 37, 5 steps at 67. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1330.534473) scale(0.084 -0.084)">
      <defs>
       <path id="DejaVuSans-Oblique-32" d="M 2950 2253 
@@ -6555,7 +6554,7 @@ z
     </g>
    </g>
    <g id="text_19">
-    <!-- John Edward migrated to the United States — to Ohio, -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1364.346127) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-4a"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(29.492188 0)"/>
@@ -6612,7 +6611,7 @@ z
     </g>
    </g>
    <g id="text_20">
-    <!-- allegedly in the 1840s. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1381.251954) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-61"/>
      <use xlinkHref="#DejaVuSans-Oblique-6c" transform="translate(61.279297 0)"/>
@@ -6640,7 +6639,7 @@ z
     </g>
    </g>
    <g id="text_21">
-    <!-- Y-DNA combined with circumstantial and documentary -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1415.063607) scale(0.084 -0.084)">
      <defs>
       <path id="DejaVuSans-Oblique-59" d="M 403 4666 
@@ -6709,7 +6708,7 @@ z
     </g>
    </g>
    <g id="text_22">
-    <!-- evidence strongly suggests a father–son relationship. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(560.19236 1431.969434) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-65"/>
      <use xlinkHref="#DejaVuSans-Oblique-76" transform="translate(61.523438 0)"/>
@@ -6910,7 +6909,7 @@ z
 " clipPath="url(#p51e455acf5)" style={{"fill":"#faf6ec","stroke":"#7a6a52","strokeWidth":"1.1","strokeLinejoin":"miter"}}/>
    </g>
    <g id="text_23">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8065.259525 309.447217) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-64" d="M 2919 2988 
@@ -6955,7 +6954,7 @@ z
     </g>
    </g>
    <g id="text_24">
-    <!-- c.1550 – 1633 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8073.153501 319.121619) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-63"/>
      <use xlinkHref="#DejaVuSans-Oblique-2e" transform="translate(54.980469 0)"/>
@@ -6973,7 +6972,7 @@ z
     </g>
    </g>
    <g id="text_25">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8080.90604 328.563619) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -6988,7 +6987,7 @@ z
     </g>
    </g>
    <g id="text_26">
-    <!-- m. Thomasin -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8076.66911 338.734709) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-54" d="M -19 4666 
@@ -7017,7 +7016,7 @@ z
     </g>
    </g>
    <g id="text_27">
-    <!-- Balthazar Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6210.757123 402.429264) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-7a" d="M 366 3500 
@@ -7054,7 +7053,7 @@ z
     </g>
    </g>
    <g id="text_28">
-    <!-- 1583 – 1640 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6231.663904 412.103667) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-35" transform="translate(63.623047 0)"/>
@@ -7070,7 +7069,7 @@ z
     </g>
    </g>
    <g id="text_29">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6236.249498 421.545666) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7085,7 +7084,7 @@ z
     </g>
    </g>
    <g id="text_30">
-    <!-- m. Mary -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6240.282865 431.716756) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -7097,7 +7096,7 @@ z
     </g>
    </g>
    <g id="text_31">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9905.485676 402.429264) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -7117,7 +7116,7 @@ z
     </g>
    </g>
    <g id="text_32">
-    <!-- 1586 – 1667 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9920.976988 412.103667) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-35" transform="translate(63.623047 0)"/>
@@ -7133,7 +7132,7 @@ z
     </g>
    </g>
    <g id="text_33">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9925.562582 421.545666) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7148,7 +7147,7 @@ z
     </g>
    </g>
    <g id="text_34">
-    <!-- m. Joane -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(9928.59491 431.716756) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-4a" d="M 628 4666 
@@ -7176,7 +7175,7 @@ z
     </g>
    </g>
    <g id="text_35">
-    <!-- Cyrus Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(88.838295 495.376155) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-43" d="M 4288 256 
@@ -7271,7 +7270,7 @@ z
     </g>
    </g>
    <g id="text_36">
-    <!-- 1606 – 1607 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(99.806404 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7287,7 +7286,7 @@ z
     </g>
    </g>
    <g id="text_37">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(104.391998 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7302,7 +7301,7 @@ z
     </g>
    </g>
    <g id="text_38">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3229.444058 495.411312) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -7319,7 +7318,7 @@ z
     </g>
    </g>
    <g id="text_39">
-    <!-- 1615 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3247.856878 505.085714) scale(0.073 -0.073)">
      <defs>
       <path id="DejaVuSans-Oblique-3f" d="M 1594 794 
@@ -7365,7 +7364,7 @@ z
     </g>
    </g>
    <g id="text_40">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3245.090573 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7380,7 +7379,7 @@ z
     </g>
    </g>
    <g id="text_41">
-    <!-- m. Elinor Keene -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3236.121214 524.698803) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-45" d="M 628 4666 
@@ -7431,7 +7430,7 @@ z
     </g>
    </g>
    <g id="text_42">
-    <!-- Jeffry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9055.337399 495.376155) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-4a" d="M 588 4666 
@@ -7465,7 +7464,7 @@ z
     </g>
    </g>
    <g id="text_43">
-    <!-- 1616 – 1616 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9065.762696 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7481,7 +7480,7 @@ z
     </g>
    </g>
    <g id="text_44">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9070.34829 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7496,7 +7495,7 @@ z
     </g>
    </g>
    <g id="text_45">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9260.863848 495.376155) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-48" d="M 588 4666 
@@ -7531,7 +7530,7 @@ z
     </g>
    </g>
    <g id="text_46">
-    <!-- 1619 – 1666 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9272.66938 505.085714) scale(0.073 -0.073)">
      <defs>
       <path id="DejaVuSans-Oblique-39" d="M 281 103 
@@ -7583,7 +7582,7 @@ z
     </g>
    </g>
    <g id="text_47">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9277.254973 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7598,7 +7597,7 @@ z
     </g>
    </g>
    <g id="text_48">
-    <!-- m. Joane Eastaway -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(9262.655106 524.698803) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-77" d="M 269 3500 
@@ -7638,7 +7637,7 @@ z
     </g>
    </g>
    <g id="text_49">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9471.772016 495.411312) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -7655,7 +7654,7 @@ z
     </g>
    </g>
    <g id="text_50">
-    <!-- 1624 – 1624 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9479.576063 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7671,7 +7670,7 @@ z
     </g>
    </g>
    <g id="text_51">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9484.161657 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7686,7 +7685,7 @@ z
     </g>
    </g>
    <g id="text_52">
-    <!-- Richard Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9601.526837 495.411312) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-52" d="M 2297 2597 
@@ -7757,7 +7756,7 @@ z
     </g>
    </g>
    <g id="text_53">
-    <!-- 1612 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9624.865751 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7770,7 +7769,7 @@ z
     </g>
    </g>
    <g id="text_54">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9622.099446 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7785,7 +7784,7 @@ z
     </g>
    </g>
    <g id="text_55">
-    <!-- Phillip Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9742.926813 495.411312) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-50" d="M 588 4666 
@@ -7854,7 +7853,7 @@ z
     </g>
    </g>
    <g id="text_56">
-    <!-- 1619 – 1619 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9755.451641 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7870,7 +7869,7 @@ z
     </g>
    </g>
    <g id="text_57">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9760.037235 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7885,7 +7884,7 @@ z
     </g>
    </g>
    <g id="text_58">
-    <!-- Humfry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9877.989524 495.376155) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -7904,7 +7903,7 @@ z
     </g>
    </g>
    <g id="text_59">
-    <!-- 1620 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9900.741329 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7917,7 +7916,7 @@ z
     </g>
    </g>
    <g id="text_60">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9897.975024 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7932,7 +7931,7 @@ z
     </g>
    </g>
    <g id="text_61">
-    <!-- Richard Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(10015.340204 495.411312) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(77.001953 0)"/>
@@ -7952,7 +7951,7 @@ z
     </g>
    </g>
    <g id="text_62">
-    <!-- 1622 – 1622 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(10031.32722 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -7968,7 +7967,7 @@ z
     </g>
    </g>
    <g id="text_63">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(10035.912813 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -7983,7 +7982,7 @@ z
     </g>
    </g>
    <g id="text_64">
-    <!-- Richard Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(10291.215782 495.411312) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(77.001953 0)"/>
@@ -8003,7 +8002,7 @@ z
     </g>
    </g>
    <g id="text_65">
-    <!-- 1630 – 1707 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(10307.202798 505.085714) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8019,7 +8018,7 @@ z
     </g>
    </g>
    <g id="text_66">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(10311.788392 514.527714) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8034,7 +8033,7 @@ z
     </g>
    </g>
    <g id="text_67">
-    <!-- m. Agnes Bowen -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(10301.011017 524.698803) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -8053,7 +8052,7 @@ z
     </g>
    </g>
    <g id="text_68">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(229.940146 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -8070,7 +8069,7 @@ z
     </g>
    </g>
    <g id="text_69">
-    <!-- 1644 – 1680 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(237.744193 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8086,7 +8085,7 @@ z
     </g>
    </g>
    <g id="text_70">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(242.329787 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8101,7 +8100,7 @@ z
     </g>
    </g>
    <g id="text_71">
-    <!-- Richard Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(359.694967 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(77.001953 0)"/>
@@ -8121,7 +8120,7 @@ z
     </g>
    </g>
    <g id="text_72">
-    <!-- 1647 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(383.033881 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8134,7 +8133,7 @@ z
     </g>
    </g>
    <g id="text_73">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(380.267576 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8149,7 +8148,7 @@ z
     </g>
    </g>
    <g id="text_74">
-    <!-- Humphrey Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3397.84971 588.358203) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -8170,7 +8169,7 @@ z
     </g>
    </g>
    <g id="text_75">
-    <!-- 1650 – 1717 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3420.768835 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8186,7 +8185,7 @@ z
     </g>
    </g>
    <g id="text_76">
-    <!-- Ilfracombe → West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3401.271804 607.509761) scale(0.068 -0.068)">
      <defs>
       <path id="DejaVuSans-2192" d="M 5050 2147 
@@ -8228,7 +8227,7 @@ z
     </g>
    </g>
    <g id="text_77">
-    <!-- m. Anne Popham -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3414.069257 617.680851) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-50" d="M 1259 4147 
@@ -8270,7 +8269,7 @@ z
     </g>
    </g>
    <g id="text_78">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8916.763985 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -8287,7 +8286,7 @@ z
     </g>
    </g>
    <g id="text_79">
-    <!-- 1663 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8935.176805 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8300,7 +8299,7 @@ z
     </g>
    </g>
    <g id="text_80">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8932.410501 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8315,7 +8314,7 @@ z
     </g>
    </g>
    <g id="text_81">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9191.894954 588.358203) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -8333,7 +8332,7 @@ z
     </g>
    </g>
    <g id="text_82">
-    <!-- 1654 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9211.052383 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8346,7 +8345,7 @@ z
     </g>
    </g>
    <g id="text_83">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9208.286079 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8361,7 +8360,7 @@ z
     </g>
    </g>
    <g id="text_84">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(9330.577352 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -8378,7 +8377,7 @@ z
     </g>
    </g>
    <g id="text_85">
-    <!-- 1660 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(9348.990173 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8391,7 +8390,7 @@ z
     </g>
    </g>
    <g id="text_86">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(9346.223868 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8406,7 +8405,7 @@ z
     </g>
    </g>
    <g id="text_87">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(10161.460962 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -8423,7 +8422,7 @@ z
     </g>
    </g>
    <g id="text_88">
-    <!-- 1661 – 1664 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(10169.265009 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8439,7 +8438,7 @@ z
     </g>
    </g>
    <g id="text_89">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(10173.850603 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8454,7 +8453,7 @@ z
     </g>
    </g>
    <g id="text_90">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(10299.398751 588.393359) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -8471,7 +8470,7 @@ z
     </g>
    </g>
    <g id="text_91">
-    <!-- 1664 – 1668 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(10307.202798 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8487,7 +8486,7 @@ z
     </g>
    </g>
    <g id="text_92">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(10311.788392 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8502,7 +8501,7 @@ z
     </g>
    </g>
    <g id="text_93">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(10430.179431 588.358203) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-47" d="M 4781 347 
@@ -8582,7 +8581,7 @@ z
     </g>
    </g>
    <g id="text_94">
-    <!-- 1667 – 1667 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(10445.140587 598.067761) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8598,7 +8597,7 @@ z
     </g>
    </g>
    <g id="text_95">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(10449.726181 607.509761) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -8613,7 +8612,7 @@ z
     </g>
    </g>
    <g id="text_96">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(643.753514 681.375406) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -8630,7 +8629,7 @@ z
     </g>
    </g>
    <g id="text_97">
-    <!-- 1679 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(658.909459 691.049808) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8643,7 +8642,7 @@ z
     </g>
    </g>
    <g id="text_98">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(655.208685 700.491808) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8657,7 +8656,7 @@ z
     </g>
    </g>
    <g id="text_99">
-    <!-- m. Margaret -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(653.158467 710.662898) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -8673,7 +8672,7 @@ z
     </g>
    </g>
    <g id="text_100">
-    <!-- Humphrey Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(904.514014 681.34025) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -8694,7 +8693,7 @@ z
     </g>
    </g>
    <g id="text_101">
-    <!-- 1681 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(934.785037 691.049808) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8707,7 +8706,7 @@ z
     </g>
    </g>
    <g id="text_102">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(931.084264 700.491808) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8721,7 +8720,7 @@ z
     </g>
    </g>
    <g id="text_103">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4285.56019 681.375406) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -8738,7 +8737,7 @@ z
     </g>
    </g>
    <g id="text_104">
-    <!-- 1683 – 1740 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4296.621112 691.049808) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8754,7 +8753,7 @@ z
     </g>
    </g>
    <g id="text_105">
-    <!-- West Down → Braunton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4279.570487 700.491808) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8779,7 +8778,7 @@ z
     </g>
    </g>
    <g id="text_106">
-    <!-- m. Elizabeth -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4297.917448 710.662898) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-7a" d="M 353 3500 
@@ -8811,7 +8810,7 @@ z
     </g>
    </g>
    <g id="text_107">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7792.502375 681.34025) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -8830,7 +8829,7 @@ z
     </g>
    </g>
    <g id="text_108">
-    <!-- 1686 – 1761 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7807.463531 691.049808) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-36" transform="translate(63.623047 0)"/>
@@ -8846,7 +8845,7 @@ z
     </g>
    </g>
    <g id="text_109">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7811.114656 700.491808) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8860,7 +8859,7 @@ z
     </g>
    </g>
    <g id="text_110">
-    <!-- m. Joanna Turpit -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7802.115921 710.662898) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -8881,7 +8880,7 @@ z
     </g>
    </g>
    <g id="text_111">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(498.128459 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -8901,7 +8900,7 @@ z
     </g>
    </g>
    <g id="text_112">
-    <!-- 1708 – 1708 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(513.619771 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -8917,7 +8916,7 @@ z
     </g>
    </g>
    <g id="text_113">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(517.270896 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8931,7 +8930,7 @@ z
     </g>
    </g>
    <g id="text_114">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(643.753514 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -8948,7 +8947,7 @@ z
     </g>
    </g>
    <g id="text_115">
-    <!-- 1709 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(658.909459 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -8961,7 +8960,7 @@ z
     </g>
    </g>
    <g id="text_116">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(655.208685 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -8975,7 +8974,7 @@ z
     </g>
    </g>
    <g id="text_117">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(774.004037 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -8995,7 +8994,7 @@ z
     </g>
    </g>
    <g id="text_118">
-    <!-- 1711 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(796.847248 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9008,7 +9007,7 @@ z
     </g>
    </g>
    <g id="text_119">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(793.146475 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9022,7 +9021,7 @@ z
     </g>
    </g>
    <g id="text_120">
-    <!-- m. Joane Pyne -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(787.585342 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9040,7 +9039,7 @@ z
     </g>
    </g>
    <g id="text_121">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1054.310006 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -9057,7 +9056,7 @@ z
     </g>
    </g>
    <g id="text_122">
-    <!-- 1715 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1072.722826 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9070,7 +9069,7 @@ z
     </g>
    </g>
    <g id="text_123">
-    <!-- Braunton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1072.402928 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -9083,7 +9082,7 @@ z
     </g>
    </g>
    <g id="text_124">
-    <!-- Humphry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3959.727234 774.322297) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -9103,7 +9102,7 @@ z
     </g>
    </g>
    <g id="text_125">
-    <!-- 1717 – 1777 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3979.594093 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9119,7 +9118,7 @@ z
     </g>
    </g>
    <g id="text_126">
-    <!-- Braunton → Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3963.323874 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -9145,7 +9144,7 @@ z
     </g>
    </g>
    <g id="text_127">
-    <!-- m. Elizabeth Taylor -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3969.612163 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9169,7 +9168,7 @@ z
     </g>
    </g>
    <g id="text_128">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5333.638343 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9186,7 +9185,7 @@ z
     </g>
    </g>
    <g id="text_129">
-    <!-- 1719 – 1720 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5341.44239 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9202,7 +9201,7 @@ z
     </g>
    </g>
    <g id="text_130">
-    <!-- Braunton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5348.47439 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -9215,7 +9214,7 @@ z
     </g>
    </g>
    <g id="text_131">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5471.576132 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9232,7 +9231,7 @@ z
     </g>
    </g>
    <g id="text_132">
-    <!-- 1720 – 1724 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5479.380179 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9248,7 +9247,7 @@ z
     </g>
    </g>
    <g id="text_133">
-    <!-- Braunton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5486.412179 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -9261,7 +9260,7 @@ z
     </g>
    </g>
    <g id="text_134">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5609.513921 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9278,7 +9277,7 @@ z
     </g>
    </g>
    <g id="text_135">
-    <!-- 1725 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5624.669867 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9291,7 +9290,7 @@ z
     </g>
    </g>
    <g id="text_136">
-    <!-- Braunton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5624.349968 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -9304,7 +9303,7 @@ z
     </g>
    </g>
    <g id="text_137">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5740.294601 774.322297) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -9323,7 +9322,7 @@ z
     </g>
    </g>
    <g id="text_138">
-    <!-- 1720 – 1793 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5755.255757 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9339,7 +9338,7 @@ z
     </g>
    </g>
    <g id="text_139">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5758.906882 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9353,7 +9352,7 @@ z
     </g>
    </g>
    <g id="text_140">
-    <!-- m. Mary -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(5763.874718 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9365,7 +9364,7 @@ z
     </g>
    </g>
    <g id="text_141">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7479.337285 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9382,7 +9381,7 @@ z
     </g>
    </g>
    <g id="text_142">
-    <!-- 1726 – 1797 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7487.141332 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9398,7 +9397,7 @@ z
     </g>
    </g>
    <g id="text_143">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7490.792457 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9412,7 +9411,7 @@ z
     </g>
    </g>
    <g id="text_144">
-    <!-- m. Joan Parminter -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7478.989519 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9434,7 +9433,7 @@ z
     </g>
    </g>
    <g id="text_145">
-    <!-- James Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8341.322181 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(37.207031 0)"/>
@@ -9452,7 +9451,7 @@ z
     </g>
    </g>
    <g id="text_146">
-    <!-- 1728 – 1795 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8353.084119 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9468,7 +9467,7 @@ z
     </g>
    </g>
    <g id="text_147">
-    <!-- West Down → Fremington -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8332.465088 793.473855) scale(0.068 -0.068)">
      <defs>
       <path id="DejaVuSans-46" d="M 628 4666 
@@ -9510,7 +9509,7 @@ z
     </g>
    </g>
    <g id="text_148">
-    <!-- m. Elizabeth -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8354.380455 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9527,7 +9526,7 @@ z
     </g>
    </g>
    <g id="text_149">
-    <!-- Humphry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8632.082469 774.322297) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -9547,7 +9546,7 @@ z
     </g>
    </g>
    <g id="text_150">
-    <!-- 1730 – 1747 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8651.949329 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9563,7 +9562,7 @@ z
     </g>
    </g>
    <g id="text_151">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8655.600454 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9577,7 +9576,7 @@ z
     </g>
    </g>
    <g id="text_152">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8778.826196 774.357453) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -9594,7 +9593,7 @@ z
     </g>
    </g>
    <g id="text_153">
-    <!-- 1736 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8797.239016 784.031856) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9607,7 +9606,7 @@ z
     </g>
    </g>
    <g id="text_154">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8793.538243 793.473855) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9621,7 +9620,7 @@ z
     </g>
    </g>
    <g id="text_155">
-    <!-- m. Ann Champness -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8779.063711 803.644945) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9642,7 +9641,7 @@ z
     </g>
    </g>
    <g id="text_156">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3520.331157 867.3395) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9659,7 +9658,7 @@ z
     </g>
    </g>
    <g id="text_157">
-    <!-- 1757 – 1815 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3528.135204 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9675,7 +9674,7 @@ z
     </g>
    </g>
    <g id="text_158">
-    <!-- Barnstaple → Parracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3507.244173 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -9703,7 +9702,7 @@ z
     </g>
    </g>
    <g id="text_159">
-    <!-- m. Elizabeth Harton -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3516.558188 896.626992) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9727,7 +9726,7 @@ z
     </g>
    </g>
    <g id="text_160">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4419.99206 867.3395) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -9744,7 +9743,7 @@ z
     </g>
    </g>
    <g id="text_161">
-    <!-- 1762 – 1812 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4431.052982 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9760,7 +9759,7 @@ z
     </g>
    </g>
    <g id="text_162">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4435.484513 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -9775,7 +9774,7 @@ z
     </g>
    </g>
    <g id="text_163">
-    <!-- m. Sarah 'Sally' Dadds -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4414.898787 896.626992) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-27" d="M 1147 4666 
@@ -9811,7 +9810,7 @@ z
     </g>
    </g>
    <g id="text_164">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6663.035487 867.304344) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -9829,7 +9828,7 @@ z
     </g>
    </g>
    <g id="text_165">
-    <!-- 1756 – 1828 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6674.841018 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9845,7 +9844,7 @@ z
     </g>
    </g>
    <g id="text_166">
-    <!-- West Down → Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6655.343987 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9872,7 +9871,7 @@ z
     </g>
    </g>
    <g id="text_167">
-    <!-- m. Joanna Soaper -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6667.037979 896.626992) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -9893,7 +9892,7 @@ z
     </g>
    </g>
    <g id="text_168">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7816.518547 867.3395) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -9910,7 +9909,7 @@ z
     </g>
    </g>
    <g id="text_169">
-    <!-- 1758 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7831.674492 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9923,7 +9922,7 @@ z
     </g>
    </g>
    <g id="text_170">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7827.973719 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9937,7 +9936,7 @@ z
     </g>
    </g>
    <g id="text_171">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7946.769071 867.3395) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -9957,7 +9956,7 @@ z
     </g>
    </g>
    <g id="text_172">
-    <!-- 1760 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7969.612282 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -9970,7 +9969,7 @@ z
     </g>
    </g>
    <g id="text_173">
-    <!-- West Down -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7965.911508 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-57"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(93.001953 0)"/>
@@ -9984,7 +9983,7 @@ z
     </g>
    </g>
    <g id="text_174">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8338.122963 867.304344) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -10003,7 +10002,7 @@ z
     </g>
    </g>
    <g id="text_175">
-    <!-- 1769 – aft.1851 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8346.97151 877.013903) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10023,7 +10022,7 @@ z
     </g>
    </g>
    <g id="text_176">
-    <!-- Fremington -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8356.547713 886.455903) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-46"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(50.269531 0)"/>
@@ -10038,7 +10037,7 @@ z
     </g>
    </g>
    <g id="text_177">
-    <!-- m. Susanna Goss -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8346.003963 896.626992) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10058,7 +10057,7 @@ z
     </g>
    </g>
    <g id="text_178">
-    <!-- John Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2774.414263 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -10080,7 +10079,7 @@ z
     </g>
    </g>
    <g id="text_179">
-    <!-- 1790 – 1862 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2798.214403 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10096,7 +10095,7 @@ z
     </g>
    </g>
    <g id="text_180">
-    <!-- Lynton → Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2777.251122 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4c"/>
      <use xlinkHref="#DejaVuSans-79" transform="translate(46.587891 0)"/>
@@ -10125,7 +10124,7 @@ z
     </g>
    </g>
    <g id="text_181">
-    <!-- m. Dorothy Chugg -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(2789.325692 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10146,7 +10145,7 @@ z
     </g>
    </g>
    <g id="text_182">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3808.635397 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -10166,7 +10165,7 @@ z
     </g>
    </g>
    <g id="text_183">
-    <!-- 1796 – 1863 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3824.12671 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10182,7 +10181,7 @@ z
     </g>
    </g>
    <g id="text_184">
-    <!-- Parracombe → Lynton -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3810.208335 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(55.802734 0)"/>
@@ -10206,7 +10205,7 @@ z
     </g>
    </g>
    <g id="text_185">
-    <!-- m. Elizabeth Blackmore -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3806.057226 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10233,7 +10232,7 @@ z
     </g>
    </g>
    <g id="text_186">
-    <!-- Henery Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3947.206702 960.286391) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -10252,7 +10251,7 @@ z
     </g>
    </g>
    <g id="text_187">
-    <!-- 1799 – 1868 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3962.064499 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10268,7 +10267,7 @@ z
     </g>
    </g>
    <g id="text_188">
-    <!-- Parracombe → Stoke Rivers -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3938.295155 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(55.802734 0)"/>
@@ -10298,7 +10297,7 @@ z
     </g>
    </g>
    <g id="text_189">
-    <!-- m. Mary Gubb -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(3960.346937 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10315,7 +10314,7 @@ z
     </g>
    </g>
    <g id="text_190">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4092.198241 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -10332,7 +10331,7 @@ z
     </g>
    </g>
    <g id="text_191">
-    <!-- 1786 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4107.354187 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10345,7 +10344,7 @@ z
     </g>
    </g>
    <g id="text_192">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4104.433819 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -10360,7 +10359,7 @@ z
     </g>
    </g>
    <g id="text_193">
-    <!-- m. Joan Huxtable -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4093.085468 989.60904) scale(0.069 -0.069)">
      <defs>
       <path id="DejaVuSans-78" d="M 3513 3500 
@@ -10398,7 +10397,7 @@ z
     </g>
    </g>
    <g id="text_194">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4226.879155 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -10415,7 +10414,7 @@ z
     </g>
    </g>
    <g id="text_195">
-    <!-- 1795 – 1872 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4237.940077 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10431,7 +10430,7 @@ z
     </g>
    </g>
    <g id="text_196">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4242.371608 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -10446,7 +10445,7 @@ z
     </g>
    </g>
    <g id="text_197">
-    <!-- m. Elizabeth -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4239.236413 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10463,7 +10462,7 @@ z
     </g>
    </g>
    <g id="text_198">
-    <!-- Humphry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4356.011007 960.286391) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -10483,7 +10482,7 @@ z
     </g>
    </g>
    <g id="text_199">
-    <!-- 1798 – 1882 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4375.877866 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10499,7 +10498,7 @@ z
     </g>
    </g>
    <g id="text_200">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4380.309398 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -10514,7 +10513,7 @@ z
     </g>
    </g>
    <g id="text_201">
-    <!-- m. Mary -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4384.496827 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10526,7 +10525,7 @@ z
     </g>
    </g>
    <g id="text_202">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4498.324343 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -10546,7 +10545,7 @@ z
     </g>
    </g>
    <g id="text_203">
-    <!-- 1804 – 1805 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4513.815655 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -10562,7 +10561,7 @@ z
     </g>
    </g>
    <g id="text_204">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4518.247187 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -10577,7 +10576,7 @@ z
     </g>
    </g>
    <g id="text_205">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4912.13771 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -10597,7 +10596,7 @@ z
     </g>
    </g>
    <g id="text_206">
-    <!-- 1806 – 1871 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4927.629023 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -10613,7 +10612,7 @@ z
     </g>
    </g>
    <g id="text_207">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4932.060554 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -10628,7 +10627,7 @@ z
     </g>
    </g>
    <g id="text_208">
-    <!-- m. Eliza Holland -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4922.567656 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10649,7 +10648,7 @@ z
     </g>
    </g>
    <g id="text_209">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6092.296183 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -10666,7 +10665,7 @@ z
     </g>
    </g>
    <g id="text_210">
-    <!-- 1786 – 1834 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6100.10023 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10682,7 +10681,7 @@ z
     </g>
    </g>
    <g id="text_211">
-    <!-- Ilfracombe → Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6081.383605 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -10710,7 +10709,7 @@ z
     </g>
    </g>
    <g id="text_212">
-    <!-- m. Joan Knill -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6101.420285 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10728,7 +10727,7 @@ z
     </g>
    </g>
    <g id="text_213">
-    <!-- William Soper Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6413.06214 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -10754,7 +10753,7 @@ z
     </g>
    </g>
    <g id="text_214">
-    <!-- 1787 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6452.296601 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10767,7 +10766,7 @@ z
     </g>
    </g>
    <g id="text_215">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6449.530297 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -10782,7 +10781,7 @@ z
     </g>
    </g>
    <g id="text_216">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7467.67259 960.286391) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -10800,7 +10799,7 @@ z
     </g>
    </g>
    <g id="text_217">
-    <!-- 1789 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7486.83002 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10813,7 +10812,7 @@ z
     </g>
    </g>
    <g id="text_218">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7484.063715 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -10828,7 +10827,7 @@ z
     </g>
    </g>
    <g id="text_219">
-    <!-- m. Ann Slocombe -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7471.87777 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10848,7 +10847,7 @@ z
     </g>
    </g>
    <g id="text_220">
-    <!-- James Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8341.322181 960.321548) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(37.207031 0)"/>
@@ -10866,7 +10865,7 @@ z
     </g>
    </g>
    <g id="text_221">
-    <!-- 1795 – 1865 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8353.084119 969.99595) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-37" transform="translate(63.623047 0)"/>
@@ -10882,7 +10881,7 @@ z
     </g>
    </g>
    <g id="text_222">
-    <!-- Fremington → Reading -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8337.73615 979.43795) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-46"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(50.269531 0)"/>
@@ -10907,7 +10906,7 @@ z
     </g>
    </g>
    <g id="text_223">
-    <!-- m. Mary Ann Rose -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8344.504291 989.60904) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -10928,7 +10927,7 @@ z
     </g>
    </g>
    <g id="text_224">
-    <!-- James Britton Sr. -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1183.452404 1053.303595) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-2e" d="M 653 1209 
@@ -10959,7 +10958,7 @@ z
     </g>
    </g>
    <g id="text_225">
-    <!-- 1819 – 1885 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1203.308717 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -10975,7 +10974,7 @@ z
     </g>
    </g>
    <g id="text_226">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1198.674998 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -10995,7 +10994,7 @@ z
     </g>
    </g>
    <g id="text_227">
-    <!-- m. Maria Roberts -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(1196.566553 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11016,7 +11015,7 @@ z
     </g>
    </g>
    <g id="text_228">
-    <!-- John Edward Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1726.759733 1053.303595) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-45" d="M 588 4666 
@@ -11073,7 +11072,7 @@ z
     </g>
    </g>
    <g id="text_229">
-    <!-- 1820 – 1893 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1755.059873 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11089,7 +11088,7 @@ z
     </g>
    </g>
    <g id="text_230">
-    <!-- Bratton Fleming → Illinois, USA -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1731.589967 1072.199247) scale(0.06 -0.06)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11125,7 +11124,7 @@ z
     </g>
    </g>
    <g id="text_231">
-    <!-- m. Harriet Hannah Beeny -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(1733.895092 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11153,7 +11152,7 @@ z
     </g>
    </g>
    <g id="text_232">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2498.226401 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -11173,7 +11172,7 @@ z
     </g>
    </g>
    <g id="text_233">
-    <!-- 1823 – 1886 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2513.717713 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11189,7 +11188,7 @@ z
     </g>
    </g>
    <g id="text_234">
-    <!-- Bratton Fleming → Herefordshire -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2487.481713 1072.199247) scale(0.06 -0.06)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11225,7 +11224,7 @@ z
     </g>
    </g>
    <g id="text_235">
-    <!-- m. Elizabeth Ann Mills -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(2498.438956 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11252,7 +11251,7 @@ z
     </g>
    </g>
    <g id="text_236">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2984.694444 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -11270,7 +11269,7 @@ z
     </g>
    </g>
    <g id="text_237">
-    <!-- 1825 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3003.851874 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11283,7 +11282,7 @@ z
     </g>
    </g>
    <g id="text_238">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2991.866257 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11303,7 +11302,7 @@ z
     </g>
    </g>
    <g id="text_239">
-    <!-- m. Elizabeth Parkin -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(2986.099733 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11327,7 +11326,7 @@ z
     </g>
    </g>
    <g id="text_240">
-    <!-- Walter Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3258.942288 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(106.677734 0)"/>
@@ -11346,7 +11345,7 @@ z
     </g>
    </g>
    <g id="text_241">
-    <!-- 1831 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3279.727452 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11359,7 +11358,7 @@ z
     </g>
    </g>
    <g id="text_242">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3267.741835 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11379,7 +11378,7 @@ z
     </g>
    </g>
    <g id="text_243">
-    <!-- Richard Chugg Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3376.60828 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(77.001953 0)"/>
@@ -11405,7 +11404,7 @@ z
     </g>
    </g>
    <g id="text_244">
-    <!-- 1833 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3417.665241 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11418,7 +11417,7 @@ z
     </g>
    </g>
    <g id="text_245">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3405.679624 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11438,7 +11437,7 @@ z
     </g>
    </g>
    <g id="text_246">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3533.289975 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -11457,7 +11456,7 @@ z
     </g>
    </g>
    <g id="text_247">
-    <!-- 1837 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3555.60303 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11470,7 +11469,7 @@ z
     </g>
    </g>
    <g id="text_248">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3543.617413 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11490,7 +11489,7 @@ z
     </g>
    </g>
    <g id="text_249">
-    <!-- Thomas Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3669.788468 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-54"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(68.212891 0)"/>
@@ -11509,7 +11508,7 @@ z
     </g>
    </g>
    <g id="text_250">
-    <!-- 1840 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3693.540819 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11522,7 +11521,7 @@ z
     </g>
    </g>
    <g id="text_251">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3681.555202 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -11542,7 +11541,7 @@ z
     </g>
    </g>
    <g id="text_252">
-    <!-- Alfred John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4213.09439 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-6c" transform="translate(77.392578 0)"/>
@@ -11566,7 +11565,7 @@ z
     </g>
    </g>
    <g id="text_253">
-    <!-- 1838 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4245.291976 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11579,7 +11578,7 @@ z
     </g>
    </g>
    <g id="text_254">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4242.371608 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11594,7 +11593,7 @@ z
     </g>
    </g>
    <g id="text_255">
-    <!-- m. Ann Cowley -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4234.816101 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11612,7 +11611,7 @@ z
     </g>
    </g>
    <g id="text_256">
-    <!-- William Britton Jr. -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4629.73432 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -11636,7 +11635,7 @@ z
     </g>
    </g>
    <g id="text_257">
-    <!-- 1832 – 1892 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4651.753445 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11652,7 +11651,7 @@ z
     </g>
    </g>
    <g id="text_258">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4656.184976 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11667,7 +11666,7 @@ z
     </g>
    </g>
    <g id="text_259">
-    <!-- m. Mary Jane -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4651.834734 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11684,7 +11683,7 @@ z
     </g>
    </g>
    <g id="text_260">
-    <!-- Adam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4778.630312 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(77.392578 0)"/>
@@ -11701,7 +11700,7 @@ z
     </g>
    </g>
    <g id="text_261">
-    <!-- 1834 – 1848 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4789.691234 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11717,7 +11716,7 @@ z
     </g>
    </g>
    <g id="text_262">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4794.122765 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11732,7 +11731,7 @@ z
     </g>
    </g>
    <g id="text_263">
-    <!-- Humphry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4907.762163 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-75" transform="translate(83.691406 0)"/>
@@ -11752,7 +11751,7 @@ z
     </g>
    </g>
    <g id="text_264">
-    <!-- 1837 – 1891 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4927.629023 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11768,7 +11767,7 @@ z
     </g>
    </g>
    <g id="text_265">
-    <!-- Barnstaple → Bradiford -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4911.359335 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11795,7 +11794,7 @@ z
     </g>
    </g>
    <g id="text_266">
-    <!-- m. Frances Manley -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(4918.031984 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -11817,7 +11816,7 @@ z
     </g>
    </g>
    <g id="text_267">
-    <!-- John Charles Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5037.161202 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -11842,7 +11841,7 @@ z
     </g>
    </g>
    <g id="text_268">
-    <!-- 1839 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5072.91871 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11855,7 +11854,7 @@ z
     </g>
    </g>
    <g id="text_269">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5069.998343 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11870,7 +11869,7 @@ z
     </g>
    </g>
    <g id="text_270">
-    <!-- George Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5171.802742 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -11895,7 +11894,7 @@ z
     </g>
    </g>
    <g id="text_271">
-    <!-- 1840 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5210.856499 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11908,7 +11907,7 @@ z
     </g>
    </g>
    <g id="text_272">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5207.936132 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11923,7 +11922,7 @@ z
     </g>
    </g>
    <g id="text_273">
-    <!-- John Knill Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6079.411418 1053.303595) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-4b" d="M 588 4666 
@@ -11962,7 +11961,7 @@ z
     </g>
    </g>
    <g id="text_274">
-    <!-- 1810 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6107.452129 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -11975,7 +11974,7 @@ z
     </g>
    </g>
    <g id="text_275">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6104.531761 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -11990,7 +11989,7 @@ z
     </g>
    </g>
    <g id="text_276">
-    <!-- m. Eliza Holmes -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6095.20759 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -12010,7 +12009,7 @@ z
     </g>
    </g>
    <g id="text_277">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7257.080125 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -12030,7 +12029,7 @@ z
     </g>
    </g>
    <g id="text_278">
-    <!-- 1818 – 1899 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7272.571438 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12046,7 +12045,7 @@ z
     </g>
    </g>
    <g id="text_279">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7277.157031 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -12061,7 +12060,7 @@ z
     </g>
    </g>
    <g id="text_280">
-    <!-- m. Anne Davie -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7269.895422 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -12079,7 +12078,7 @@ z
     </g>
    </g>
    <g id="text_281">
-    <!-- Henry Slocombe Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7648.415992 1053.268439) scale(0.09 -0.09)">
      <defs>
       <path id="DejaVuSans-Bold-62" d="M 2400 722 
@@ -12134,7 +12133,7 @@ z
     </g>
    </g>
    <g id="text_282">
-    <!-- 1821 – 1870 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7686.384805 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12150,7 +12149,7 @@ z
     </g>
    </g>
    <g id="text_283">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7690.970399 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -12165,7 +12164,7 @@ z
     </g>
    </g>
    <g id="text_284">
-    <!-- m. Eliza -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7695.533125 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -12178,7 +12177,7 @@ z
     </g>
    </g>
    <g id="text_285">
-    <!-- George Alfred Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8137.16427 1053.268439) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -12204,7 +12203,7 @@ z
     </g>
    </g>
    <g id="text_286">
-    <!-- 1838 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8176.518965 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12217,7 +12216,7 @@ z
     </g>
    </g>
    <g id="text_287">
-    <!-- Barnstaple → Reading -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8154.787035 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -12242,7 +12241,7 @@ z
     </g>
    </g>
    <g id="text_288">
-    <!-- m. Emma Cane -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8165.392981 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -12259,7 +12258,7 @@ z
     </g>
    </g>
    <g id="text_289">
-    <!-- William Bourchier Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8342.259204 1053.000064) scale(0.079 -0.079)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -12289,7 +12288,7 @@ z
     </g>
    </g>
    <g id="text_290">
-    <!-- 1841 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8383.425649 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12302,7 +12301,7 @@ z
     </g>
    </g>
    <g id="text_291">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8380.505282 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -12317,7 +12316,7 @@ z
     </g>
    </g>
    <g id="text_292">
-    <!-- m. Lucy Dibley -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(8373.231704 1082.591087) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -12336,7 +12335,7 @@ z
     </g>
    </g>
    <g id="text_293">
-    <!-- Arthur Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8500.901711 1053.303595) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-72" transform="translate(77.392578 0)"/>
@@ -12355,7 +12354,7 @@ z
     </g>
    </g>
    <g id="text_294">
-    <!-- 1843 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8521.363438 1062.977997) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12368,7 +12367,7 @@ z
     </g>
    </g>
    <g id="text_295">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8518.443071 1072.419997) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -12383,7 +12382,7 @@ z
     </g>
    </g>
    <g id="text_296">
-    <!-- Joseph Walter Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1309.325975 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -12409,7 +12408,7 @@ z
     </g>
    </g>
    <g id="text_297">
-    <!-- 1855 – 1925 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1341.246506 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12425,7 +12424,7 @@ z
     </g>
    </g>
    <g id="text_298">
-    <!-- Mt Vernon, Knox, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1326.191256 1165.402044) scale(0.068 -0.068)">
      <defs>
       <path id="DejaVuSans-56" d="M 1831 0 
@@ -12463,7 +12462,7 @@ z
     </g>
    </g>
    <g id="text_299">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1463.692983 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -12483,7 +12482,7 @@ z
     </g>
    </g>
    <g id="text_300">
-    <!-- 1857 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1486.536194 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12496,7 +12495,7 @@ z
     </g>
    </g>
    <g id="text_301">
-    <!-- Mt Vernon, Knox, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1464.129045 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-74" transform="translate(86.279297 0)"/>
@@ -12522,7 +12521,7 @@ z
     </g>
    </g>
    <g id="text_302">
-    <!-- Edmond Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1599.990381 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-45"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(68.310547 0)"/>
@@ -12541,7 +12540,7 @@ z
     </g>
    </g>
    <g id="text_303">
-    <!-- 1861 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1624.473983 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12554,7 +12553,7 @@ z
     </g>
    </g>
    <g id="text_304">
-    <!-- Mt Vernon, Knox, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1602.066834 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-74" transform="translate(86.279297 0)"/>
@@ -12580,7 +12579,7 @@ z
     </g>
    </g>
    <g id="text_305">
-    <!-- Edward G. Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1732.529576 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-45"/>
      <use xlinkHref="#DejaVuSans-Bold-64" transform="translate(68.310547 0)"/>
@@ -12602,7 +12601,7 @@ z
     </g>
    </g>
    <g id="text_306">
-    <!-- 1862 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1762.411772 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12615,7 +12614,7 @@ z
     </g>
    </g>
    <g id="text_307">
-    <!-- Mt Vernon, Knox, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1740.004623 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-74" transform="translate(86.279297 0)"/>
@@ -12641,7 +12640,7 @@ z
     </g>
    </g>
    <g id="text_308">
-    <!-- Charles Samuel Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1856.999709 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-43"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(73.388672 0)"/>
@@ -12668,7 +12667,7 @@ z
     </g>
    </g>
    <g id="text_309">
-    <!-- 1864 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1900.349561 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12681,7 +12680,7 @@ z
     </g>
    </g>
    <g id="text_310">
-    <!-- Mason, Effingham, Illinois -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1872.23785 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(86.279297 0)"/>
@@ -12712,7 +12711,7 @@ z
     </g>
    </g>
    <g id="text_311">
-    <!-- Richmond Lee Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1998.681639 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(77.001953 0)"/>
@@ -12737,7 +12736,7 @@ z
     </g>
    </g>
    <g id="text_312">
-    <!-- 1866 – 1960 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2030.935452 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12753,7 +12752,7 @@ z
     </g>
    </g>
    <g id="text_313">
-    <!-- Mason, Effingham, Illinois -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2010.175639 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(86.279297 0)"/>
@@ -12784,7 +12783,7 @@ z
     </g>
    </g>
    <g id="text_314">
-    <!-- Benson Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2153.583022 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-42"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(76.220703 0)"/>
@@ -12803,7 +12802,7 @@ z
     </g>
    </g>
    <g id="text_315">
-    <!-- 1870 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2176.225139 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12816,7 +12815,7 @@ z
     </g>
    </g>
    <g id="text_316">
-    <!-- Mason, Effingham, Illinois -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2148.113428 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(86.279297 0)"/>
@@ -12847,7 +12846,7 @@ z
     </g>
    </g>
    <g id="text_317">
-    <!-- John Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2299.006983 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -12864,7 +12863,7 @@ z
     </g>
    </g>
    <g id="text_318">
-    <!-- 1854 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2314.162928 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12877,7 +12876,7 @@ z
     </g>
    </g>
    <g id="text_319">
-    <!-- Exford, Somerset -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2300.202123 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-45"/>
      <use xlinkHref="#DejaVuSans-78" transform="translate(63.183594 0)"/>
@@ -12898,7 +12897,7 @@ z
     </g>
    </g>
    <g id="text_320">
-    <!-- James Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2432.986881 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(37.207031 0)"/>
@@ -12916,7 +12915,7 @@ z
     </g>
    </g>
    <g id="text_321">
-    <!-- 1858 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2452.100717 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12929,7 +12928,7 @@ z
     </g>
    </g>
    <g id="text_322">
-    <!-- Exmoor, Somerset -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2436.0436 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-45"/>
      <use xlinkHref="#DejaVuSans-78" transform="translate(63.183594 0)"/>
@@ -12950,7 +12949,7 @@ z
     </g>
    </g>
    <g id="text_323">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2567.195295 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -12970,7 +12969,7 @@ z
     </g>
    </g>
    <g id="text_324">
-    <!-- 1858 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2590.038506 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -12983,7 +12982,7 @@ z
     </g>
    </g>
    <g id="text_325">
-    <!-- Exford, Somerset -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2576.077702 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-45"/>
      <use xlinkHref="#DejaVuSans-78" transform="translate(63.183594 0)"/>
@@ -13004,7 +13003,7 @@ z
     </g>
    </g>
    <g id="text_326">
-    <!-- Charles Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2704.958006 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-43"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(73.388672 0)"/>
@@ -13024,7 +13023,7 @@ z
     </g>
    </g>
    <g id="text_327">
-    <!-- 1861 – 1862 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2720.624397 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13040,7 +13039,7 @@ z
     </g>
    </g>
    <g id="text_328">
-    <!-- Exford, Somerset -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2714.015491 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-45"/>
      <use xlinkHref="#DejaVuSans-78" transform="translate(63.183594 0)"/>
@@ -13061,7 +13060,7 @@ z
     </g>
    </g>
    <g id="text_329">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2846.756655 1146.250486) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -13079,7 +13078,7 @@ z
     </g>
    </g>
    <g id="text_330">
-    <!-- 1852 – 1929 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2858.562186 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13095,7 +13094,7 @@ z
     </g>
    </g>
    <g id="text_331">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2853.928467 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -13115,7 +13114,7 @@ z
     </g>
    </g>
    <g id="text_332">
-    <!-- Thomas Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(2980.099522 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-54"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(68.212891 0)"/>
@@ -13134,7 +13133,7 @@ z
     </g>
    </g>
    <g id="text_333">
-    <!-- 1855 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3003.851874 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13147,7 +13146,7 @@ z
     </g>
    </g>
    <g id="text_334">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(2991.866257 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -13167,7 +13166,7 @@ z
     </g>
    </g>
    <g id="text_335">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(3119.476608 1146.250486) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -13186,7 +13185,7 @@ z
     </g>
    </g>
    <g id="text_336">
-    <!-- 1859 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(3141.789663 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13199,7 +13198,7 @@ z
     </g>
    </g>
    <g id="text_337">
-    <!-- Bratton Fleming -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(3129.804046 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-72" transform="translate(68.603516 0)"/>
@@ -13219,7 +13218,7 @@ z
     </g>
    </g>
    <g id="text_338">
-    <!-- William Brannam Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(4611.877054 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -13247,7 +13246,7 @@ z
     </g>
    </g>
    <g id="text_339">
-    <!-- 1863 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(4659.105343 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13260,7 +13259,7 @@ z
     </g>
    </g>
    <g id="text_340">
-    <!-- Barnstaple -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(4656.184976 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(68.603516 0)"/>
@@ -13275,7 +13274,7 @@ z
     </g>
    </g>
    <g id="text_341">
-    <!-- John Holmes Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5865.003093 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -13299,7 +13298,7 @@ z
     </g>
    </g>
    <g id="text_342">
-    <!-- 1835 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(5900.545445 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13312,7 +13311,7 @@ z
     </g>
    </g>
    <g id="text_343">
-    <!-- Milton-next-Gravesend, Kent -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(5872.949109 1165.181294) scale(0.06 -0.06)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-69" transform="translate(86.279297 0)"/>
@@ -13344,7 +13343,7 @@ z
     </g>
    </g>
    <g id="text_344">
-    <!-- William Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(5998.89932 1146.250486) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -13370,7 +13369,7 @@ z
     </g>
    </g>
    <g id="text_345">
-    <!-- 1835 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6038.483234 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13383,7 +13382,7 @@ z
     </g>
    </g>
    <g id="text_346">
-    <!-- Milton-next-Gravesend, Kent -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6010.886898 1165.181294) scale(0.06 -0.06)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-69" transform="translate(86.279297 0)"/>
@@ -13415,7 +13414,7 @@ z
     </g>
    </g>
    <g id="text_347">
-    <!-- Charles Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6153.402734 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-43"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(73.388672 0)"/>
@@ -13435,7 +13434,7 @@ z
     </g>
    </g>
    <g id="text_348">
-    <!-- 1839 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6176.421023 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13448,7 +13447,7 @@ z
     </g>
    </g>
    <g id="text_349">
-    <!-- St Marylebone, Middlesex -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6148.062281 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-53"/>
      <use xlinkHref="#DejaVuSans-74" transform="translate(63.476562 0)"/>
@@ -13477,7 +13476,7 @@ z
     </g>
    </g>
    <g id="text_350">
-    <!-- Thomas Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6290.606461 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-54"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(68.212891 0)"/>
@@ -13496,7 +13495,7 @@ z
     </g>
    </g>
    <g id="text_351">
-    <!-- 1844 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6314.358812 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13509,7 +13508,7 @@ z
     </g>
    </g>
    <g id="text_352">
-    <!-- St Marylebone, Middlesex -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6286.00007 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-53"/>
      <use xlinkHref="#DejaVuSans-74" transform="translate(63.476562 0)"/>
@@ -13538,7 +13537,7 @@ z
     </g>
    </g>
    <g id="text_353">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6846.952539 1146.250486) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -13556,7 +13555,7 @@ z
     </g>
    </g>
    <g id="text_354">
-    <!-- 1840 – 1901 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6858.75807 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13572,7 +13571,7 @@ z
     </g>
    </g>
    <g id="text_355">
-    <!-- Ilfracombe → Cardiff -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6847.040664 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -13597,7 +13596,7 @@ z
     </g>
    </g>
    <g id="text_356">
-    <!-- m. Ann Dyer -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6859.859266 1175.573134) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -13613,7 +13612,7 @@ z
     </g>
    </g>
    <g id="text_357">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7257.080125 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -13633,7 +13632,7 @@ z
     </g>
    </g>
    <g id="text_358">
-    <!-- 1851 – aft.1901 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7266.458828 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13653,7 +13652,7 @@ z
     </g>
    </g>
    <g id="text_359">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7277.157031 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -13668,7 +13667,7 @@ z
     </g>
    </g>
    <g id="text_360">
-    <!-- m. Catherine -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7272.870508 1175.573134) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -13685,7 +13684,7 @@ z
     </g>
    </g>
    <g id="text_361">
-    <!-- George Davie Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7379.680649 1146.250486) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -13710,7 +13709,7 @@ z
     </g>
    </g>
    <g id="text_362">
-    <!-- 1854 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7417.861125 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13723,7 +13722,7 @@ z
     </g>
    </g>
    <g id="text_363">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7415.09482 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -13738,7 +13737,7 @@ z
     </g>
    </g>
    <g id="text_364">
-    <!-- m. Mary -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(7419.128188 1175.573134) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -13750,7 +13749,7 @@ z
     </g>
    </g>
    <g id="text_365">
-    <!-- James D Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7531.382813 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(37.207031 0)"/>
@@ -13770,7 +13769,7 @@ z
     </g>
    </g>
    <g id="text_366">
-    <!-- 1857 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7555.798914 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13783,7 +13782,7 @@ z
     </g>
    </g>
    <g id="text_367">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7553.03261 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -13798,7 +13797,7 @@ z
     </g>
    </g>
    <g id="text_368">
-    <!-- Thomas Arthur Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8065.752719 1146.285642) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-54"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(68.212891 0)"/>
@@ -13824,7 +13823,7 @@ z
     </g>
    </g>
    <g id="text_369">
-    <!-- 1862 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8107.550071 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13837,7 +13836,7 @@ z
     </g>
    </g>
    <g id="text_370">
-    <!-- Reading -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8109.12036 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-52"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(64.982422 0)"/>
@@ -13849,7 +13848,7 @@ z
     </g>
    </g>
    <g id="text_371">
-    <!-- Frederick George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(8205.555172 1145.951252) scale(0.079 -0.079)">
      <defs>
       <path id="DejaVuSans-Bold-6b" d="M 538 4863 
@@ -13894,7 +13893,7 @@ z
     </g>
    </g>
    <g id="text_372">
-    <!-- 1866 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(8245.48786 1155.960045) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13907,7 +13906,7 @@ z
     </g>
    </g>
    <g id="text_373">
-    <!-- Reading -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(8247.058149 1165.402044) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-52"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(64.982422 0)"/>
@@ -13919,7 +13918,7 @@ z
     </g>
    </g>
    <g id="text_374">
-    <!-- William Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6550.650476 1239.232533) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -13945,7 +13944,7 @@ z
     </g>
    </g>
    <g id="text_375">
-    <!-- 1864 – aft.1939 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6576.769883 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -13965,7 +13964,7 @@ z
     </g>
    </g>
    <g id="text_376">
-    <!-- Cheltenham -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6584.910648 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-43"/>
      <use xlinkHref="#DejaVuSans-68" transform="translate(69.824219 0)"/>
@@ -13980,7 +13979,7 @@ z
     </g>
    </g>
    <g id="text_377">
-    <!-- m. Mary Hannah Webber -->
+    
     <g style={{"fill":"#7a4a2a"}} transform="translate(6562.673469 1268.555181) scale(0.069 -0.069)">
      <use xlinkHref="#DejaVuSans-6d"/>
      <use xlinkHref="#DejaVuSans-2e" transform="translate(97.412109 0)"/>
@@ -14006,7 +14005,7 @@ z
     </g>
    </g>
    <g id="text_378">
-    <!-- Frederick Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6700.435219 1239.267689) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-46"/>
      <use xlinkHref="#DejaVuSans-Bold-72" transform="translate(61.935547 0)"/>
@@ -14028,7 +14027,7 @@ z
     </g>
    </g>
    <g id="text_379">
-    <!-- 1865 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6728.17218 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14041,7 +14040,7 @@ z
     </g>
    </g>
    <g id="text_380">
-    <!-- Cheltenham -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6722.848437 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-43"/>
      <use xlinkHref="#DejaVuSans-68" transform="translate(69.824219 0)"/>
@@ -14056,7 +14055,7 @@ z
     </g>
    </g>
    <g id="text_381">
-    <!-- Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6846.952539 1239.232533) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(83.691406 0)"/>
@@ -14074,7 +14073,7 @@ z
     </g>
    </g>
    <g id="text_382">
-    <!-- 1872 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(6866.109969 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14087,7 +14086,7 @@ z
     </g>
    </g>
    <g id="text_383">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(6863.343664 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -14102,7 +14101,7 @@ z
     </g>
    </g>
    <g id="text_384">
-    <!-- Alfred Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(6984.589391 1239.267689) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-6c" transform="translate(77.392578 0)"/>
@@ -14121,7 +14120,7 @@ z
     </g>
    </g>
    <g id="text_385">
-    <!-- 1877 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7004.047758 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14134,7 +14133,7 @@ z
     </g>
    </g>
    <g id="text_386">
-    <!-- Cardiff -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7008.126609 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-43"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(69.824219 0)"/>
@@ -14146,7 +14145,7 @@ z
     </g>
    </g>
    <g id="text_387">
-    <!-- George Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7119.672492 1239.232533) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -14165,7 +14164,7 @@ z
     </g>
    </g>
    <g id="text_388">
-    <!-- 1880 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7141.985547 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14178,7 +14177,7 @@ z
     </g>
    </g>
    <g id="text_389">
-    <!-- Cardiff -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7146.064398 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-43"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(69.824219 0)"/>
@@ -14190,7 +14189,7 @@ z
     </g>
    </g>
    <g id="text_390">
-    <!-- George Sanders Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(7373.330024 1239.232533) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-47"/>
      <use xlinkHref="#DejaVuSans-Bold-65" transform="translate(82.080078 0)"/>
@@ -14217,7 +14216,7 @@ z
     </g>
    </g>
    <g id="text_391">
-    <!-- 1881 – ? -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(7417.861125 1248.942092) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14230,7 +14229,7 @@ z
     </g>
    </g>
    <g id="text_392">
-    <!-- Ilfracombe -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(7415.09482 1258.384092) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-49"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(29.492188 0)"/>
@@ -14245,7 +14244,7 @@ z
     </g>
    </g>
    <g id="text_393">
-    <!-- 1-step match at 25 markers, 3-step match at 37 to -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2222.407655 1259.389119) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-2d" transform="translate(63.623047 0)"/>
@@ -14299,7 +14298,7 @@ z
     </g>
    </g>
    <g id="text_394">
-    <!-- William Ira branch Kit B577150.  Greater similarity -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2223.273905 1276.294946) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-57"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(98.876953 0)"/>
@@ -14355,7 +14354,7 @@ z
     </g>
    </g>
    <g id="text_395">
-    <!-- between B577150 and John Edward descendant Kit -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2221.582092 1293.200773) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-62"/>
      <use xlinkHref="#DejaVuSans-Oblique-65" transform="translate(63.476562 0)"/>
@@ -14406,7 +14405,7 @@ z
     </g>
    </g>
    <g id="text_396">
-    <!-- 118335 suggests John Edward is more closely related -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2216.767842 1310.106599) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-31" transform="translate(63.623047 0)"/>
@@ -14462,7 +14461,7 @@ z
     </g>
    </g>
    <g id="text_397">
-    <!-- to William Ira than this line is, within the same -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2231.736248 1327.012426) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-74"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(39.208984 0)"/>
@@ -14516,7 +14515,7 @@ z
     </g>
    </g>
    <g id="text_398">
-    <!-- generation. -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(2305.357655 1343.918253) scale(0.084 -0.084)">
      <use xlinkHref="#DejaVuSans-Oblique-67"/>
      <use xlinkHref="#DejaVuSans-Oblique-65" transform="translate(63.476562 0)"/>
@@ -14532,7 +14531,7 @@ z
     </g>
    </g>
    <g id="text_399">
-    <!-- William Ira Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(472.22853 1539.064351) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -14556,7 +14555,7 @@ z
     </g>
    </g>
    <g id="text_400">
-    <!-- 1837 – 1922 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(496.216405 1548.738753) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14572,7 +14571,7 @@ z
     </g>
    </g>
    <g id="text_401">
-    <!-- Belmont County, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(481.483624 1558.744281) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(68.603516 0)"/>
@@ -14597,7 +14596,7 @@ z
     </g>
    </g>
    <g id="text_402">
-    <!-- William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(135.88062 1632.046398) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -14617,7 +14616,7 @@ z
     </g>
    </g>
    <g id="text_403">
-    <!-- 1868 – 1896 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(151.371933 1641.7208) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14633,7 +14632,7 @@ z
     </g>
    </g>
    <g id="text_404">
-    <!-- Eleanora, Pennsylvania -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(134.614026 1651.726328) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-45"/>
      <use xlinkHref="#DejaVuSans-6c" transform="translate(63.183594 0)"/>
@@ -14660,7 +14659,7 @@ z
     </g>
    </g>
    <g id="text_405">
-    <!-- John Henry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(402.702761 1632.011242) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -14683,7 +14682,7 @@ z
     </g>
    </g>
    <g id="text_406">
-    <!-- 1873 – 1953 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(427.247511 1641.7208) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14699,7 +14698,7 @@ z
     </g>
    </g>
    <g id="text_407">
-    <!-- Powhatan Point, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(413.83648 1651.726328) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-6f" transform="translate(56.677734 0)"/>
@@ -14724,7 +14723,7 @@ z
     </g>
    </g>
    <g id="text_408">
-    <!-- Harry Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(899.224085 1632.011242) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-48"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(83.691406 0)"/>
@@ -14742,7 +14741,7 @@ z
     </g>
    </g>
    <g id="text_409">
-    <!-- 1880 – 1948 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(910.029773 1641.7208) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14758,7 +14757,7 @@ z
     </g>
    </g>
    <g id="text_410">
-    <!-- Powhatan Point, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(896.618742 1651.726328) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-6f" transform="translate(56.677734 0)"/>
@@ -14783,7 +14782,7 @@ z
     </g>
    </g>
    <g id="text_411">
-    <!-- William Ira Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(265.321847 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -14807,7 +14806,7 @@ z
     </g>
    </g>
    <g id="text_412">
-    <!-- 1896 – 1954 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(289.309722 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-38" transform="translate(63.623047 0)"/>
@@ -14823,7 +14822,7 @@ z
     </g>
    </g>
    <g id="text_413">
-    <!-- Various central PA and NYC -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(265.978128 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-56"/>
      <use xlinkHref="#DejaVuSans-61" transform="translate(60.658203 0)"/>
@@ -14854,7 +14853,7 @@ z
     </g>
    </g>
    <g id="text_414">
-    <!-- Charles S. Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(405.064558 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-43"/>
      <use xlinkHref="#DejaVuSans-Bold-68" transform="translate(73.388672 0)"/>
@@ -14877,7 +14876,7 @@ z
     </g>
    </g>
    <g id="text_415">
-    <!-- 1900 – c.1910 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(424.080566 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -14895,7 +14894,7 @@ z
     </g>
    </g>
    <g id="text_416">
-    <!-- Pennsylvania -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(427.635698 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(56.677734 0)"/>
@@ -14912,7 +14911,7 @@ z
     </g>
    </g>
    <g id="text_417">
-    <!-- John William Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(536.954769 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-4a"/>
      <use xlinkHref="#DejaVuSans-Bold-6f" transform="translate(37.207031 0)"/>
@@ -14937,7 +14936,7 @@ z
     </g>
    </g>
    <g id="text_418">
-    <!-- 1903 – 1978 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(565.1853 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -14953,7 +14952,7 @@ z
     </g>
    </g>
    <g id="text_419">
-    <!-- Powhatan Point, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(551.774269 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-50"/>
      <use xlinkHref="#DejaVuSans-6f" transform="translate(56.677734 0)"/>
@@ -14978,7 +14977,7 @@ z
     </g>
    </g>
    <g id="text_420">
-    <!-- William Harry Britton Sr. -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(671.380441 1724.694055) scale(0.079 -0.079)">
      <use xlinkHref="#DejaVuSans-Bold-57"/>
      <use xlinkHref="#DejaVuSans-Bold-69" transform="translate(110.302734 0)"/>
@@ -15008,7 +15007,7 @@ z
     </g>
    </g>
    <g id="text_421">
-    <!-- 1904 – 1998 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(703.123089 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -15024,7 +15023,7 @@ z
     </g>
    </g>
    <g id="text_422">
-    <!-- Jerusalem, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(698.978652 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4a"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(29.492188 0)"/>
@@ -15044,7 +15043,7 @@ z
     </g>
    </g>
    <g id="text_423">
-    <!-- Ira Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(837.499488 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-49"/>
      <use xlinkHref="#DejaVuSans-Bold-72" transform="translate(37.207031 0)"/>
@@ -15060,7 +15059,7 @@ z
     </g>
    </g>
    <g id="text_424">
-    <!-- 1908 – 1981 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(841.060878 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -15076,7 +15075,7 @@ z
     </g>
    </g>
    <g id="text_425">
-    <!-- Beallsville, Monroe, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(821.836909 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-42"/>
      <use xlinkHref="#DejaVuSans-65" transform="translate(68.603516 0)"/>
@@ -15106,7 +15105,7 @@ z
     </g>
    </g>
    <g id="text_426">
-    <!-- Ralph Britton -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(967.89837 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-52"/>
      <use xlinkHref="#DejaVuSans-Bold-61" transform="translate(77.001953 0)"/>
@@ -15124,7 +15123,7 @@ z
     </g>
    </g>
    <g id="text_427">
-    <!-- 1911 – 1995 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(978.998667 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -15140,7 +15139,7 @@ z
     </g>
    </g>
    <g id="text_428">
-    <!-- Logan, Ohio -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(981.392855 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4c"/>
      <use xlinkHref="#DejaVuSans-6f" transform="translate(53.962891 0)"/>
@@ -15156,7 +15155,7 @@ z
     </g>
    </g>
    <g id="text_429">
-    <!-- Arthur Britton Sr. -->
+    
     <g style={{"fill":"#2b2b2b"}} transform="translate(1095.732253 1725.028445) scale(0.09 -0.09)">
      <use xlinkHref="#DejaVuSans-Bold-41"/>
      <use xlinkHref="#DejaVuSans-Bold-72" transform="translate(77.392578 0)"/>
@@ -15179,7 +15178,7 @@ z
     </g>
    </g>
    <g id="text_430">
-    <!-- 1920 – 1986 -->
+    
     <g style={{"fill":"#5a5142"}} transform="translate(1116.936456 1734.702848) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-31"/>
      <use xlinkHref="#DejaVuSans-Oblique-39" transform="translate(63.623047 0)"/>
@@ -15195,7 +15194,7 @@ z
     </g>
    </g>
    <g id="text_431">
-    <!-- Moundsville, W. Virginia -->
+    
     <g style={{"fill":"#6a6152"}} transform="translate(1099.357769 1744.708375) scale(0.068 -0.068)">
      <use xlinkHref="#DejaVuSans-4d"/>
      <use xlinkHref="#DejaVuSans-6f" transform="translate(86.279297 0)"/>
@@ -15237,7 +15236,7 @@ Q 3165.337806 607.692818 3167.857806 607.692818
 z
 " style={{"fill":"#fffdf7","stroke":"#8a5a2a","strokeWidth":"0.9","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Likely MRCA of the majority of Group 11 test kits. -->
+    
     <g style={{"fill":"#8a5a2a"}} transform="translate(3167.857806 603.675443) scale(0.072 -0.072)">
      <defs>
       <path id="DejaVuSans-Oblique-4c" d="M 1075 4666 
@@ -15316,7 +15315,7 @@ Q 1588.490575 1018.985397 1591.010575 1018.985397
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.9","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Suspected patriarch of the -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(1594.817575 1006.905597) scale(0.072 -0.072)">
      <use xlinkHref="#DejaVuSans-Oblique-53"/>
      <use xlinkHref="#DejaVuSans-Oblique-75" transform="translate(63.476562 0)"/>
@@ -15345,7 +15344,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-68" transform="translate(1207.714844 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-65" transform="translate(1271.09375 0)"/>
     </g>
-    <!-- William Ira Britton line, USA -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(1591.010575 1014.968022) scale(0.072 -0.072)">
      <use xlinkHref="#DejaVuSans-Oblique-57"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(98.876953 0)"/>
@@ -15392,7 +15391,7 @@ Q 8359.587157 1154.386072 8361.412157 1154.386072
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Kit 561092 line -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(8371.117735 1142.868497) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4b"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(65.576172 0)"/>
@@ -15410,7 +15409,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(633.447266 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-65" transform="translate(696.826172 0)"/>
     </g>
-    <!-- (West Down branch) -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(8361.412157 1151.0429) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-28"/>
      <use xlinkHref="#DejaVuSans-Oblique-57" transform="translate(39.013672 0)"/>
@@ -15446,7 +15445,7 @@ Q 633.674842 642.678858 635.499842 642.678858
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Likely origin point for -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(635.499842 631.161283) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -15472,7 +15471,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(960.205078 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-72" transform="translate(1021.386719 0)"/>
     </g>
-    <!-- A.H. Britton branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(639.215998 639.335686) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-41"/>
      <use xlinkHref="#DejaVuSans-Oblique-2e" transform="translate(70.283203 0)"/>
@@ -15509,7 +15508,7 @@ Q 1047.488209 875.43993 1049.313209 875.43993
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Likely origin point for -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(1049.313209 863.922355) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -15535,7 +15534,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(960.205078 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-72" transform="translate(1021.386719 0)"/>
     </g>
-    <!-- A.H. Britton branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(1053.029365 872.096759) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-41"/>
      <use xlinkHref="#DejaVuSans-Oblique-2e" transform="translate(70.283203 0)"/>
@@ -15572,7 +15571,7 @@ Q 5599.43525 875.43993 5601.26025 875.43993
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Likely origin point for -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(5601.26025 863.922355) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -15598,7 +15597,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(960.205078 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-72" transform="translate(1021.386719 0)"/>
     </g>
-    <!-- A.H. Britton branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(5604.976406 872.096759) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-41"/>
      <use xlinkHref="#DejaVuSans-Oblique-2e" transform="translate(70.283203 0)"/>
@@ -15635,7 +15634,7 @@ Q 909.55042 782.457883 911.37542 782.457883
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Likely origin point for -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(911.37542 770.940308) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -15661,7 +15660,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(960.205078 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-72" transform="translate(1021.386719 0)"/>
     </g>
-    <!-- A.H. Britton branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(915.091576 779.114711) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-41"/>
      <use xlinkHref="#DejaVuSans-Oblique-2e" transform="translate(70.283203 0)"/>
@@ -15698,7 +15697,7 @@ Q 9325.158524 689.475836 9326.983524 689.475836
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Possible origin point -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9327.512774 677.958261) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-50"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(60.302734 0)"/>
@@ -15722,7 +15721,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(906.982422 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-74" transform="translate(970.361328 0)"/>
     </g>
-    <!-- for Raynham branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9326.983524 686.132664) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-66"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(35.205078 0)"/>
@@ -15758,7 +15757,7 @@ Q 9187.220735 689.475836 9189.045735 689.475836
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Possible origin point -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9189.574985 677.958261) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-50"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(60.302734 0)"/>
@@ -15782,7 +15781,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(906.982422 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-74" transform="translate(970.361328 0)"/>
     </g>
-    <!-- for Raynham branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9189.045735 686.132664) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-66"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(35.205078 0)"/>
@@ -15818,7 +15817,7 @@ Q 359.202232 689.475836 361.027232 689.475836
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Possible origin point -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(361.556482 677.958261) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-50"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(60.302734 0)"/>
@@ -15842,7 +15841,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(906.982422 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-74" transform="translate(970.361328 0)"/>
     </g>
-    <!-- for Raynham branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(361.027232 686.132664) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-66"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(35.205078 0)"/>
@@ -15878,7 +15877,7 @@ Q 9601.034102 596.493789 9602.859102 596.493789
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Possible origin point -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9603.388352 584.976214) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-50"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(60.302734 0)"/>
@@ -15902,7 +15901,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(906.982422 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-74" transform="translate(970.361328 0)"/>
     </g>
-    <!-- for Raynham branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9602.859102 593.150617) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-66"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(35.205078 0)"/>
@@ -15938,7 +15937,7 @@ Q 9876.909681 596.493789 9878.734681 596.493789
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Possible origin point -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9879.263931 584.976214) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-50"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(60.302734 0)"/>
@@ -15962,7 +15961,7 @@ z
      <use xlinkHref="#DejaVuSans-Oblique-6e" transform="translate(906.982422 0)"/>
      <use xlinkHref="#DejaVuSans-Oblique-74" transform="translate(970.361328 0)"/>
     </g>
-    <!-- for Raynham branch -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(9878.734681 593.150617) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-66"/>
      <use xlinkHref="#DejaVuSans-Oblique-6f" transform="translate(35.205078 0)"/>
@@ -15998,7 +15997,7 @@ Q 1328.767498 1239.193716 1330.592498 1239.193716
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Line of Kit 118335 -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(1330.592498 1235.850544) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -16034,7 +16033,7 @@ Q 2290.524616 1239.193716 2292.349616 1239.193716
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Line of Kit IN134085 -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(2292.349616 1235.850544) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4c"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(55.712891 0)"/>
@@ -16072,7 +16071,7 @@ Q 8191.205637 328.913457 8193.795637 328.913457
 z
 " style={{"fill":"#fffdf7","stroke":"#7a6a52","strokeWidth":"0.9","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Haplogroup R-BY11801  &amp;  YFull R-Y351800 -->
+    
     <g style={{"fill":"#5a4a32"}} transform="translate(8193.795637 324.784489) scale(0.074 -0.074)">
      <defs>
       <path id="DejaVuSans-Oblique-46" d="M 1081 4666 
@@ -16145,7 +16144,7 @@ Q 282.346776 1808.356551 284.171776 1808.356551
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Kit B83216 line -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(284.171776 1805.013379) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4b"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(65.576172 0)"/>
@@ -16178,7 +16177,7 @@ Q 831.77562 1808.356551 833.60062 1808.356551
 z
 " style={{"fill":"#fffdf7","stroke":"#2f5d62","strokeWidth":"0.8","strokeLinejoin":"miter"}}/>
     </g>
-    <!-- Kit B577150 line -->
+    
     <g style={{"fill":"#2f5d62"}} transform="translate(833.60062 1805.013379) scale(0.073 -0.073)">
      <use xlinkHref="#DejaVuSans-Oblique-4b"/>
      <use xlinkHref="#DejaVuSans-Oblique-69" transform="translate(65.576172 0)"/>
