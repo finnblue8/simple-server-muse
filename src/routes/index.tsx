@@ -91,12 +91,13 @@ function Index() {
   const [active, setActive] = useState(0);
   // For each category: a stack of selected indices. Length = depth+1.
   const [paths, setPaths] = useState<number[][]>(categories.map(() => [0]));
-  const [time, setTime] = useState(() => new Date());
+  const [time, setTime] = useState<Date | null>(null);
   const [colWidth, setColWidth] = useState(160);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    setTime(new Date());
     const id = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
@@ -152,8 +153,8 @@ function Index() {
     return () => window.removeEventListener("keydown", onKey);
   }, [active, depth, path, selectedItem, currentItems.length]);
 
-  const timeLabel = time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  const dateLabel = time.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+  const timeLabel = time ? time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "";
+  const dateLabel = time ? time.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" }) : "";
 
   // Center the active column horizontally: translate row so active sits at 50vw.
   const translateX = -active * colWidth - colWidth / 2;

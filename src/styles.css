@@ -245,24 +245,25 @@
 }
 
 .xmb-subitem {
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.xmb-col.active .xmb-subitem {
   opacity: 0.85;
   transform: translateX(0);
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.xmb-col.active .xmb-subitem.selected {
+.xmb-subitem:hover {
+  opacity: 1;
+  color: white;
+}
+
+.xmb-subitem.selected {
   opacity: 1;
   color: white;
 }
 
 .xmb-subitem.selected::before {
   content: "▶";
-  margin-right: 10px;
-  font-size: 0.6em;
+  margin-right: 8px;
+  font-size: 0.55em;
   color: oklch(0.95 0.08 220);
+  vertical-align: middle;
 }
