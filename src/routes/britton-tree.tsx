@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import brittonSvg from "@/assets/britton.svg?raw";
+
 
 export const Route = createFileRoute("/britton-tree")({
   head: () => ({
@@ -77,12 +79,12 @@ function BrittonTree() {
             width: "fit-content",
           }}
         >
-          <img
-            src="/britton.svg"
-            alt="Britton family tree"
-            draggable={false}
-            style={{ display: "block", maxWidth: "none", userSelect: "none" }}
+          <div
+            className="britton-svg"
+            style={{ display: "block", userSelect: "none" }}
+            dangerouslySetInnerHTML={{ __html: brittonSvg }}
           />
+
         </div>
       </div>
 
