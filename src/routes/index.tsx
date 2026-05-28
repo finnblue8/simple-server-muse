@@ -74,7 +74,7 @@ const categories: XmbCategory[] = [
       },
       {
         label: "Britton Research",
-        children: [{ label: "TBD" }],
+        children: [{ label: "Family Tree", href: "/britton-tree" }],
       },
     ],
   },

@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as BrittonTreeRouteImport } from './routes/britton-tree'
 import { Route as IndexRouteImport } from './routes/index'
 
+const BrittonTreeRoute = BrittonTreeRouteImport.update({
+  id: '/britton-tree',
+  path: '/britton-tree',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/britton-tree'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/britton-tree'
+  id: '__root__' | '/' | '/britton-tree'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrittonTreeRoute: typeof BrittonTreeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/britton-tree': {
+      id: '/britton-tree'
+      path: '/britton-tree'
+      fullPath: '/britton-tree'
+      preLoaderRoute: typeof BrittonTreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrittonTreeRoute: BrittonTreeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
