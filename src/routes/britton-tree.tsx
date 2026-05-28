@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import brittonSvg from "@/assets/britton.svg?raw";
+import { BrittonSvg } from "@/components/BrittonSvg";
 
 
 export const Route = createFileRoute("/britton-tree")({
@@ -79,11 +79,11 @@ function BrittonTree() {
             width: "fit-content",
           }}
         >
-          <div
+          <BrittonSvg
             className="britton-svg"
             style={{ display: "block", userSelect: "none" }}
-            dangerouslySetInnerHTML={{ __html: brittonSvg }}
           />
+
 
         </div>
       </div>
