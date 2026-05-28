@@ -1,15 +1,17 @@
-// AUTO-GENERATED from the source family-tree SVG — edit freely.
-export function BrittonSvg(props: React.SVGProps<SVGSVGElement>) {
+// AUTO-GENERATED from britton-2.svg. Do not hand-edit raw paths; modify the source SVG and re-run the converter.
+import type { SVGProps } from "react";
+
+export function BrittonSvg(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 10590.394054 2765.47578"
       version="1.1"
+      viewBox="0 0 10590.394054 2765.47578"
       {...props}
     >
 <defs>
-  <style type="text/css" dangerouslySetInnerHTML={{__html: "*{stroke-linejoin: round; stroke-linecap: butt}"}} />
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
  <g id="figure_1">
   <g id="patch_1">
