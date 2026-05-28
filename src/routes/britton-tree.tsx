@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import brittonSvg from "@/assets/britton.svg?raw";
+import { BrittonSvg } from "@/components/BrittonSvg";
 
 
 export const Route = createFileRoute("/britton-tree")({
