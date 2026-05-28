@@ -240,6 +240,16 @@
   opacity: 0.85;
   transform: translateX(0);
   transition: opacity 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  padding-left: 18px;
+  line-height: 1.2;
+}
+
+.xmb-subitem > * {
+  white-space: nowrap;
 }
 
 .xmb-subitem:hover {
@@ -252,10 +262,19 @@
   color: oklch(0.1 0 0);
 }
 
-.xmb-subitem.selected::before {
+.xmb-subitem::before {
   content: "▶";
-  margin-right: 8px;
-  font-size: 0.55em;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6em;
+  line-height: 1;
   color: oklch(0.3 0.05 220);
-  vertical-align: middle;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.xmb-subitem.selected::before {
+  opacity: 1;
 }
