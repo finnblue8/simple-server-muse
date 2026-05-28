@@ -28,11 +28,12 @@ const HEADER = treeData.header as string[];
 const BANDS_Y = treeData.bandsY as number[];
 
 // Coordinate transform: SVG units (10590 x ~1745) -> display units
-const SCALE_X = 0.42;
-const SCALE_Y = 0.55;
-const CARD_W = 140;
-const CARD_H = 64;
-const PAD_X = 60;
+// Use the SVG's original cx spacing so cards never overlap.
+const SCALE_X = 1;
+const SCALE_Y = 0.85;
+const CARD_W = 170;
+const CARD_H = 72;
+const PAD_X = 80;
 const PAD_Y = 40;
 
 const SVG_MAX_X = Math.max(...PEOPLE.map((p) => p.cx)) + 100;
