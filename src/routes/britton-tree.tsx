@@ -81,6 +81,8 @@ function BrittonTree() {
         >
           <BrittonSvg
             className="britton-svg"
+            width={10590.394054}
+            height={2765.47578}
             style={{ display: "block", userSelect: "none" }}
           />
 
