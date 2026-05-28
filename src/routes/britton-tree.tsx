@@ -235,7 +235,7 @@ function BrittonTree() {
                   height: CARD_H,
                 }}
                 className={[
-                  "rounded-sm border px-2 py-1 text-left transition-colors",
+                  "overflow-hidden rounded-sm border px-2 py-1 text-left transition-colors",
                   isFocus
                     ? "border-[#2b2b2b] bg-[#2b2b2b] text-[#fffdf7] shadow-md z-10"
                     : isRelated
