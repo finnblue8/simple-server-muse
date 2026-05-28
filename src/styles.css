@@ -64,10 +64,10 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.18 0.08 250);
-  --foreground: oklch(0.98 0.005 240);
+  --background: #CBCBCB;
+  --foreground: oklch(0.2 0 0);
   --font-sans: "Inter", "Helvetica Neue", system-ui, sans-serif;
-  --xmb-glow: 0 0 18px oklch(0.95 0.05 220 / 0.75);
+  --xmb-glow: 0 0 18px oklch(0.2 0 0 / 0.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
