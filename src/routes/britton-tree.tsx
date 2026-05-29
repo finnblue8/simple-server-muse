@@ -90,16 +90,6 @@ const CANVAS_H = (BANDS_Y[BANDS_Y.length - 1] + 80) * SCALE_Y + PAD_Y * 2;
 const svgToLocalX = (x: number) => (x - SVG_X_OFFSET) * SCALE_X + PAD_X;
 const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 
-const CARD_W = 150;
-const CARD_H = 104;
-const PAD_X = 80;
-const PAD_Y = 40;
-const SVG_MAX_X = Math.max(...ALL.map((p) => p.cx)) + 100;
-const CANVAS_W = SVG_MAX_X * SCALE_X + PAD_X * 2;
-const CANVAS_H = (BANDS_Y[BANDS_Y.length - 1] + 80) * SCALE_Y + PAD_Y * 2;
-
-const svgToLocalX = (x: number) => (x - SVG_X_OFFSET) * SCALE_X + PAD_X;
-const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 
 const BY_ID = new Map<number, Person>(ALL.map((p) => [p.id, p]));
 
