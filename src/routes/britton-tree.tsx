@@ -405,7 +405,7 @@ function BrittonTree() {
                 width: label.w * SCALE_X,
                 minHeight: label.h * SCALE_Y,
               }}
-              className="pointer-events-none rounded-sm border border-[#2f5d62] bg-[#fffdf7] px-1 py-0.5 text-center text-[9px] italic leading-tight text-[#2f5d62]"
+              className="pointer-events-none rounded-sm border border-[#2f5d62] bg-[#fffdf7] px-1 py-0.5 text-center text-[10px] italic leading-tight text-[#2f5d62]"
             >
               {label.lines.map((line) => <div key={line}>{line}</div>)}
             </div>
@@ -422,7 +422,10 @@ function BrittonTree() {
                 top: b.y * SCALE_Y + PAD_Y - 8,
                 width: 280,
               }}
-              className="pointer-events-none text-[10px] leading-snug text-[#5a5142] italic"
+              className={[
+                "pointer-events-none leading-snug text-[#5a5142] italic",
+                b.x < 2700 && b.y > 1200 ? "text-[13px]" : "text-[10px]",
+              ].join(" ")}
             >
               {b.lines.map((l, j) => (
                 <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
