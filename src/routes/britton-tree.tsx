@@ -517,24 +517,36 @@ function BrittonTree() {
             );
           })}
 
-          {!isH && KIT_LABELS.map((label, i) => (
-            <div
-              key={`kit-label-${i}`}
-              style={{
-                position: "absolute",
-                left: svgToLocalX(label.x),
-                top: svgToLocalY(label.y),
-                width: label.w * SCALE_X,
-                minHeight: label.h * SCALE_Y,
-                background: T.canvasBg,
-                borderColor: T.ydnaBorder,
-                color: T.ydnaBorder,
-              }}
-              className="pointer-events-none rounded-sm border px-1 py-0.5 text-center text-[10px] italic leading-tight"
-            >
-              {label.lines.map((line) => <div key={line}>{line}</div>)}
-            </div>
-          ))}
+          {!isH && VERT_LABELS.map((lbl, i) => {
+            const p = BY_ID.get(lbl.personId);
+            if (!p) return null;
+            const pos = px(p);
+            const labelW = 190;
+            const lineH = 14;
+            const labelH = lbl.lines.length * lineH + 10;
+            const gap = 28;
+            const isBelow = lbl.position === "below";
+            const top = isBelow ? pos.y + CARD_H / 2 + gap : pos.y - CARD_H / 2 - gap - labelH;
+            const color = lbl.kind === "mrca" ? "#a86a32" : T.ydnaBorder;
+            return (
+              <div
+                key={`kit-label-${i}`}
+                style={{
+                  position: "absolute",
+                  left: pos.x - labelW / 2,
+                  top,
+                  width: labelW,
+                  background: T.canvasBg,
+                  borderColor: color,
+                  color,
+                }}
+                className="pointer-events-none rounded-sm border px-1 py-0.5 text-center text-[11px] italic leading-tight"
+              >
+                {lbl.lines.map((line, j) => <div key={j}>{line}</div>)}
+              </div>
+            );
+          })}
+
 
           {!isH && NOTE_BLOCKS.map((b, i) => (
             <div
