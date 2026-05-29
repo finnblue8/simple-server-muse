@@ -87,9 +87,22 @@ const DASHED: Dash[] = [
   { x1: 518.94, y1: 1225.68, x2: 518.94, y2: 1521.37, kind: "kit" },
 ];
 
+type KitLabel = { x: number; y: number; w: number; h: number; lines: string[] };
+const KIT_LABELS: KitLabel[] = [
+  { x: 1588.490575, y: 998.914722, w: 104.796, h: 20.071, lines: ["Suspected patriarch of the", "William Ira Britton line, USA"] },
+  { x: 8359.587157, y: 1135.496638, w: 78.420, h: 18.889, lines: ["Kit 561092 line", "(West Down branch)"] },
+  { x: 1328.767498, y: 1228.478685, w: 70.405, h: 10.715, lines: ["Line of Kit 118335"] },
+  { x: 2290.524616, y: 1228.478685, w: 78.020, h: 10.715, lines: ["Line of Kit IN134085"] },
+  { x: 282.346776, y: 1797.64152, w: 59.373, h: 10.715, lines: ["Kit B83216 line"] },
+  { x: 831.77562, y: 1797.64152, w: 64.018, h: 10.715, lines: ["Kit B577150 line"] },
+];
+
 // SVG box centers sit ~35 units to the right of our `cx` values; subtract so the
 // dashed overlays align with our rendered card centers.
 const SVG_X_OFFSET = 35;
+
+const svgToLocalX = (x: number) => (x - SVG_X_OFFSET) * SCALE_X + PAD_X;
+const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 
 
 // Coordinate transform: SVG units -> display units
@@ -122,6 +135,7 @@ function BrittonTree() {
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const scaleRef = useRef(scale);
   const dragging = useRef<{ x: number; y: number; moved: boolean } | null>(null);
 
   const focus = BY_ID.get(focusId)!;
@@ -137,17 +151,21 @@ function BrittonTree() {
 
   const siblingIndex = Math.max(0, siblingIds.indexOf(focusId));
 
+  useEffect(() => {
+    scaleRef.current = scale;
+  }, [scale]);
+
   // Center focused person in viewport
-  const centerOn = useCallback((id: number) => {
+  const centerOn = useCallback((id: number, nextScale = scaleRef.current) => {
     const el = viewportRef.current;
     const target = BY_ID.get(id);
     if (!el || !target) return;
     const p = px(target);
     const vw = el.clientWidth;
     const vh = el.clientHeight;
-    setTx(vw / 2 - p.x * scale);
-    setTy(vh / 2 - p.y * scale);
-  }, [scale]);
+    setTx(vw / 2 - p.x * nextScale);
+    setTy(vh / 2 - p.y * nextScale);
+  }, []);
 
 
 
@@ -198,6 +216,22 @@ function BrittonTree() {
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
+
+  const zoomFromViewportPoint = (ox: number, oy: number, factor: number) => {
+    setScale((s) => {
+      const ns = clamp(s * factor);
+      const r = ns / s;
+      setTx((t) => ox - (ox - t) * r);
+      setTy((t) => oy - (oy - t) * r);
+      return ns;
+    });
+  };
+
+  const zoomFromCenter = (factor: number) => {
+    const el = viewportRef.current;
+    if (!el) return;
+    zoomFromViewportPoint(el.clientWidth / 2, el.clientHeight / 2, factor);
+  };
 
   const onMouseDown = (e: React.MouseEvent) => {
     dragging.current = { x: e.clientX - tx, y: e.clientY - ty, moved: false };
@@ -251,7 +285,7 @@ function BrittonTree() {
         </div>
         <div className="flex items-center gap-2 text-[10px] opacity-60">
           <span>↑ parent · ↓ child · ←→ siblings · Home: root · scroll to zoom · drag to pan</span>
-          <button onClick={() => { setScale(1); centerOn(focusId); }} className="rounded border border-foreground/20 px-2 py-0.5 hover:bg-foreground/10">Reset</button>
+          <button onClick={() => { setScale(1); centerOn(focusId, 1); }} className="rounded border border-foreground/20 px-2 py-0.5 hover:bg-foreground/10">Reset</button>
         </div>
       </header>
 
@@ -288,10 +322,10 @@ function BrittonTree() {
               />
             ))}
             {DASHED.map((d, i) => {
-              const x1 = (d.x1 - SVG_X_OFFSET) * SCALE_X + PAD_X;
-              const x2 = (d.x2 - SVG_X_OFFSET) * SCALE_X + PAD_X;
-              const y1 = d.y1 * SCALE_Y + PAD_Y;
-              const y2 = d.y2 * SCALE_Y + PAD_Y;
+              const x1 = svgToLocalX(d.x1);
+              const x2 = svgToLocalX(d.x2);
+              const y1 = svgToLocalY(d.y1);
+              const y2 = svgToLocalY(d.y2);
               const stroke =
                 d.kind === "ydna" ? "#2f5d62" : d.kind === "mrca" ? "#8a5a2a" : "#8a7a5a";
               const dashArray = d.kind === "kit" ? "3,3" : "5,3";
@@ -343,6 +377,23 @@ function BrittonTree() {
             );
           })}
 
+          {/* Blue Y-DNA kit labels from the original SVG */}
+          {KIT_LABELS.map((label, i) => (
+            <div
+              key={`kit-label-${i}`}
+              style={{
+                position: "absolute",
+                left: svgToLocalX(label.x),
+                top: svgToLocalY(label.y),
+                width: label.w * SCALE_X,
+                minHeight: label.h * SCALE_Y,
+              }}
+              className="pointer-events-none rounded-sm border border-[#2f5d62] bg-[#fffdf7] px-1 py-0.5 text-center text-[9px] italic leading-tight text-[#2f5d62]"
+            >
+              {label.lines.map((line) => <div key={line}>{line}</div>)}
+            </div>
+          ))}
+
 
           {/* Marginal notes — plain text from the original SVG */}
           {NOTE_BLOCKS.map((b, i) => (
@@ -366,9 +417,9 @@ function BrittonTree() {
 
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
-          <button onClick={() => setScale((s) => clamp(s * 0.8))} className="px-2 text-sm hover:opacity-70">−</button>
+          <button onClick={() => zoomFromCenter(0.8)} className="px-2 text-sm hover:opacity-70">−</button>
           <span className="min-w-[3rem] text-center text-[10px] tabular-nums">{Math.round(scale * 100)}%</span>
-          <button onClick={() => setScale((s) => clamp(s * 1.25))} className="px-2 text-sm hover:opacity-70">+</button>
+          <button onClick={() => zoomFromCenter(1.25)} className="px-2 text-sm hover:opacity-70">+</button>
         </div>
 
         {/* Focused person details panel */}
