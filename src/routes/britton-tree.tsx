@@ -259,8 +259,15 @@ function BrittonTree() {
     const p = px(target);
     const vw = el.clientWidth;
     const vh = el.clientHeight;
+    setTx(vw / 2 - p.x * nextScale);
+    setTy(vh / 2 - p.y * nextScale);
+  }, [px]);
+
+  useEffect(() => { centerOn(focusId); }, [focusId, centerOn]);
+  useEffect(() => { centerOn(focusId); }, [orientation]); // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => {
-    // Both orientations are now horizontal-style trees; isH places root on the right,
+    // Both orientations are horizontal-style trees: isH places root on the right,
     // !isH places root on the left. Left/Right traverse generations, Up/Down traverse siblings.
     const onKey = (e: KeyboardEvent) => {
       const toParent = () => parentIds.length > 0 && setFocusId(parentIds[0]);
@@ -277,13 +284,6 @@ function BrittonTree() {
     return () => window.removeEventListener("keydown", onKey);
   }, [parentIds, childIds, siblingIds, siblingIndex, isH]);
 
-        e.preventDefault();
-        setFocusId(ROOT_ID);
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [parentIds, childIds, siblingIds, siblingIndex, isH]);
 
   const zoomFromViewportPoint = (ox: number, oy: number, factor: number) => {
     const currentScale = scaleRef.current;
