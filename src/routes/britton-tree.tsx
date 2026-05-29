@@ -432,8 +432,17 @@ function BrittonTree() {
               ))}
             </div>
           ))}
-        </div>
 
+          {/* Top-left header info (from original SVG) */}
+          <div
+            style={{ position: "absolute", left: 20, top: 20, width: 520 }}
+            className="pointer-events-none text-[11px] leading-snug text-[#2b2b2b]"
+          >
+            {HEADER.slice(2).map((line, i) => (
+              <div key={i} className="mb-1">{line}</div>
+            ))}
+          </div>
+        </div>
 
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
@@ -451,10 +460,7 @@ function BrittonTree() {
           ))}
         </div>
       </div>
-
-      <footer className="border-t border-foreground/10 px-4 py-2 text-[10px] opacity-60">
-        {HEADER.slice(2).join("  ·  ")}
-      </footer>
     </main>
   );
 }
+
