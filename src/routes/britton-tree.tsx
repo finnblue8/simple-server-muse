@@ -52,6 +52,46 @@ const NOTE_BLOCKS: NoteBlock[] = (() => {
   return blocks.map(({ x, y, lines }) => ({ x, y, lines }));
 })();
 
+// People ids whose lineage is on the Y-DNA tested branch (rendered in blue).
+const YDNA_IDS = new Set<number>([8, 10, 14, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
+
+// Dashed/dotted overlay lines from the original SVG.
+// `kind: "ydna"` = teal dashed connector for Y-DNA lineage links (e.g. William
+// Ira branch ↔ John Edward branch). `kind: "kit"` = finer brown dotted line
+// indicating a Y-DNA tester pointing at a kit number.
+// Coords are in original SVG units; `svgToLocalX` reconciles them to our layout.
+type Dash = { x1: number; y1: number; x2: number; y2: number; kind: "ydna" | "kit" | "mrca" };
+const DASHED: Dash[] = [
+  { x1: 3350.03, y1: 601.69, x2: 3382.26, y2: 601.69, kind: "mrca" },
+  { x1: 1694.63, y1: 1008.95, x2: 1777.78, y2: 1008.95, kind: "ydna" },
+  { x1: 1777.78, y1: 1008.95, x2: 1777.78, y2: 1039.55, kind: "ydna" },
+  { x1: 8398.80, y1: 1093.65, x2: 8398.80, y2: 1132.81, kind: "ydna" },
+  { x1: 674.28, y1: 667.62, x2: 674.28, y2: 645.36, kind: "ydna" },
+  { x1: 1088.09, y1: 814.70, x2: 1088.09, y2: 853.87, kind: "ydna" },
+  { x1: 5640.04, y1: 814.70, x2: 5640.04, y2: 853.87, kind: "ydna" },
+  { x1: 950.16, y1: 721.72, x2: 950.16, y2: 760.89, kind: "ydna" },
+  { x1: 9364.36, y1: 628.74, x2: 9364.36, y2: 667.90, kind: "ydna" },
+  { x1: 9226.42, y1: 628.74, x2: 9226.42, y2: 667.90, kind: "ydna" },
+  { x1: 398.41, y1: 628.74, x2: 398.41, y2: 667.90, kind: "ydna" },
+  { x1: 9640.24, y1: 535.76, x2: 9640.24, y2: 574.92, kind: "ydna" },
+  { x1: 9916.11, y1: 535.76, x2: 9916.11, y2: 574.92, kind: "ydna" },
+  { x1: 1363.97, y1: 1186.63, x2: 1363.97, y2: 1225.80, kind: "ydna" },
+  { x1: 2329.53, y1: 1186.63, x2: 2329.53, y2: 1225.80, kind: "ydna" },
+  { x1: 312.03, y1: 1761.43, x2: 312.03, y2: 1794.96, kind: "ydna" },
+  { x1: 863.78, y1: 1761.43, x2: 863.78, y2: 1794.96, kind: "ydna" },
+  // Kit-number dotted lines (subtle): William Ira branch -> John Edward branch
+  { x1: 1777.78, y1: 1093.65, x2: 1777.78, y2: 1113.09, kind: "kit" },
+  { x1: 1777.78, y1: 1113.09, x2: 1295.00, y2: 1113.09, kind: "kit" },
+  { x1: 1295.00, y1: 1113.09, x2: 1295.00, y2: 1225.68, kind: "kit" },
+  { x1: 1295.00, y1: 1225.68, x2: 518.94, y2: 1225.68, kind: "kit" },
+  { x1: 518.94, y1: 1225.68, x2: 518.94, y2: 1521.37, kind: "kit" },
+];
+
+// SVG box centers sit ~35 units to the right of our `cx` values; subtract so the
+// dashed overlays align with our rendered card centers.
+const SVG_X_OFFSET = 35;
+
+
 // Coordinate transform: SVG units -> display units
 const SCALE_X = 1.25;
 const SCALE_Y = 1.3;
