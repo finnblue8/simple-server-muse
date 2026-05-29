@@ -23,23 +23,48 @@ type Person = {
   children: number[];
 };
 
-const PEOPLE = treeData.people as Person[];
+const ALL = treeData.people as Person[];
 const HEADER = treeData.header as string[];
 const BANDS_Y = treeData.bandsY as number[];
 
-// Coordinate transform: SVG units (10590 x ~1745) -> display units
-// SVG sibling cx-gap is ~128 minimum; gen spacing in y is ~93.
-// Original SVG has min sibling cx-gap ~128 and gen y-gap ~93.
-// Pick scales so card footprint sits strictly inside both.
-const SCALE_X = 1.25;   // 128 * 1.25 = 160px between sibling centers
-const SCALE_Y = 1.3;    // 93  * 1.3  = 121px between gen centers
-const CARD_W = 150;     // < 160  -> ~10px horizontal gap
-const CARD_H = 96;      // < 121  -> ~25px vertical gap, fits 4 lines
+// Notes = entries with no genealogical relations and no detail lines.
+// They're descriptive text from the original SVG, not family-tree cards.
+const isNote = (p: Person) =>
+  p.details.length === 0 && p.parents.length === 0 && p.children.length === 0;
+const PEOPLE = ALL.filter((p) => !isNote(p));
+const NOTES = ALL.filter(isNote);
+
+// Group note fragments that are spatially adjacent (same column, stacked rows)
+// into single paragraph blocks anchored at the top-left of the group.
+type NoteBlock = { x: number; y: number; lines: string[] };
+const NOTE_BLOCKS: NoteBlock[] = (() => {
+  const sorted = [...NOTES].sort((a, b) => a.cx - b.cx || a.y - b.y);
+  const blocks: (NoteBlock & { maxY: number; cx: number })[] = [];
+  for (const n of sorted) {
+    const last = blocks[blocks.length - 1];
+    if (last && Math.abs(last.cx - n.cx) < 120 && n.y - last.maxY < 60) {
+      last.lines.push(n.name);
+      last.maxY = n.y;
+    } else {
+      blocks.push({ x: n.cx, y: n.y, cx: n.cx, maxY: n.y, lines: [n.name] });
+    }
+  }
+  return blocks.map(({ x, y, lines }) => ({ x, y, lines }));
+})();
+
+// Coordinate transform: SVG units -> display units
+const SCALE_X = 1.25;
+const SCALE_Y = 1.3;
+const CARD_W = 150;
+const CARD_H = 96;
 const PAD_X = 80;
 const PAD_Y = 40;
-const SVG_MAX_X = Math.max(...PEOPLE.map((p) => p.cx)) + 100;
+const SVG_MAX_X = Math.max(...ALL.map((p) => p.cx)) + 100;
 const CANVAS_W = SVG_MAX_X * SCALE_X + PAD_X * 2;
 const CANVAS_H = (BANDS_Y[BANDS_Y.length - 1] + 80) * SCALE_Y + PAD_Y * 2;
+
+// Build id -> Person map (PEOPLE was filtered, so array index ≠ id)
+const BY_ID = new Map<number, Person>(ALL.map((p) => [p.id, p]));
 
 function px(p: Person) {
   return {
@@ -59,16 +84,17 @@ function BrittonTree() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragging = useRef<{ x: number; y: number; moved: boolean } | null>(null);
 
-  const focus = PEOPLE[focusId];
+  const focus = BY_ID.get(focusId)!;
   const parentIds = focus.parents;
   const childIds = focus.children;
 
   const siblingIds = useMemo(() => {
-    if (parentIds.length > 0) return PEOPLE[parentIds[0]].children;
+    if (parentIds.length > 0) return BY_ID.get(parentIds[0])!.children;
     return PEOPLE.filter((p) => p.gen === focus.gen && p.parents.length === 0)
       .sort((a, b) => a.cx - b.cx)
       .map((p) => p.id);
   }, [focus.gen, parentIds]);
+
   const siblingIndex = Math.max(0, siblingIds.indexOf(focusId));
 
   // Center focused person in viewport
