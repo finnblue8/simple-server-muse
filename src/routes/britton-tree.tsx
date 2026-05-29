@@ -100,12 +100,15 @@ function BrittonTree() {
   // Center focused person in viewport
   const centerOn = useCallback((id: number) => {
     const el = viewportRef.current;
-    if (!el) return;
-    const p = px(PEOPLE[id]);
+    const target = BY_ID.get(id);
+    if (!el || !target) return;
+    const p = px(target);
     const vw = el.clientWidth;
     const vh = el.clientHeight;
     setTx(vw / 2 - p.x * scale);
     setTy(vh / 2 - p.y * scale);
+  }, [scale]);
+
   }, [scale]);
 
   useEffect(() => { centerOn(focusId); }, [focusId, centerOn]);
