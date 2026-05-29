@@ -287,6 +287,25 @@ function BrittonTree() {
                 strokeLinecap="square"
               />
             ))}
+            {DASHED.map((d, i) => {
+              const x1 = (d.x1 - SVG_X_OFFSET) * SCALE_X + PAD_X;
+              const x2 = (d.x2 - SVG_X_OFFSET) * SCALE_X + PAD_X;
+              const y1 = d.y1 * SCALE_Y + PAD_Y;
+              const y2 = d.y2 * SCALE_Y + PAD_Y;
+              const stroke =
+                d.kind === "ydna" ? "#2f5d62" : d.kind === "mrca" ? "#8a5a2a" : "#8a7a5a";
+              const dashArray = d.kind === "kit" ? "3,3" : "5,3";
+              return (
+                <line
+                  key={`dash-${i}`}
+                  x1={x1} y1={y1} x2={x2} y2={y2}
+                  stroke={stroke}
+                  strokeWidth={d.kind === "kit" ? 1.2 : 1.4}
+                  strokeDasharray={dashArray}
+                />
+              );
+            })}
+
           </svg>
 
           {/* People cards */}
