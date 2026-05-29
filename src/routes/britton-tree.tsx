@@ -196,7 +196,7 @@ function BrittonTree() {
         paths.push({ d: `M ${cp.x} ${midY} L ${cp.x} ${cp.y - CARD_H / 2}`, highlight: highlight || cid === focusId });
       }
 
-      }
+
     }
     return paths;
   }, [focusId]);
