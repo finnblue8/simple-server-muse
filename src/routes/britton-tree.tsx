@@ -281,7 +281,26 @@ function BrittonTree() {
               </button>
             );
           })}
+
+          {/* Marginal notes — plain text from the original SVG */}
+          {NOTE_BLOCKS.map((b, i) => (
+            <div
+              key={`note-${i}`}
+              style={{
+                position: "absolute",
+                left: b.x * SCALE_X + PAD_X - CARD_W / 2,
+                top: b.y * SCALE_Y + PAD_Y - 8,
+                width: 280,
+              }}
+              className="pointer-events-none text-[10px] leading-snug text-[#5a5142] italic"
+            >
+              {b.lines.map((l, j) => (
+                <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
+              ))}
+            </div>
+          ))}
         </div>
+
 
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
