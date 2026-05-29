@@ -285,7 +285,7 @@ function BrittonTree() {
         </div>
         <div className="flex items-center gap-2 text-[10px] opacity-60">
           <span>↑ parent · ↓ child · ←→ siblings · Home: root · scroll to zoom · drag to pan</span>
-          <button onClick={() => { setScale(1); centerOn(focusId); }} className="rounded border border-foreground/20 px-2 py-0.5 hover:bg-foreground/10">Reset</button>
+          <button onClick={() => { setScale(1); centerOn(focusId, 1); }} className="rounded border border-foreground/20 px-2 py-0.5 hover:bg-foreground/10">Reset</button>
         </div>
       </header>
 
