@@ -224,26 +224,24 @@ function BrittonTree() {
       const ox = e.clientX - rect.left;
       const oy = e.clientY - rect.top;
       const factor = e.deltaY < 0 ? 1.1 : 0.9;
-      setScale((s) => {
-        const ns = clamp(s * factor);
-        const r = ns / s;
-        setTx((t) => ox - (ox - t) * r);
-        setTy((t) => oy - (oy - t) * r);
-        return ns;
-      });
+      zoomFromViewportPoint(ox, oy, factor);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
   const zoomFromViewportPoint = (ox: number, oy: number, factor: number) => {
-    setScale((s) => {
-      const ns = clamp(s * factor);
-      const r = ns / s;
-      setTx((t) => ox - (ox - t) * r);
-      setTy((t) => oy - (oy - t) * r);
-      return ns;
-    });
+    const currentScale = scaleRef.current;
+    const nextScale = clamp(currentScale * factor);
+    const ratio = nextScale / currentScale;
+    const nextTx = ox - (ox - txRef.current) * ratio;
+    const nextTy = oy - (oy - tyRef.current) * ratio;
+    scaleRef.current = nextScale;
+    txRef.current = nextTx;
+    tyRef.current = nextTy;
+    setScale(nextScale);
+    setTx(nextTx);
+    setTy(nextTy);
   };
 
   const zoomFromCenter = (factor: number) => {
