@@ -50,54 +50,46 @@ const NOTE_BLOCKS: NoteBlock[] = (() => {
 
 const YDNA_IDS = new Set<number>([0, 8, 10, 14, 15, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
 
-type Dash = { x1: number; y1: number; x2: number; y2: number; kind: "ydna" | "kit" | "mrca" };
-const DASHED: Dash[] = [
-  { x1: 3350.03, y1: 601.69, x2: 3382.26, y2: 601.69, kind: "mrca" },
-  { x1: 1694.63, y1: 1008.95, x2: 1777.78, y2: 1008.95, kind: "ydna" },
-  { x1: 1777.78, y1: 1008.95, x2: 1777.78, y2: 1039.55, kind: "ydna" },
-  { x1: 8398.80, y1: 1093.65, x2: 8398.80, y2: 1132.81, kind: "ydna" },
-  { x1: 674.28, y1: 667.62, x2: 674.28, y2: 645.36, kind: "ydna" },
-  { x1: 1088.09, y1: 814.70, x2: 1088.09, y2: 853.87, kind: "ydna" },
-  { x1: 5640.04, y1: 814.70, x2: 5640.04, y2: 853.87, kind: "ydna" },
-  { x1: 950.16, y1: 721.72, x2: 950.16, y2: 760.89, kind: "ydna" },
-  { x1: 9364.36, y1: 628.74, x2: 9364.36, y2: 667.90, kind: "ydna" },
-  { x1: 9226.42, y1: 628.74, x2: 9226.42, y2: 667.90, kind: "ydna" },
-  { x1: 398.41, y1: 628.74, x2: 398.41, y2: 667.90, kind: "ydna" },
-  { x1: 9640.24, y1: 535.76, x2: 9640.24, y2: 574.92, kind: "ydna" },
-  { x1: 9916.11, y1: 535.76, x2: 9916.11, y2: 574.92, kind: "ydna" },
-  { x1: 1363.97, y1: 1186.63, x2: 1363.97, y2: 1225.80, kind: "ydna" },
-  { x1: 2329.53, y1: 1186.63, x2: 2329.53, y2: 1225.80, kind: "ydna" },
-  { x1: 312.03, y1: 1761.43, x2: 312.03, y2: 1794.96, kind: "ydna" },
-  { x1: 863.78, y1: 1761.43, x2: 863.78, y2: 1794.96, kind: "ydna" },
-  { x1: 1777.78, y1: 1093.65, x2: 1777.78, y2: 1113.09, kind: "kit" },
-  { x1: 1777.78, y1: 1113.09, x2: 1295.00, y2: 1113.09, kind: "kit" },
-  { x1: 1295.00, y1: 1113.09, x2: 1295.00, y2: 1225.68, kind: "kit" },
-  { x1: 1295.00, y1: 1225.68, x2: 518.94, y2: 1225.68, kind: "kit" },
-  { x1: 518.94, y1: 1225.68, x2: 518.94, y2: 1521.37, kind: "kit" },
-];
-
-type KitLabel = { x: number; y: number; w: number; h: number; lines: string[] };
-const KIT_LABELS: KitLabel[] = [
-  { x: 1588.490575, y: 998.914722, w: 104.796, h: 20.071, lines: ["Suspected patriarch of the", "William Ira Britton line, USA"] },
-  { x: 633.674842, y: 623.789424, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
-  { x: 1047.488209, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
-  { x: 5599.435250, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
-  { x: 909.550420, y: 763.568449, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
-  { x: 9325.158524, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
-  { x: 9187.220735, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
-  { x: 359.202232, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
-  { x: 9601.034102, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
-  { x: 9876.909681, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
-  { x: 8359.587157, y: 1135.496638, w: 78.420, h: 18.889, lines: ["Kit 561092 line", "(West Down branch)"] },
-  { x: 1328.767498, y: 1228.478685, w: 70.405, h: 10.715, lines: ["Line of Kit 118335"] },
-  { x: 2290.524616, y: 1228.478685, w: 78.020, h: 10.715, lines: ["Line of Kit IN134085"] },
-  { x: 282.346776, y: 1797.64152, w: 59.373, h: 10.715, lines: ["Kit B83216 line"] },
-  { x: 831.77562, y: 1797.64152, w: 64.018, h: 10.715, lines: ["Kit B577150 line"] },
+type VertLabel = {
+  personId: number;
+  lines: string[];
+  kind: "ydna" | "mrca";
+  position?: "above" | "below";
+};
+const VERT_LABELS: VertLabel[] = [
+  { personId: 0, kind: "ydna", lines: ["Haplogroup R-BY11801 &", "YFull R-Y351800*"] },
+  { personId: 8, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
+  { personId: 10, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
+  { personId: 14, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
+  { personId: 17, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
+  { personId: 18, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
+  { personId: 15, kind: "mrca", lines: ["Likely MRCA of the majority", "of Group 11 test kits"] },
+  { personId: 22, kind: "ydna", lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { personId: 23, kind: "ydna", lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { personId: 29, kind: "ydna", lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { personId: 33, kind: "ydna", lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { personId: 58, kind: "ydna", lines: ["Suspected patriarch of the", "William Ira Britton line, USA"] },
+  { personId: 75, kind: "ydna", position: "below", lines: ["Kit 561092 line", "(West Down branch)"] },
+  { personId: 77, kind: "ydna", lines: ["Line of Kit 118335"] },
+  { personId: 84, kind: "ydna", lines: ["Line of Kit IN134085"] },
+  { personId: 130, kind: "ydna", lines: ["Kit B83216 line"] },
+  { personId: 134, kind: "ydna", lines: ["Kit B577150 line"] },
 ];
 
 const SVG_X_OFFSET = 35;
-const SCALE_X = 1.25;
+const SCALE_X = 1.6;
 const SCALE_Y = 1.3;
+const CARD_W = 150;
+const CARD_H = 104;
+const PAD_X = 80;
+const PAD_Y = 120;
+const SVG_MAX_X = Math.max(...ALL.map((p) => p.cx)) + 100;
+const CANVAS_W = SVG_MAX_X * SCALE_X + PAD_X * 2;
+const CANVAS_H = (BANDS_Y[BANDS_Y.length - 1] + 80) * SCALE_Y + PAD_Y * 2;
+
+const svgToLocalX = (x: number) => (x - SVG_X_OFFSET) * SCALE_X + PAD_X;
+const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
+
 const CARD_W = 150;
 const CARD_H = 104;
 const PAD_X = 80;
