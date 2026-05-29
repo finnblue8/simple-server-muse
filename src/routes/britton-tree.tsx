@@ -459,13 +459,11 @@ function BrittonTree() {
           <div className="text-sm font-semibold">{focus.name}</div>
           {focus.details.map((d, i) => (
             <div key={i} className="opacity-80">{d}</div>
-          ))}
-        </div>
       </div>
+    </main>
+  );
+}
 
-      <footer className="border-t border-foreground/10 px-4 py-2 text-[10px] opacity-60">
-        {HEADER.slice(2).join("  ·  ")}
-      </footer>
     </main>
   );
 }
