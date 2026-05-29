@@ -259,44 +259,24 @@ function BrittonTree() {
     const p = px(target);
     const vw = el.clientWidth;
     const vh = el.clientHeight;
-    setTx(vw / 2 - p.x * nextScale);
-    setTy(vh / 2 - p.y * nextScale);
-  }, [px]);
-
-  useEffect(() => { centerOn(focusId); }, [focusId, centerOn]);
-  useEffect(() => { centerOn(focusId); }, [orientation]); // eslint-disable-line react-hooks/exhaustive-deps
-
   useEffect(() => {
+    // Both orientations are now horizontal-style trees; isH places root on the right,
+    // !isH places root on the left. Left/Right traverse generations, Up/Down traverse siblings.
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        if (isH) {
-          if (siblingIndex > 0) setFocusId(siblingIds[siblingIndex - 1]);
-        } else {
-          if (parentIds.length > 0) setFocusId(parentIds[0]);
-        }
-      } else if (e.key === "ArrowDown") {
-        e.preventDefault();
-        if (isH) {
-          if (siblingIndex < siblingIds.length - 1) setFocusId(siblingIds[siblingIndex + 1]);
-        } else {
-          if (childIds.length > 0) setFocusId(childIds[0]);
-        }
-      } else if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        if (isH) {
-          if (childIds.length > 0) setFocusId(childIds[0]);
-        } else {
-          if (siblingIndex > 0) setFocusId(siblingIds[siblingIndex - 1]);
-        }
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        if (isH) {
-          if (parentIds.length > 0) setFocusId(parentIds[0]);
-        } else {
-          if (siblingIndex < siblingIds.length - 1) setFocusId(siblingIds[siblingIndex + 1]);
-        }
-      } else if (e.key === "Home") {
+      const toParent = () => parentIds.length > 0 && setFocusId(parentIds[0]);
+      const toChild = () => childIds.length > 0 && setFocusId(childIds[0]);
+      const toPrev = () => siblingIndex > 0 && setFocusId(siblingIds[siblingIndex - 1]);
+      const toNext = () => siblingIndex < siblingIds.length - 1 && setFocusId(siblingIds[siblingIndex + 1]);
+      if (e.key === "ArrowUp") { e.preventDefault(); toPrev(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); toNext(); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); isH ? toChild() : toParent(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); isH ? toParent() : toChild(); }
+      else if (e.key === "Home") { e.preventDefault(); setFocusId(ROOT_ID); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [parentIds, childIds, siblingIds, siblingIndex, isH]);
+
         e.preventDefault();
         setFocusId(ROOT_ID);
       }
