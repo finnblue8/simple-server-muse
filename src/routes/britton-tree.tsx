@@ -508,7 +508,7 @@ function BrittonTree() {
             );
           })}
 
-          {!isH && KIT_LABELS.map((label, i) => (
+          {false && KIT_LABELS.map((label, i) => (
             <div
               key={`kit-label-${i}`}
               style={{
