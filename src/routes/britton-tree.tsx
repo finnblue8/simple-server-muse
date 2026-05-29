@@ -386,9 +386,9 @@ function BrittonTree() {
                         : "border-[#cbbfa4] bg-[#fffdf7] text-[#2b2b2b] hover:bg-[#f3ecdc]",
                 ].join(" ")}
               >
-                <div className="truncate text-[11px] font-semibold leading-tight">{p.name}</div>
+                <div className="whitespace-normal break-words text-[11px] font-semibold leading-tight">{p.name}</div>
                 {p.details.slice(0, 3).map((d, i) => (
-                  <div key={i} className="truncate text-[9px] leading-tight opacity-80">{d}</div>
+                  <div key={i} className="whitespace-normal break-words text-[9px] leading-tight opacity-80">{d}</div>
                 ))}
               </button>
             );
