@@ -53,7 +53,7 @@ const NOTE_BLOCKS: NoteBlock[] = (() => {
 })();
 
 // People ids whose lineage is on the Y-DNA tested branch (rendered in blue).
-const YDNA_IDS = new Set<number>([8, 10, 14, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
+const YDNA_IDS = new Set<number>([0, 8, 10, 14, 15, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
 
 // Dashed/dotted overlay lines from the original SVG.
 // `kind: "ydna"` = teal dashed connector for Y-DNA lineage links (e.g. William
@@ -90,6 +90,15 @@ const DASHED: Dash[] = [
 type KitLabel = { x: number; y: number; w: number; h: number; lines: string[] };
 const KIT_LABELS: KitLabel[] = [
   { x: 1588.490575, y: 998.914722, w: 104.796, h: 20.071, lines: ["Suspected patriarch of the", "William Ira Britton line, USA"] },
+  { x: 633.674842, y: 623.789424, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 1047.488209, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 5599.435250, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 909.550420, y: 763.568449, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 9325.158524, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9187.220735, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 359.202232, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9601.034102, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9876.909681, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
   { x: 8359.587157, y: 1135.496638, w: 78.420, h: 18.889, lines: ["Kit 561092 line", "(West Down branch)"] },
   { x: 1328.767498, y: 1228.478685, w: 70.405, h: 10.715, lines: ["Line of Kit 118335"] },
   { x: 2290.524616, y: 1228.478685, w: 78.020, h: 10.715, lines: ["Line of Kit IN134085"] },
@@ -109,7 +118,7 @@ const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 const SCALE_X = 1.25;
 const SCALE_Y = 1.3;
 const CARD_W = 150;
-const CARD_H = 96;
+const CARD_H = 104;
 const PAD_X = 80;
 const PAD_Y = 40;
 const SVG_MAX_X = Math.max(...ALL.map((p) => p.cx)) + 100;
