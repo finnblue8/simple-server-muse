@@ -145,6 +145,8 @@ function BrittonTree() {
   const [ty, setTy] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
+  const txRef = useRef(tx);
+  const tyRef = useRef(ty);
   const dragging = useRef<{ x: number; y: number; moved: boolean } | null>(null);
 
   const focus = BY_ID.get(focusId)!;
@@ -163,6 +165,14 @@ function BrittonTree() {
   useEffect(() => {
     scaleRef.current = scale;
   }, [scale]);
+
+  useEffect(() => {
+    txRef.current = tx;
+  }, [tx]);
+
+  useEffect(() => {
+    tyRef.current = ty;
+  }, [ty]);
 
   // Center focused person in viewport
   const centerOn = useCallback((id: number, nextScale = scaleRef.current) => {
