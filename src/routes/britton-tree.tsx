@@ -225,8 +225,9 @@ function BrittonTree() {
   const T = themeName === "dark" ? DARK : LIGHT;
   const isH = orientation === "horizontal";
   const px = isH ? pxH : pxV;
-  const canvasW = isH ? CANVAS_W_H : CANVAS_W;
-  const canvasH = isH ? CANVAS_H_H : CANVAS_H;
+  const canvasW = isH ? CANVAS_W_H : CANVAS_W_V;
+  const canvasH = isH ? CANVAS_H_H : CANVAS_H_V;
+
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
