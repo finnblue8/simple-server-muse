@@ -457,7 +457,6 @@ function BrittonTree() {
           </div>
         </div>
 
-        </div>
 
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
