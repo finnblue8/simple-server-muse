@@ -432,7 +432,18 @@ function BrittonTree() {
               ))}
             </div>
           ))}
+
+          {/* Top-left header info (from original SVG) */}
+          <div
+            style={{ position: "absolute", left: 20, top: 20, width: 520 }}
+            className="pointer-events-none text-[11px] leading-snug text-[#2b2b2b]"
+          >
+            {HEADER.slice(2).map((line, i) => (
+              <div key={i} className="mb-1">{line}</div>
+            ))}
+          </div>
         </div>
+
 
 
         {/* Zoom controls */}
