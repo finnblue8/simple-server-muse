@@ -450,7 +450,7 @@ function BrittonTree() {
                 strokeLinecap="square"
               />
             ))}
-            {!isH && DASHED.map((d, i) => {
+            {false && DASHED.map((d, i) => {
               const x1 = svgToLocalX(d.x1);
               const x2 = svgToLocalX(d.x2);
               const y1 = svgToLocalY(d.y1);
