@@ -555,13 +555,14 @@ function BrittonTree() {
                 position: "absolute",
                 left: b.x * SCALE_X + PAD_X - CARD_W / 2,
                 top: b.y * SCALE_Y + PAD_Y - 8,
-                width: 280,
+                width: 320,
                 color: T.noteText,
               }}
               className={[
                 "pointer-events-none leading-snug italic",
-                b.x < 2700 && b.y > 1200 ? "text-[13px]" : "text-[10px]",
+                b.x < 2700 && b.y > 1200 ? "text-[15px]" : "text-[10px]",
               ].join(" ")}
+
             >
               {b.lines.map((l, j) => (
                 <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
