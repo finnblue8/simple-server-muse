@@ -307,12 +307,12 @@ function BrittonTree() {
             })}
 
           </svg>
-
           {/* People cards */}
           {PEOPLE.map((p) => {
             const pos = px(p);
             const isFocus = p.id === focusId;
             const isRelated = parentIds.includes(p.id) || childIds.includes(p.id);
+            const isYdna = YDNA_IDS.has(p.id);
             return (
               <button
                 key={p.id}
@@ -325,12 +325,24 @@ function BrittonTree() {
                   height: CARD_H,
                 }}
                 className={[
-                  "overflow-hidden rounded-sm border px-2 py-1 text-left transition-colors",
+                  "overflow-hidden rounded-sm border-2 px-2 py-1 text-left transition-colors",
                   isFocus
                     ? "border-[#2b2b2b] bg-[#2b2b2b] text-[#fffdf7] shadow-md z-10"
-                    : isRelated
-                      ? "border-[#5a5142] bg-[#f3ecdc] text-[#2b2b2b] hover:bg-[#ece2cb]"
-                      : "border-[#cbbfa4] bg-[#fffdf7] text-[#2b2b2b] hover:bg-[#f3ecdc]",
+                    : isYdna
+                      ? "border-[#2f5d62] bg-[#e8eef0] text-[#2b2b2b] hover:bg-[#d8e4e8]"
+                      : isRelated
+                        ? "border-[#5a5142] bg-[#f3ecdc] text-[#2b2b2b] hover:bg-[#ece2cb]"
+                        : "border-[#cbbfa4] bg-[#fffdf7] text-[#2b2b2b] hover:bg-[#f3ecdc]",
+                ].join(" ")}
+              >
+                <div className="truncate text-[11px] font-semibold leading-tight">{p.name}</div>
+                {p.details.slice(0, 3).map((d, i) => (
+                  <div key={i} className="truncate text-[9px] leading-tight opacity-80">{d}</div>
+                ))}
+              </button>
+            );
+          })}
+
                 ].join(" ")}
               >
                 <div className="truncate text-[11px] font-semibold leading-tight">{p.name}</div>
