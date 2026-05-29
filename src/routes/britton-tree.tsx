@@ -527,7 +527,7 @@ function BrittonTree() {
             </div>
           ))}
 
-          {!isH && NOTE_BLOCKS.map((b, i) => (
+          {false && NOTE_BLOCKS.map((b, i) => (
             <div
               key={`note-${i}`}
               style={{
