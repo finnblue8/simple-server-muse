@@ -444,8 +444,6 @@ function BrittonTree() {
           </div>
         </div>
 
-
-
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
           <button onClick={() => zoomFromCenter(0.8)} className="px-2 text-sm hover:opacity-70">−</button>
@@ -459,11 +457,10 @@ function BrittonTree() {
           <div className="text-sm font-semibold">{focus.name}</div>
           {focus.details.map((d, i) => (
             <div key={i} className="opacity-80">{d}</div>
+          ))}
+        </div>
       </div>
     </main>
   );
 }
 
-    </main>
-  );
-}
