@@ -109,7 +109,7 @@ function BrittonTree() {
     setTy(vh / 2 - p.y * scale);
   }, [scale]);
 
-  }, [scale]);
+
 
   useEffect(() => { centerOn(focusId); }, [focusId, centerOn]);
 
