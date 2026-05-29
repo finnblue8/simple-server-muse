@@ -179,21 +179,23 @@ function BrittonTree() {
       const pp = px(p);
       const pBot = pp.y + CARD_H / 2;
       // Determine mid Y between parent gen and child gen
-      const childGen = PEOPLE[p.children[0]].gen;
+      const childGen = BY_ID.get(p.children[0])!.gen;
       const midY = (BANDS_Y[p.gen] * SCALE_Y + PAD_Y + CARD_H / 2 + BANDS_Y[childGen] * SCALE_Y + PAD_Y - CARD_H / 2) / 2;
       const highlight = p.id === focusId || p.children.includes(focusId);
       // Parent stub
       paths.push({ d: `M ${pp.x} ${pBot} L ${pp.x} ${midY}`, highlight });
       // Horizontal across children + drops
-      const xs = p.children.map((cid) => px(PEOPLE[cid]).x);
+      const xs = p.children.map((cid) => px(BY_ID.get(cid)!).x);
       if (xs.length > 1) {
         paths.push({ d: `M ${Math.min(...xs, pp.x)} ${midY} L ${Math.max(...xs, pp.x)} ${midY}`, highlight });
       } else if (xs[0] !== pp.x) {
         paths.push({ d: `M ${pp.x} ${midY} L ${xs[0]} ${midY}`, highlight });
       }
       for (const cid of p.children) {
-        const cp = px(PEOPLE[cid]);
+        const cp = px(BY_ID.get(cid)!);
         paths.push({ d: `M ${cp.x} ${midY} L ${cp.x} ${cp.y - CARD_H / 2}`, highlight: highlight || cid === focusId });
+      }
+
       }
     }
     return paths;
