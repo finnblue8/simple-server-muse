@@ -357,20 +357,22 @@ function BrittonTree() {
           paths.push({ d: `M ${midX} ${c.pos.y} L ${c.pos.x + CARD_W / 2} ${c.pos.y}`, highlight: highlight || c.id === focusId });
         }
       } else {
-        const pBot = pp.y + CARD_H / 2;
-        const childGen = BY_ID.get(p.children[0])!.gen;
-        const midY = (BANDS_Y[p.gen] * SCALE_Y + PAD_Y + CARD_H / 2 + BANDS_Y[childGen] * SCALE_Y + PAD_Y - CARD_H / 2) / 2;
-        paths.push({ d: `M ${pp.x} ${pBot} L ${pp.x} ${midY}`, highlight });
-        const xs = cps.map((c) => c.pos.x);
-        if (xs.length > 1) {
-          paths.push({ d: `M ${Math.min(...xs, pp.x)} ${midY} L ${Math.max(...xs, pp.x)} ${midY}`, highlight });
-        } else if (xs[0] !== pp.x) {
-          paths.push({ d: `M ${pp.x} ${midY} L ${xs[0]} ${midY}`, highlight });
+        // Parent on the LEFT side of canvas; children to the RIGHT
+        const pRight = pp.x + CARD_W / 2;
+        const cLeft = cps[0].pos.x - CARD_W / 2;
+        const midX = (pRight + cLeft) / 2;
+        paths.push({ d: `M ${pRight} ${pp.y} L ${midX} ${pp.y}`, highlight });
+        const ys = cps.map((c) => c.pos.y);
+        if (ys.length > 1) {
+          paths.push({ d: `M ${midX} ${Math.min(...ys, pp.y)} L ${midX} ${Math.max(...ys, pp.y)}`, highlight });
+        } else if (ys[0] !== pp.y) {
+          paths.push({ d: `M ${midX} ${pp.y} L ${midX} ${ys[0]}`, highlight });
         }
         for (const c of cps) {
-          paths.push({ d: `M ${c.pos.x} ${midY} L ${c.pos.x} ${c.pos.y - CARD_H / 2}`, highlight: highlight || c.id === focusId });
+          paths.push({ d: `M ${midX} ${c.pos.y} L ${c.pos.x - CARD_W / 2} ${c.pos.y}`, highlight: highlight || c.id === focusId });
         }
       }
+
     }
     return paths;
   }, [focusId, isH, px]);
