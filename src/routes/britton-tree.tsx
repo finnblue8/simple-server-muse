@@ -343,15 +343,6 @@ function BrittonTree() {
             );
           })}
 
-                ].join(" ")}
-              >
-                <div className="truncate text-[11px] font-semibold leading-tight">{p.name}</div>
-                {p.details.slice(0, 3).map((d, i) => (
-                  <div key={i} className="truncate text-[9px] leading-tight opacity-80">{d}</div>
-                ))}
-              </button>
-            );
-          })}
 
           {/* Marginal notes — plain text from the original SVG */}
           {NOTE_BLOCKS.map((b, i) => (
