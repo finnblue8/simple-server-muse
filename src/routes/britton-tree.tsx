@@ -443,24 +443,40 @@ function BrittonTree() {
                 strokeLinecap="square"
               />
             ))}
-            {!isH && DASHED.map((d, i) => {
-              const x1 = svgToLocalX(d.x1);
-              const x2 = svgToLocalX(d.x2);
-              const y1 = svgToLocalY(d.y1);
-              const y2 = svgToLocalY(d.y2);
-              const stroke =
-                d.kind === "ydna" ? T.ydnaBorder : d.kind === "mrca" ? "#8a5a2a" : "#8a7a5a";
-              const dashArray = d.kind === "kit" ? "3,3" : "5,3";
+            {!isH && VERT_LABELS.map((lbl, i) => {
+              const p = BY_ID.get(lbl.personId);
+              if (!p) return null;
+              const pos = px(p);
+              const gap = 28;
+              const isBelow = lbl.position === "below";
+              const y1 = isBelow ? pos.y + CARD_H / 2 : pos.y - CARD_H / 2 - gap;
+              const y2 = isBelow ? pos.y + CARD_H / 2 + gap : pos.y - CARD_H / 2;
+              const stroke = lbl.kind === "mrca" ? "#a86a32" : T.ydnaBorder;
               return (
                 <line
-                  key={`dash-${i}`}
-                  x1={x1} y1={y1} x2={x2} y2={y2}
-                  stroke={stroke}
-                  strokeWidth={d.kind === "kit" ? 1.2 : 1.4}
-                  strokeDasharray={dashArray}
+                  key={`vl-${i}`}
+                  x1={pos.x} y1={y1} x2={pos.x} y2={y2}
+                  stroke={stroke} strokeWidth={1.4} strokeDasharray="5,3"
                 />
               );
             })}
+            {!isH && (() => {
+              const a = BY_ID.get(58);
+              const b = BY_ID.get(125);
+              if (!a || !b) return null;
+              const ap = px(a);
+              const bp = px(b);
+              const yA = ap.y + CARD_H / 2;
+              const yB = bp.y - CARD_H / 2;
+              const midY = (BANDS_Y[9] * SCALE_Y + PAD_Y + BANDS_Y[10] * SCALE_Y + PAD_Y) / 2 + 60;
+              return (
+                <path
+                  d={`M ${ap.x} ${yA} L ${ap.x} ${midY} L ${bp.x} ${midY} L ${bp.x} ${yB}`}
+                  fill="none" stroke={T.ydnaBorder} strokeWidth={1.2} strokeDasharray="3,3"
+                />
+              );
+            })()}
+
           </svg>
 
           {PEOPLE.map((p) => {
