@@ -111,31 +111,25 @@ const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 
 const BY_ID = new Map<number, Person>(ALL.map((p) => [p.id, p]));
 
-// Vertical view (flipped): root on LEFT, generations advance to the RIGHT, siblings stack top↓bottom by cx
-const V_GEN_SCALE = 0.7;
-const V_SIB_SCALE = 0.9;
+// Vertical layout: gens stacked top→bottom (ancestors top), siblings left→right by cx
 function pxV(p: Person) {
   return {
-    x: (BANDS_Y[p.gen] ?? p.y) * V_GEN_SCALE + PAD_X + CARD_W / 2,
-    y: p.cx * V_SIB_SCALE + PAD_Y,
+    x: p.cx * SCALE_X + PAD_X,
+    y: (BANDS_Y[p.gen] ?? p.y) * SCALE_Y + PAD_Y,
   };
 }
-const CANVAS_W_V = BANDS_Y[BANDS_Y.length - 1] * V_GEN_SCALE + PAD_X * 2 + CARD_W;
-const CANVAS_H_V = SVG_MAX_X * V_SIB_SCALE + PAD_Y * 2 + CARD_H;
 
-// Horizontal view: root on RIGHT, generations advance to the LEFT, siblings stack top↓bottom by cx
-const H_GEN_SCALE = 0.7;
-const H_SIB_SCALE = 0.9;
+// Horizontal layout: gens stacked left→right (ancestors right), siblings top→bottom
+const H_COL_W = 220;
 const H_MAX_BAND = BANDS_Y[BANDS_Y.length - 1];
 function pxH(p: Person) {
   return {
-    x: (H_MAX_BAND - (BANDS_Y[p.gen] ?? p.y)) * H_GEN_SCALE + PAD_X + CARD_W / 2,
-    y: p.cx * H_SIB_SCALE + PAD_Y,
+    x: (BANDS_Y[BANDS_Y.length - 1] - (BANDS_Y[p.gen] ?? p.y)) * 0.6 + PAD_X,
+    y: p.cx * 0.35 + PAD_Y,
   };
 }
-const CANVAS_W_H = H_MAX_BAND * H_GEN_SCALE + PAD_X * 2 + CARD_W;
-const CANVAS_H_H = SVG_MAX_X * H_SIB_SCALE + PAD_Y * 2 + CARD_H;
-
+const CANVAS_W_H = H_MAX_BAND * 0.6 + PAD_X * 2 + CARD_W;
+const CANVAS_H_H = SVG_MAX_X * 0.35 + PAD_Y * 2 + CARD_H;
 
 const ROOT_ID = PEOPLE.find((p) => p.gen === 0)?.id ?? 0;
 const clamp = (s: number) => Math.max(0.3, Math.min(4, s));
@@ -225,9 +219,8 @@ function BrittonTree() {
   const T = themeName === "dark" ? DARK : LIGHT;
   const isH = orientation === "horizontal";
   const px = isH ? pxH : pxV;
-  const canvasW = isH ? CANVAS_W_H : CANVAS_W_V;
-  const canvasH = isH ? CANVAS_H_H : CANVAS_H_V;
-
+  const canvasW = isH ? CANVAS_W_H : CANVAS_W;
+  const canvasH = isH ? CANVAS_H_H : CANVAS_H;
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
@@ -267,23 +260,43 @@ function BrittonTree() {
   useEffect(() => { centerOn(focusId); }, [orientation]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    // Both orientations are horizontal-style trees: isH places root on the right,
-    // !isH places root on the left. Left/Right traverse generations, Up/Down traverse siblings.
     const onKey = (e: KeyboardEvent) => {
-      const toParent = () => parentIds.length > 0 && setFocusId(parentIds[0]);
-      const toChild = () => childIds.length > 0 && setFocusId(childIds[0]);
-      const toPrev = () => siblingIndex > 0 && setFocusId(siblingIds[siblingIndex - 1]);
-      const toNext = () => siblingIndex < siblingIds.length - 1 && setFocusId(siblingIds[siblingIndex + 1]);
-      if (e.key === "ArrowUp") { e.preventDefault(); toPrev(); }
-      else if (e.key === "ArrowDown") { e.preventDefault(); toNext(); }
-      else if (e.key === "ArrowLeft") { e.preventDefault(); isH ? toChild() : toParent(); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); isH ? toParent() : toChild(); }
-      else if (e.key === "Home") { e.preventDefault(); setFocusId(ROOT_ID); }
+      if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (isH) {
+          if (siblingIndex > 0) setFocusId(siblingIds[siblingIndex - 1]);
+        } else {
+          if (parentIds.length > 0) setFocusId(parentIds[0]);
+        }
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (isH) {
+          if (siblingIndex < siblingIds.length - 1) setFocusId(siblingIds[siblingIndex + 1]);
+        } else {
+          if (childIds.length > 0) setFocusId(childIds[0]);
+        }
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        if (isH) {
+          if (childIds.length > 0) setFocusId(childIds[0]);
+        } else {
+          if (siblingIndex > 0) setFocusId(siblingIds[siblingIndex - 1]);
+        }
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        if (isH) {
+          if (parentIds.length > 0) setFocusId(parentIds[0]);
+        } else {
+          if (siblingIndex < siblingIds.length - 1) setFocusId(siblingIds[siblingIndex + 1]);
+        }
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        setFocusId(ROOT_ID);
+      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [parentIds, childIds, siblingIds, siblingIndex, isH]);
-
 
   const zoomFromViewportPoint = (ox: number, oy: number, factor: number) => {
     const currentScale = scaleRef.current;
@@ -357,22 +370,20 @@ function BrittonTree() {
           paths.push({ d: `M ${midX} ${c.pos.y} L ${c.pos.x + CARD_W / 2} ${c.pos.y}`, highlight: highlight || c.id === focusId });
         }
       } else {
-        // Parent on the LEFT side of canvas; children to the RIGHT
-        const pRight = pp.x + CARD_W / 2;
-        const cLeft = cps[0].pos.x - CARD_W / 2;
-        const midX = (pRight + cLeft) / 2;
-        paths.push({ d: `M ${pRight} ${pp.y} L ${midX} ${pp.y}`, highlight });
-        const ys = cps.map((c) => c.pos.y);
-        if (ys.length > 1) {
-          paths.push({ d: `M ${midX} ${Math.min(...ys, pp.y)} L ${midX} ${Math.max(...ys, pp.y)}`, highlight });
-        } else if (ys[0] !== pp.y) {
-          paths.push({ d: `M ${midX} ${pp.y} L ${midX} ${ys[0]}`, highlight });
+        const pBot = pp.y + CARD_H / 2;
+        const childGen = BY_ID.get(p.children[0])!.gen;
+        const midY = (BANDS_Y[p.gen] * SCALE_Y + PAD_Y + CARD_H / 2 + BANDS_Y[childGen] * SCALE_Y + PAD_Y - CARD_H / 2) / 2;
+        paths.push({ d: `M ${pp.x} ${pBot} L ${pp.x} ${midY}`, highlight });
+        const xs = cps.map((c) => c.pos.x);
+        if (xs.length > 1) {
+          paths.push({ d: `M ${Math.min(...xs, pp.x)} ${midY} L ${Math.max(...xs, pp.x)} ${midY}`, highlight });
+        } else if (xs[0] !== pp.x) {
+          paths.push({ d: `M ${pp.x} ${midY} L ${xs[0]} ${midY}`, highlight });
         }
         for (const c of cps) {
-          paths.push({ d: `M ${midX} ${c.pos.y} L ${c.pos.x - CARD_W / 2} ${c.pos.y}`, highlight: highlight || c.id === focusId });
+          paths.push({ d: `M ${c.pos.x} ${midY} L ${c.pos.x} ${c.pos.y - CARD_H / 2}`, highlight: highlight || c.id === focusId });
         }
       }
-
     }
     return paths;
   }, [focusId, isH, px]);
@@ -450,7 +461,7 @@ function BrittonTree() {
                 strokeLinecap="square"
               />
             ))}
-            {false && DASHED.map((d, i) => {
+            {!isH && DASHED.map((d, i) => {
               const x1 = svgToLocalX(d.x1);
               const x2 = svgToLocalX(d.x2);
               const y1 = svgToLocalY(d.y1);
@@ -508,7 +519,7 @@ function BrittonTree() {
             );
           })}
 
-          {false && KIT_LABELS.map((label, i) => (
+          {!isH && KIT_LABELS.map((label, i) => (
             <div
               key={`kit-label-${i}`}
               style={{
@@ -527,7 +538,7 @@ function BrittonTree() {
             </div>
           ))}
 
-          {false && NOTE_BLOCKS.map((b, i) => (
+          {!isH && NOTE_BLOCKS.map((b, i) => (
             <div
               key={`note-${i}`}
               style={{
