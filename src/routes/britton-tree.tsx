@@ -433,16 +433,30 @@ function BrittonTree() {
             </div>
           ))}
 
-          {/* Top-left header info (from original SVG) */}
+          {/* Top-left header info (mirrors original SVG layout) */}
           <div
-            style={{ position: "absolute", left: 20, top: 20, width: 520 }}
-            className="pointer-events-none text-[11px] leading-snug text-[#2b2b2b]"
+            style={{ position: "absolute", left: 40, top: 40, width: 1100 }}
+            className="pointer-events-none text-[#2b2b2b]"
           >
-            {HEADER.slice(2).map((line, i) => (
-              <div key={i} className="mb-1">{line}</div>
-            ))}
+            <h2 className="text-[28px] font-bold leading-tight">{HEADER[0]}</h2>
+            <div className="mt-2 text-[15px] italic text-[#3a3a3a]">{HEADER[1]}</div>
+            <div className="mt-4 text-[14px]">{HEADER[2]}</div>
+            <div className="text-[14px]">{HEADER[3]}</div>
+            <div className="mt-1 text-[12px] text-[#5a5142]">{HEADER[4]}</div>
+            <div className="mt-3 flex items-center gap-2 text-[12px]">
+              <span className="inline-block h-3 w-3 border border-[#8a5a2a] bg-[#f3ecdc]" />
+              <span>{HEADER[5]}</span>
+            </div>
+            <div className="mt-1 flex items-center gap-2 text-[12px]">
+              <span className="inline-block h-3 w-3 border border-[#2f5d62] bg-[#e8eef0]" />
+              <span>{HEADER[6]}</span>
+            </div>
+            <div className="mt-3 text-[12px] italic text-[#5a5142]">{HEADER[7]}</div>
+            <div className="text-[12px] italic text-[#5a5142]">{HEADER[8]}</div>
+            <div className="text-[12px] italic text-[#5a5142]">{HEADER[9]}</div>
           </div>
         </div>
+
 
         {/* Zoom controls */}
         <div className="absolute right-4 top-4 z-20 flex items-center gap-1 rounded-md border border-foreground/20 bg-background/90 px-2 py-1 backdrop-blur">
