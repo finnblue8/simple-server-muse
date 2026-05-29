@@ -53,7 +53,7 @@ const NOTE_BLOCKS: NoteBlock[] = (() => {
 })();
 
 // People ids whose lineage is on the Y-DNA tested branch (rendered in blue).
-const YDNA_IDS = new Set<number>([8, 10, 14, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
+const YDNA_IDS = new Set<number>([0, 8, 10, 14, 15, 17, 18, 22, 23, 29, 33, 58, 75, 77, 84, 130, 134]);
 
 // Dashed/dotted overlay lines from the original SVG.
 // `kind: "ydna"` = teal dashed connector for Y-DNA lineage links (e.g. William
@@ -90,6 +90,15 @@ const DASHED: Dash[] = [
 type KitLabel = { x: number; y: number; w: number; h: number; lines: string[] };
 const KIT_LABELS: KitLabel[] = [
   { x: 1588.490575, y: 998.914722, w: 104.796, h: 20.071, lines: ["Suspected patriarch of the", "William Ira Britton line, USA"] },
+  { x: 633.674842, y: 623.789424, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 1047.488209, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 5599.435250, y: 856.550496, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 909.550420, y: 763.568449, w: 81.212, h: 18.889, lines: ["Likely origin point for", "A.H. Britton branch"] },
+  { x: 9325.158524, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9187.220735, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 359.202232, y: 670.586402, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9601.034102, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
+  { x: 9876.909681, y: 577.604354, w: 78.407, h: 18.889, lines: ["Possible origin point", "for Raynham branch"] },
   { x: 8359.587157, y: 1135.496638, w: 78.420, h: 18.889, lines: ["Kit 561092 line", "(West Down branch)"] },
   { x: 1328.767498, y: 1228.478685, w: 70.405, h: 10.715, lines: ["Line of Kit 118335"] },
   { x: 2290.524616, y: 1228.478685, w: 78.020, h: 10.715, lines: ["Line of Kit IN134085"] },
@@ -109,7 +118,7 @@ const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 const SCALE_X = 1.25;
 const SCALE_Y = 1.3;
 const CARD_W = 150;
-const CARD_H = 96;
+const CARD_H = 104;
 const PAD_X = 80;
 const PAD_Y = 40;
 const SVG_MAX_X = Math.max(...ALL.map((p) => p.cx)) + 100;
@@ -136,6 +145,8 @@ function BrittonTree() {
   const [ty, setTy] = useState(0);
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
+  const txRef = useRef(tx);
+  const tyRef = useRef(ty);
   const dragging = useRef<{ x: number; y: number; moved: boolean } | null>(null);
 
   const focus = BY_ID.get(focusId)!;
@@ -154,6 +165,14 @@ function BrittonTree() {
   useEffect(() => {
     scaleRef.current = scale;
   }, [scale]);
+
+  useEffect(() => {
+    txRef.current = tx;
+  }, [tx]);
+
+  useEffect(() => {
+    tyRef.current = ty;
+  }, [ty]);
 
   // Center focused person in viewport
   const centerOn = useCallback((id: number, nextScale = scaleRef.current) => {
@@ -205,26 +224,24 @@ function BrittonTree() {
       const ox = e.clientX - rect.left;
       const oy = e.clientY - rect.top;
       const factor = e.deltaY < 0 ? 1.1 : 0.9;
-      setScale((s) => {
-        const ns = clamp(s * factor);
-        const r = ns / s;
-        setTx((t) => ox - (ox - t) * r);
-        setTy((t) => oy - (oy - t) * r);
-        return ns;
-      });
+      zoomFromViewportPoint(ox, oy, factor);
     };
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
   const zoomFromViewportPoint = (ox: number, oy: number, factor: number) => {
-    setScale((s) => {
-      const ns = clamp(s * factor);
-      const r = ns / s;
-      setTx((t) => ox - (ox - t) * r);
-      setTy((t) => oy - (oy - t) * r);
-      return ns;
-    });
+    const currentScale = scaleRef.current;
+    const nextScale = clamp(currentScale * factor);
+    const ratio = nextScale / currentScale;
+    const nextTx = ox - (ox - txRef.current) * ratio;
+    const nextTy = oy - (oy - tyRef.current) * ratio;
+    scaleRef.current = nextScale;
+    txRef.current = nextTx;
+    tyRef.current = nextTy;
+    setScale(nextScale);
+    setTx(nextTx);
+    setTy(nextTy);
   };
 
   const zoomFromCenter = (factor: number) => {
@@ -369,9 +386,9 @@ function BrittonTree() {
                         : "border-[#cbbfa4] bg-[#fffdf7] text-[#2b2b2b] hover:bg-[#f3ecdc]",
                 ].join(" ")}
               >
-                <div className="truncate text-[11px] font-semibold leading-tight">{p.name}</div>
+                <div className="whitespace-normal break-words text-[11px] font-semibold leading-tight">{p.name}</div>
                 {p.details.slice(0, 3).map((d, i) => (
-                  <div key={i} className="truncate text-[9px] leading-tight opacity-80">{d}</div>
+                  <div key={i} className="whitespace-normal break-words text-[9px] leading-tight opacity-80">{d}</div>
                 ))}
               </button>
             );
@@ -388,7 +405,7 @@ function BrittonTree() {
                 width: label.w * SCALE_X,
                 minHeight: label.h * SCALE_Y,
               }}
-              className="pointer-events-none rounded-sm border border-[#2f5d62] bg-[#fffdf7] px-1 py-0.5 text-center text-[9px] italic leading-tight text-[#2f5d62]"
+              className="pointer-events-none rounded-sm border border-[#2f5d62] bg-[#fffdf7] px-1 py-0.5 text-center text-[10px] italic leading-tight text-[#2f5d62]"
             >
               {label.lines.map((line) => <div key={line}>{line}</div>)}
             </div>
@@ -405,7 +422,10 @@ function BrittonTree() {
                 top: b.y * SCALE_Y + PAD_Y - 8,
                 width: 280,
               }}
-              className="pointer-events-none text-[10px] leading-snug text-[#5a5142] italic"
+              className={[
+                "pointer-events-none leading-snug text-[#5a5142] italic",
+                b.x < 2700 && b.y > 1200 ? "text-[13px]" : "text-[10px]",
+              ].join(" ")}
             >
               {b.lines.map((l, j) => (
                 <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
