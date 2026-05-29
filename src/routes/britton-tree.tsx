@@ -111,25 +111,31 @@ const svgToLocalY = (y: number) => y * SCALE_Y + PAD_Y;
 
 const BY_ID = new Map<number, Person>(ALL.map((p) => [p.id, p]));
 
-// Vertical layout: gens stacked top→bottom (ancestors top), siblings left→right by cx
+// Vertical view (flipped): root on LEFT, generations advance to the RIGHT, siblings stack top↓bottom by cx
+const V_GEN_SCALE = 0.7;
+const V_SIB_SCALE = 0.9;
 function pxV(p: Person) {
   return {
-    x: p.cx * SCALE_X + PAD_X,
-    y: (BANDS_Y[p.gen] ?? p.y) * SCALE_Y + PAD_Y,
+    x: (BANDS_Y[p.gen] ?? p.y) * V_GEN_SCALE + PAD_X + CARD_W / 2,
+    y: p.cx * V_SIB_SCALE + PAD_Y,
   };
 }
+const CANVAS_W_V = BANDS_Y[BANDS_Y.length - 1] * V_GEN_SCALE + PAD_X * 2 + CARD_W;
+const CANVAS_H_V = SVG_MAX_X * V_SIB_SCALE + PAD_Y * 2 + CARD_H;
 
-// Horizontal layout: gens stacked left→right (ancestors right), siblings top→bottom
-const H_COL_W = 220;
+// Horizontal view: root on RIGHT, generations advance to the LEFT, siblings stack top↓bottom by cx
+const H_GEN_SCALE = 0.7;
+const H_SIB_SCALE = 0.9;
 const H_MAX_BAND = BANDS_Y[BANDS_Y.length - 1];
 function pxH(p: Person) {
   return {
-    x: (BANDS_Y[BANDS_Y.length - 1] - (BANDS_Y[p.gen] ?? p.y)) * 0.6 + PAD_X,
-    y: p.cx * 0.35 + PAD_Y,
+    x: (H_MAX_BAND - (BANDS_Y[p.gen] ?? p.y)) * H_GEN_SCALE + PAD_X + CARD_W / 2,
+    y: p.cx * H_SIB_SCALE + PAD_Y,
   };
 }
-const CANVAS_W_H = H_MAX_BAND * 0.6 + PAD_X * 2 + CARD_W;
-const CANVAS_H_H = SVG_MAX_X * 0.35 + PAD_Y * 2 + CARD_H;
+const CANVAS_W_H = H_MAX_BAND * H_GEN_SCALE + PAD_X * 2 + CARD_W;
+const CANVAS_H_H = SVG_MAX_X * H_SIB_SCALE + PAD_Y * 2 + CARD_H;
+
 
 const ROOT_ID = PEOPLE.find((p) => p.gen === 0)?.id ?? 0;
 const clamp = (s: number) => Math.max(0.3, Math.min(4, s));
