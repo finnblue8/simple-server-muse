@@ -824,6 +824,56 @@ function LeafletMap({
         </>
       )}
 
+      {showErieCanal && (() => {
+        const node2 = SETTLEMENTS.find((x) => x.id === 2)!;
+        const highlight = selected?.id === 2;
+        const color = highlight ? "#10b981" : "#059669";
+        const arrowIcon = L.divIcon({
+          className: "britton-england-arrow",
+          html: `<div style="
+            display:flex;align-items:center;justify-content:center;
+            width:20px;height:20px;border-radius:9999px;
+            background:${color};color:white;font-weight:700;font-size:13px;line-height:1;
+            border:2px solid #064e3b;
+            box-shadow:0 0 0 3px rgba(16,185,129,0.25);
+            font-family:ui-sans-serif,system-ui,sans-serif;
+          ">➤</div>`,
+          iconSize: [20, 20],
+          iconAnchor: [10, 10],
+        });
+        return (
+          <>
+            {ENGLAND_MIGRATION_PATHS.map((path) => {
+              const end = path.waypoints[path.waypoints.length - 1];
+              return (
+                <span key={path.id}>
+                  <Polyline
+                    positions={path.waypoints}
+                    pathOptions={{
+                      color,
+                      weight: highlight ? 4 : 3,
+                      opacity: highlight ? 1 : 0.9,
+                      dashArray: "8 6",
+                      className: highlight ? "britton-leg-active" : undefined,
+                    }}
+                    eventHandlers={{ click: () => onSelectPoint(node2) }}
+                  >
+                    <Tooltip sticky>{path.label} (c. 350–1550 CE — viable path)</Tooltip>
+                  </Polyline>
+                  <Marker
+                    position={end as [number, number]}
+                    icon={arrowIcon}
+                    eventHandlers={{ click: () => onSelectPoint(node2) }}
+                  >
+                    <Tooltip direction="top" offset={[0, -10]}>{path.label}</Tooltip>
+                  </Marker>
+                </span>
+              );
+            })}
+          </>
+        );
+      })()}
+
       {settlements.map((s) => {
         const isSel = selected?.id === s.id;
         const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
