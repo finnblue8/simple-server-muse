@@ -597,7 +597,7 @@ function BrittonTree() {
 
           {!isH && (
             <div
-              style={{ position: "absolute", left: 40, top: 40, width: 1100, color: T.text }}
+              style={{ position: "absolute", left: 40, top: 40, width: 420, color: T.text }}
               className="pointer-events-none"
             >
               <h2 className="text-[28px] font-bold leading-tight">{HEADER[0]}</h2>
