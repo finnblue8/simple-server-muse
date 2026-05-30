@@ -238,7 +238,7 @@ function BrittonTree() {
   }, [px]);
 
   useEffect(() => { centerOn(focusId); }, [focusId, centerOn]);
-  useEffect(() => { centerOn(focusId); }, [orientation]); // eslint-disable-line react-hooks/exhaustive-deps
+  
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
