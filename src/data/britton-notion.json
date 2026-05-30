@@ -1098,5 +1098,126 @@
     "marriageDate": null,
     "marriageLocation": "",
     "id": 124
+  },
+  {
+    "firstName": "William Ira",
+    "lastName": "Britton",
+    "birthDate": "1837-01-11",
+    "birthLocation": "Unknown -- Probably OH (Hanging Rock) or PA (Beaver)",
+    "deathDate": "1922-04-25",
+    "deathLocation": "Powhatan Point, Belmont County, Ohio",
+    "marriageDate": "1865-07-27",
+    "marriageLocation": "West Alexander, Washington County, Pennsylvania",
+    "id": 125
+  },
+  {
+    "firstName": "William",
+    "lastName": "Britton",
+    "birthDate": "1868-03-25",
+    "birthLocation": "West Middletown, Washington County, Pennsylvania",
+    "deathDate": "1896-12-16",
+    "deathLocation": "Eleanora, McCalmont Township, Jefferson County, Pennsylvania",
+    "marriageDate": "1896-10-06",
+    "marriageLocation": "Eleanora, McCalmont Township, Jefferson County, Pennsylvania",
+    "id": 127
+  },
+  {
+    "firstName": "John Henry",
+    "lastName": "Britton",
+    "birthDate": "1873-03-20",
+    "birthLocation": "Berlin, Somerset County, Pennsylvania",
+    "deathDate": "1953-09-02",
+    "deathLocation": "Sarahsville, Noble County, Ohio",
+    "marriageDate": "Various – multiple wives",
+    "marriageLocation": "Various – multiple wives",
+    "id": 128
+  },
+  {
+    "firstName": "Harry",
+    "lastName": "Britton",
+    "birthDate": "1880-03-21",
+    "birthLocation": "Huntsville, Madison County, Alabama",
+    "deathDate": "1948-11-08",
+    "deathLocation": "Powhatan Point, Belmont County, Ohio",
+    "marriageDate": "1906-02-15",
+    "marriageLocation": "Steubenville, Jefferson County, Ohio",
+    "id": 129
+  },
+  {
+    "firstName": "William Ira",
+    "lastName": "Britton",
+    "birthDate": "1896-03-10",
+    "birthLocation": "Eleanora, McCalmont Township, Jefferson County, Pennsylvania",
+    "deathDate": "1954-04-09",
+    "deathLocation": "Mayport, Clarion County, Pennsylvania",
+    "marriageDate": "Various – multiple wives",
+    "marriageLocation": "Various – multiple wives",
+    "id": 130
+  },
+  {
+    "firstName": "Charles “Charley”",
+    "lastName": "Britton",
+    "birthDate": "c. 1900",
+    "birthLocation": "Pennsylvania",
+    "deathDate": "After 1910",
+    "deathLocation": "Unknown",
+    "marriageDate": null,
+    "marriageLocation": "",
+    "id": 131
+  },
+  {
+    "firstName": "John William",
+    "lastName": "Britton",
+    "birthDate": "1903-06-13",
+    "birthLocation": "Barton, Allegany County, Maryland",
+    "deathDate": "1978-12-18",
+    "deathLocation": "Middleburg Heights, Cuyahoga County, Ohio",
+    "marriageDate": "1924-12-21",
+    "marriageLocation": "Powhatan Point, Belmont County, Ohio",
+    "id": 132
+  },
+  {
+    "firstName": "William Harry",
+    "lastName": "Britton",
+    "birthDate": "1904-07-04",
+    "birthLocation": "Acme, Westmoreland County, Pennsylvania",
+    "deathDate": "1998-10-05",
+    "deathLocation": "Jerusalem, Monroe County, Ohio",
+    "marriageDate": "1930-06-12",
+    "marriageLocation": "Powhatan Point, Belmont County, Ohio",
+    "id": 133
+  },
+  {
+    "firstName": "Ira",
+    "lastName": "Britton",
+    "birthDate": "1908-10-21",
+    "birthLocation": "York, Smithfield Township, Jefferson County, Ohio",
+    "deathDate": "1981-09-24",
+    "deathLocation": "Bellaire, Belmont County, Ohio",
+    "marriageDate": "1929-09-24",
+    "marriageLocation": "Ohio County, West Virginia (marriage to Meribah Gates)",
+    "id": 134
+  },
+  {
+    "firstName": "Ralph",
+    "lastName": "Britton",
+    "birthDate": "1911-10-31",
+    "birthLocation": "Rush Run, Jefferson County, Ohio",
+    "deathDate": "1995-08-23",
+    "deathLocation": "Logan, Hocking County, Ohio",
+    "marriageDate": "c. 1941",
+    "marriageLocation": "",
+    "id": 135
+  },
+  {
+    "firstName": "Arthur",
+    "lastName": "Britton",
+    "birthDate": "1920-07-24",
+    "birthLocation": "Powhatan Point, Belmont County, Ohio",
+    "deathDate": "1986-08",
+    "deathLocation": "Moundsville, Marshall County, West Virginia",
+    "marriageDate": "1941-07-05",
+    "marriageLocation": "Moundsville, Marshall County, West Virginia",
+    "id": 136
   }
 ]
