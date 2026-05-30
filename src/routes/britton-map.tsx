@@ -867,7 +867,7 @@ function LeafletMap({
                   >
                     <Tooltip direction="top" offset={[0, -10]}>{path.label}</Tooltip>
                   </Marker>
-                </span>
+                </Fragment>
               );
             })}
           </>
