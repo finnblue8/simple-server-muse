@@ -570,7 +570,9 @@ function BrittonTree() {
 
 
           {!isH && NOTE_BLOCKS.map((b, i) => {
-            const isBigBlock = b.x > 2100 && b.x < 2400 && b.y > 1200 && b.y < 1400;
+            const isKitsBlock = b.x > 2100 && b.x < 2400 && b.y > 1200 && b.y < 1400;
+            const isWilliamIraBlock = b.x < 300 && b.y > 1200 && b.y < 1500;
+            const isWide = isKitsBlock || isWilliamIraBlock;
             return (
               <div
                 key={`note-${i}`}
@@ -578,12 +580,12 @@ function BrittonTree() {
                   position: "absolute",
                   left: b.x * SCALE_X + PAD_X - CARD_W / 2,
                   top: b.y * SCALE_Y + PAD_Y - 8,
-                  width: isBigBlock ? 420 : 320,
+                  width: isWide ? 420 : 320,
                   color: T.noteText,
                 }}
                 className={[
                   "pointer-events-none leading-snug italic",
-                  isBigBlock ? "text-[18px]" : b.x < 2700 && b.y > 1200 ? "text-[15px]" : "text-[10px]",
+                  isKitsBlock ? "text-[18px]" : isWilliamIraBlock ? "text-[15px]" : b.x < 2700 && b.y > 1200 ? "text-[15px]" : "text-[10px]",
                 ].join(" ")}
               >
                 {b.lines.map((l, j) => (
@@ -595,7 +597,7 @@ function BrittonTree() {
 
           {!isH && (
             <div
-              style={{ position: "absolute", left: 40, top: 40, width: 1100, color: T.text }}
+              style={{ position: "absolute", left: 40, top: 40, width: 420, color: T.text }}
               className="pointer-events-none"
             >
               <h2 className="text-[28px] font-bold leading-tight">{HEADER[0]}</h2>
