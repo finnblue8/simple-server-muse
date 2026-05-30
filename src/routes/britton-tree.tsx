@@ -525,8 +525,8 @@ function BrittonTree() {
             const lineH = 14;
             const labelH = lbl.lines.length * lineH + 10;
             const gap = 28;
-            const isBelow = lbl.position === "below";
-            const top = isBelow ? pos.y + CARD_H / 2 + gap : pos.y - CARD_H / 2 - gap - labelH;
+            const isAbove = lbl.position === "above";
+            const top = isAbove ? pos.y - CARD_H / 2 - gap - labelH : pos.y + CARD_H / 2 + gap;
             const color = lbl.kind === "mrca" ? "#a86a32" : T.ydnaBorder;
             return (
               <div
