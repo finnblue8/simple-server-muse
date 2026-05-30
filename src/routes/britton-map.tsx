@@ -326,6 +326,7 @@ function LeafletMap({
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        referrerPolicy="strict-origin-when-cross-origin"
       />
       {legs.map((leg, i) => {
         const isSel = selectedLeg === i;
