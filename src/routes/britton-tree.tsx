@@ -196,13 +196,12 @@ function BrittonTree() {
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
-  const [orientation, setOrientation] = useState<"vertical" | "horizontal">("vertical");
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
-  const isH = orientation === "horizontal";
-  const px = isH ? pxH : pxV;
-  const canvasW = isH ? CANVAS_W_H : CANVAS_W;
-  const canvasH = isH ? CANVAS_H_H : CANVAS_H;
+  const isH = true;
+  const px = pxH;
+  const canvasW = CANVAS_W_H;
+  const canvasH = CANVAS_H_H;
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
@@ -386,14 +385,6 @@ function BrittonTree() {
         </div>
         <div className="flex items-center gap-2 text-[10px] opacity-80">
           <span className="hidden md:inline opacity-70">↑↓←→ navigate · Home: root · scroll to zoom · drag to pan</span>
-          <button
-            onClick={() => setOrientation(isH ? "vertical" : "horizontal")}
-            className="rounded border px-2 py-0.5 hover:opacity-80"
-            style={{ borderColor: T.panelBorder }}
-            title="Toggle orientation"
-          >
-            {isH ? "Vertical" : "Horizontal"}
-          </button>
           <button
             onClick={() => setThemeName(themeName === "dark" ? "light" : "dark")}
             className="rounded border px-2 py-0.5 hover:opacity-80"
