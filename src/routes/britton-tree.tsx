@@ -569,27 +569,29 @@ function BrittonTree() {
           })}
 
 
-          {!isH && NOTE_BLOCKS.map((b, i) => (
-            <div
-              key={`note-${i}`}
-              style={{
-                position: "absolute",
-                left: b.x * SCALE_X + PAD_X - CARD_W / 2,
-                top: b.y * SCALE_Y + PAD_Y - 8,
-                width: 320,
-                color: T.noteText,
-              }}
-              className={[
-                "pointer-events-none leading-snug italic",
-                b.x < 2700 && b.y > 1200 ? "text-[15px]" : "text-[10px]",
-              ].join(" ")}
-
-            >
-              {b.lines.map((l, j) => (
-                <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
-              ))}
-            </div>
-          ))}
+          {!isH && NOTE_BLOCKS.map((b, i) => {
+            const isBigBlock = b.x > 2100 && b.x < 2400 && b.y > 1200 && b.y < 1400;
+            return (
+              <div
+                key={`note-${i}`}
+                style={{
+                  position: "absolute",
+                  left: b.x * SCALE_X + PAD_X - CARD_W / 2,
+                  top: b.y * SCALE_Y + PAD_Y - 8,
+                  width: isBigBlock ? 420 : 320,
+                  color: T.noteText,
+                }}
+                className={[
+                  "pointer-events-none leading-snug italic",
+                  isBigBlock ? "text-[18px]" : b.x < 2700 && b.y > 1200 ? "text-[15px]" : "text-[10px]",
+                ].join(" ")}
+              >
+                {b.lines.map((l, j) => (
+                  <div key={j} dangerouslySetInnerHTML={{ __html: l }} />
+                ))}
+              </div>
+            );
+          })}
 
           {!isH && (
             <div
