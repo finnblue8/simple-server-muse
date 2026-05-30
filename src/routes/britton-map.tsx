@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import "leaflet/dist/leaflet.css";
 
 export const Route = createFileRoute("/britton-map")({
   head: () => ({
