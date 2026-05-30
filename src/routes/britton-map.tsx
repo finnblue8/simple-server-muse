@@ -625,6 +625,7 @@ function LeafletMap({
       />
       {legs.map((leg) => {
         const isSel = selectedLeg === leg.idx;
+        const isFromSelected = selected?.id === leg.from.id;
         return (
           <Polyline
             key={leg.idx}
@@ -633,10 +634,11 @@ function LeafletMap({
               [leg.to.lat, leg.to.lng],
             ]}
             pathOptions={{
-              color: isSel ? "#ef4444" : "#b91c1c",
-              weight: isSel ? 4 : 2.5,
-              opacity: isSel ? 1 : 0.85,
+              color: isFromSelected ? "#facc15" : isSel ? "#ef4444" : "#b91c1c",
+              weight: isFromSelected ? 4 : isSel ? 4 : 2.5,
+              opacity: isFromSelected || isSel ? 1 : 0.85,
               dashArray: "6 8",
+              className: isFromSelected ? "britton-leg-active" : undefined,
             }}
             eventHandlers={{ click: () => onSelectLeg(leg.idx) }}
           >
