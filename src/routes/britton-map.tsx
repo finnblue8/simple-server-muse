@@ -466,6 +466,7 @@ function BrittonMapPage() {
             {eraButton("All", "all")}
             {eraButton("English Era", "english")}
             {eraButton("William Ira Era", "william_ira")}
+            {eraButton("Post-William Ira", "post_william_ira")}
           </div>
           <div className="text-right">
             <Link to="/" className="text-xs underline opacity-80 hover:opacity-100 sm:text-sm">
