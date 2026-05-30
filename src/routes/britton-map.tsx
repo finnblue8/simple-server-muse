@@ -402,8 +402,39 @@ const SETTLEMENTS: Settlement[] = [
   },
 ];
 
+// Two viable migration paths into England (Node 2 — c. 350–1550 CE). The
+// exact route is undocumented; both are plausible based on Y-DNA evidence
+// and surname history. A third arrow continues from eastern England west
+// to North Devon, where the family first appears in the 1580s.
+const ENGLAND_MIGRATION_PATHS: { id: string; label: string; waypoints: [number, number][] }[] = [
+  {
+    id: "channel-east",
+    label: "Channel crossing from the east → Canterbury",
+    waypoints: [
+      [51.0350, 2.3770], // Dunkirk / NE France coast
+      [51.2802, 1.0789], // Canterbury, Kent
+    ],
+  },
+  {
+    id: "normandy-brighton",
+    label: "Normandy → Brighton (Norman pattern)",
+    waypoints: [
+      [49.4944, 0.1079], // Le Havre / Normandy coast
+      [50.8225, -0.1372], // Brighton, Sussex
+    ],
+  },
+  {
+    id: "east-to-devon",
+    label: "Eastern England → North Devon",
+    waypoints: [
+      [51.2802, 1.0789], // Canterbury
+      [51.2083, -4.1167], // Ilfracombe, North Devon
+    ],
+  },
+];
+
 // Erie Canal historical migration route — the inferred path John Edward Britton
-// likely took from New York City to Ohio in the 1840s, after node 8. This is
+// likely took from New York City (node 9) to Ohio in the 1840s. This is
 // the closing leg of the English Era.
 const ERIE_CANAL_ROUTE: {
   id: "erie-canal";
