@@ -678,13 +678,10 @@ function BrittonTree() {
                 <div className="mb-2 text-[10px] uppercase tracking-widest opacity-50">
                   Britton Family Database
                 </div>
-                {notionQuery.isLoading && <div className="opacity-70">Loading record…</div>}
-                {notionQuery.isError && (
-                  <div className="text-red-500">Failed to load record from Notion.</div>
+                {!rec && (
+                  <div className="opacity-70">No matching record (ID {cardId}).</div>
                 )}
-                {!notionQuery.isLoading && !notionQuery.isError && !rec && (
-                  <div className="opacity-70">No matching record in Notion (ID {cardId}).</div>
-                )}
+
                 {rec && (
                   <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-xs">
                     <dt className="opacity-60">Name</dt>
