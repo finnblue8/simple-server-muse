@@ -196,13 +196,12 @@ function BrittonTree() {
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
-  const [orientation, setOrientation] = useState<"vertical" | "horizontal">("vertical");
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
-  const isH = orientation === "horizontal";
-  const px = isH ? pxH : pxV;
-  const canvasW = isH ? CANVAS_W_H : CANVAS_W;
-  const canvasH = isH ? CANVAS_H_H : CANVAS_H;
+  const isH = true;
+  const px = pxH;
+  const canvasW = CANVAS_W_H;
+  const canvasH = CANVAS_H_H;
 
   const viewportRef = useRef<HTMLDivElement>(null);
   const scaleRef = useRef(scale);
