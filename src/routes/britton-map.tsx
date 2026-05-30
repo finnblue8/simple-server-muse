@@ -156,7 +156,6 @@ function BrittonMapPage() {
     (async () => {
       const RL = await import("react-leaflet");
       const L = await import("leaflet");
-      await import("leaflet/dist/leaflet.css");
       setLib({ RL, L: L.default ?? L });
     })();
   }, []);
