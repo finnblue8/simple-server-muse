@@ -31,28 +31,41 @@ type Settlement = {
 const SETTLEMENTS: Settlement[] = [
   {
     id: 1,
-    name: "Villers-Sire-Nicole",
-    region: "Nord, France (Western Europe)",
+    name: "Western Europe",
+    region: "Villers-Sire-Nicole, Nord, France (NE France / Belgium / Netherlands)",
     period: "c. 250 – 350 CE",
     lat: 50.2833,
     lng: 3.9833,
     era: "english",
     description:
-      "Earliest inferred origin of the paternal line. Y-DNA evidence places the Britton male line in Western Europe — most likely northeastern France, Belgium, or the Netherlands — during the late Roman period.",
+      "Earliest inferred origin of the paternal line. The Britton Y-DNA haplogroup R-BY11801 (YFull Y-351800*), a branch of the very rare R-L151 line S-1194, points to a common ancestor most likely living in modern-day northeastern France, Belgium, or the Netherlands during the late Roman period.",
   },
   {
     id: 2,
+    name: "Migration into England",
+    region: "Entry into Britain — exact route & timing unknown",
+    period: "c. 350 – 1550 CE",
+    lat: 51.30,
+    lng: -1.50,
+    era: "english",
+    skipConnectionFromPrevious: true,
+    description:
+      "It is not yet clear from Y-DNA evidence exactly when the ancestors of the Britton family entered England. Two viable migration paths are shown.\n\nTraditionally the surname Britton is associated with the Norman French followers of William the Conqueror after the Norman Conquest of 1066 — a form of the Breton name tied to Normandy and Brittany. Before Robbie's BigY testing, a distant Y-DNA match with a French \"le Breton\" man suggested our ancestors fit this Norman pattern.\n\nHowever, the finding that we belong to haplogroup S-1194 — present in England since roughly 400–200 BCE or earlier — may suggest the Britton male line was already in Britain long before 1066, potentially predating the Roman Conquest. How and when the family reached North Devon is undocumented; they first appear there with the birth of Adam's children in the 1580s, and even Adam himself may not have been a lifelong Devon resident.",
+  },
+  {
+    id: 3,
     name: "Ilfracombe",
     region: "North Devon, England",
     period: "c. 1550 – 1677",
     lat: 51.2083,
     lng: -4.1167,
     era: "english",
+    skipConnectionFromPrevious: true,
     description:
       "First documented home of Adam Britton (c.1550–1633) and his descendants. The family lived as residents of this North Devon coastal town for over a century.",
   },
   {
-    id: 3,
+    id: 4,
     name: "West Down",
     region: "North Devon, England",
     period: "1677 – 1711",
@@ -62,7 +75,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Humphrey Britton (1650–1717) moved the line inland from Ilfracombe to the parish of West Down.",
   },
   {
-    id: 4,
+    id: 5,
     name: "Braunton",
     region: "North Devon, England",
     period: "1711 – 1756",
@@ -72,7 +85,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Adam Britton (1683–1740) settled the family in Braunton, one of the largest villages in England at the time.",
   },
   {
-    id: 5,
+    id: 6,
     name: "Barnstaple",
     region: "North Devon, England",
     period: "1756 – 1788",
@@ -83,7 +96,7 @@ const SETTLEMENTS: Settlement[] = [
       "Humphry Britton (1717–1777) moved to the market town and port of Barnstaple. This is also the approximate departure point for the later emigration to North America.",
   },
   {
-    id: 6,
+    id: 7,
     name: "Lynton",
     region: "North Devon, England",
     period: "1788 – 1819",
@@ -93,7 +106,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "John Britton (1757–1815) and family relocated east along the Exmoor coast to Lynton.",
   },
   {
-    id: 7,
+    id: 8,
     name: "Bratton Fleming",
     region: "North Devon, England",
     period: "1819 – 1837",
@@ -103,7 +116,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "John Adam Britton (1790–1862) raised his family at Bratton Fleming on the edge of Exmoor.",
   },
   {
-    id: 8,
+    id: 9,
     name: "New York City",
     region: "New York, USA",
     period: "c. 1840s (arrival)",
@@ -114,7 +127,7 @@ const SETTLEMENTS: Settlement[] = [
       "Inferred arrival point in North America. John Edward Britton is believed to have emigrated from the Barnstaple area to the United States in the 1840s, most likely landing in New York City.",
   },
   {
-    id: 9,
+    id: 10,
     name: "Bridgeport, Belmont County",
     region: "Ohio, USA",
     period: "c. 1855 – 1861",
