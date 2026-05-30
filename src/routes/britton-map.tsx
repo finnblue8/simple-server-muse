@@ -389,6 +389,33 @@ const SETTLEMENTS: Settlement[] = [
   },
 ];
 
+// Erie Canal historical migration route — the inferred path John Edward Britton
+// likely took from New York City to Ohio in the 1840s, after node 8. This is
+// the closing leg of the English Era.
+const ERIE_CANAL_ROUTE: {
+  id: "erie-canal";
+  era: Era;
+  label: string;
+  description: string;
+  waypoints: [number, number][];
+} = {
+  id: "erie-canal",
+  era: "english",
+  label: "Erie Canal route (NYC → Ohio)",
+  description:
+    "Inferred final leg of the English Era. From New York City, John Edward Britton most likely traveled up the Hudson River to Albany, then west along the Erie Canal through Utica, Syracuse, Rochester, and Buffalo, before continuing across Lake Erie to Cleveland and on into eastern Ohio. The Erie Canal (opened 1825) was the dominant westward migration corridor for immigrants arriving at New York in the 1840s.",
+  waypoints: [
+    [40.7128, -74.0060], // New York City
+    [42.6526, -73.7562], // Albany (Hudson River)
+    [43.1009, -75.2327], // Utica
+    [43.0481, -76.1474], // Syracuse
+    [43.1566, -77.6088], // Rochester
+    [42.8864, -78.8784], // Buffalo (Lake Erie)
+    [41.4993, -81.6944], // Cleveland, OH
+    [40.0712, -80.7445], // Bridgeport, Belmont County, OH
+  ],
+};
+
 type EraFilter = "all" | Era;
 
 function BrittonMapPage() {
@@ -396,6 +423,8 @@ function BrittonMapPage() {
   const [eraFilter, setEraFilter] = useState<EraFilter>("all");
   const [selected, setSelected] = useState<Settlement | null>(SETTLEMENTS[0]);
   const [selectedLeg, setSelectedLeg] = useState<number | null>(null);
+  const [selectedRoute, setSelectedRoute] = useState<"erie-canal" | null>(null);
+  const [dark, setDark] = useState(false);
   const [Lib, setLib] = useState<any>(null);
 
   useEffect(() => {
@@ -412,9 +441,6 @@ function BrittonMapPage() {
     [eraFilter]
   );
 
-  // Build legs as straight lines between consecutive settlements (in the full list),
-  // skipping any settlement that explicitly disconnects from its predecessor, and
-  // filtering by era visibility (both endpoints must be visible).
   const legs = useMemo(() => {
     const visIds = new Set(visibleSettlements.map((s) => s.id));
     const out: { from: Settlement; to: Settlement; idx: number }[] = [];
@@ -428,12 +454,21 @@ function BrittonMapPage() {
     return out;
   }, [visibleSettlements]);
 
+  const showErieCanal = eraFilter === "all" || eraFilter === "english";
+
   const selectLeg = (legIdx: number) => {
     setSelectedLeg(legIdx);
     setSelected(null);
+    setSelectedRoute(null);
   };
   const selectPoint = (s: Settlement) => {
     setSelected(s);
+    setSelectedLeg(null);
+    setSelectedRoute(null);
+  };
+  const selectErie = () => {
+    setSelectedRoute("erie-canal");
+    setSelected(null);
     setSelectedLeg(null);
   };
 
@@ -453,7 +488,9 @@ function BrittonMapPage() {
   );
 
   return (
-    <main className="min-h-screen w-full bg-background text-foreground">
+    <main
+      className={`${dark ? "dark" : ""} min-h-screen w-full bg-background text-foreground`}
+    >
       <div className="border-b border-border px-4 py-3 sm:px-6">
         <div className="grid grid-cols-3 items-center gap-4">
           <div className="min-w-0">
@@ -462,13 +499,21 @@ function BrittonMapPage() {
               Migration from late-Roman Europe to early-20th-century America.
             </p>
           </div>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             {eraButton("All", "all")}
             {eraButton("English Era", "english")}
             {eraButton("William Ira Era", "william_ira")}
             {eraButton("Post-William Ira", "post_william_ira")}
           </div>
-          <div className="text-right">
+          <div className="flex items-center justify-end gap-3">
+            <button
+              onClick={() => setDark((d) => !d)}
+              className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-muted"
+              aria-label="Toggle dark mode"
+              title="Toggle dark mode"
+            >
+              {dark ? "☀ Light" : "☾ Dark"}
+            </button>
             <Link to="/" className="text-xs underline opacity-80 hover:opacity-100 sm:text-sm">
               ← Home
             </Link>
@@ -481,12 +526,16 @@ function BrittonMapPage() {
           {mounted && Lib ? (
             <LeafletMap
               Lib={Lib}
+              dark={dark}
               settlements={visibleSettlements}
               legs={legs}
               selected={selected}
               selectedLeg={selectedLeg}
+              showErieCanal={showErieCanal}
+              erieSelected={selectedRoute === "erie-canal"}
               onSelectPoint={selectPoint}
               onSelectLeg={selectLeg}
+              onSelectErie={selectErie}
             />
           ) : (
             <div className="flex h-full items-center justify-center text-sm opacity-60">Loading map…</div>
@@ -498,9 +547,8 @@ function BrittonMapPage() {
             <h2 className="text-sm font-semibold uppercase tracking-wider opacity-80">Timeline</h2>
           </div>
           <ol className="flex-1 overflow-y-auto px-2 py-2">
-            {visibleSettlements.map((s, idx) => {
+            {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
-              // find the leg whose "to" is this settlement
               const leg = legs.find((l) => l.to.id === s.id);
               const legSel = leg && selectedLeg === leg.idx;
               const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
@@ -534,10 +582,25 @@ function BrittonMapPage() {
                       <span className="block text-xs opacity-70">{s.period}</span>
                     </span>
                   </button>
+                  {/* After node 8, surface the Erie Canal historical route */}
+                  {s.id === 8 && showErieCanal && (
+                    <button
+                      onClick={selectErie}
+                      className={`my-1 ml-3 flex w-[calc(100%-1.5rem)] items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors ${
+                        selectedRoute === "erie-canal"
+                          ? "bg-accent text-accent-foreground"
+                          : "opacity-70 hover:bg-muted hover:opacity-100"
+                      }`}
+                    >
+                      <span className="text-[10px]">⇢</span>
+                      <span className="italic text-sky-600 dark:text-sky-400">
+                        Erie Canal route → Ohio (English Era ends)
+                      </span>
+                    </button>
+                  )}
                 </li>
               );
             })}
-            
           </ol>
           <div className="border-t border-border px-4 py-3 text-sm">
             {selected && (
@@ -562,7 +625,16 @@ function BrittonMapPage() {
                 </p>
               </>
             )}
-            {!selected && !activeLeg && (
+            {selectedRoute === "erie-canal" && (
+              <>
+                <div className="text-base font-semibold text-sky-600 dark:text-sky-400">
+                  {ERIE_CANAL_ROUTE.label}
+                </div>
+                <div className="mb-2 text-xs opacity-70">c. 1840s — closing leg of the English Era</div>
+                <p className="text-sm leading-relaxed opacity-90">{ERIE_CANAL_ROUTE.description}</p>
+              </>
+            )}
+            {!selected && !activeLeg && !selectedRoute && (
               <p className="text-xs opacity-60">Select a location or migration leg to read more.</p>
             )}
           </div>
@@ -574,20 +646,28 @@ function BrittonMapPage() {
 
 function LeafletMap({
   Lib,
+  dark,
   settlements,
   legs,
   selected,
   selectedLeg,
+  showErieCanal,
+  erieSelected,
   onSelectPoint,
   onSelectLeg,
+  onSelectErie,
 }: {
   Lib: any;
+  dark: boolean;
   settlements: Settlement[];
   legs: { from: Settlement; to: Settlement; idx: number }[];
   selected: Settlement | null;
   selectedLeg: number | null;
+  showErieCanal: boolean;
+  erieSelected: boolean;
   onSelectPoint: (s: Settlement) => void;
   onSelectLeg: (i: number) => void;
+  onSelectErie: () => void;
 }) {
   const { MapContainer, TileLayer, Marker, Polyline, Tooltip } = Lib.RL;
   const L = Lib.L;
@@ -611,16 +691,40 @@ function LeafletMap({
       iconAnchor: [isSel ? 15 : 12, isSel ? 15 : 12],
     });
 
+  const erieEnd = ERIE_CANAL_ROUTE.waypoints[ERIE_CANAL_ROUTE.waypoints.length - 1];
+  const erieArrowIcon = L.divIcon({
+    className: "britton-erie-arrow",
+    html: `<div style="
+      display:flex;align-items:center;justify-content:center;
+      width:22px;height:22px;border-radius:9999px;
+      background:${erieSelected ? "#0ea5e9" : "#0284c7"};
+      color:white;font-weight:700;font-size:14px;line-height:1;
+      border:2px solid #0c4a6e;
+      box-shadow:0 0 0 3px rgba(14,165,233,0.25);
+      font-family:ui-sans-serif,system-ui,sans-serif;
+    ">➤</div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+
+  const tileUrl = dark
+    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+    : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  const tileAttribution = dark
+    ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
   return (
     <MapContainer
       center={[45, -40] as [number, number]}
       zoom={3}
       scrollWheelZoom
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%", width: "100%", background: dark ? "#0b1220" : undefined }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        key={dark ? "dark" : "light"}
+        attribution={tileAttribution}
+        url={tileUrl}
         referrerPolicy="strict-origin-when-cross-origin"
       />
       {legs.map((leg) => {
@@ -648,6 +752,34 @@ function LeafletMap({
           </Polyline>
         );
       })}
+
+      {showErieCanal && (
+        <>
+          <Polyline
+            positions={ERIE_CANAL_ROUTE.waypoints}
+            pathOptions={{
+              color: erieSelected ? "#0ea5e9" : "#0284c7",
+              weight: erieSelected ? 5 : 3.5,
+              opacity: erieSelected ? 1 : 0.9,
+              dashArray: "10 6",
+              className: erieSelected ? "britton-leg-active britton-erie-active" : "britton-erie-line",
+            }}
+            eventHandlers={{ click: onSelectErie }}
+          >
+            <Tooltip sticky>Erie Canal route (c. 1840s) — NYC → Ohio</Tooltip>
+          </Polyline>
+          <Marker
+            position={erieEnd as [number, number]}
+            icon={erieArrowIcon}
+            eventHandlers={{ click: onSelectErie }}
+          >
+            <Tooltip direction="top" offset={[0, -10]}>
+              Erie Canal route ends — arrival in Ohio
+            </Tooltip>
+          </Marker>
+        </>
+      )}
+
       {settlements.map((s) => {
         const isSel = selected?.id === s.id;
         const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
