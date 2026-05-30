@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import "leaflet/dist/leaflet.css";
 
 export const Route = createFileRoute("/britton-map")({
@@ -31,28 +31,41 @@ type Settlement = {
 const SETTLEMENTS: Settlement[] = [
   {
     id: 1,
-    name: "Villers-Sire-Nicole",
-    region: "Nord, France (Western Europe)",
+    name: "Western Europe",
+    region: "Villers-Sire-Nicole, Nord, France (NE France / Belgium / Netherlands)",
     period: "c. 250 – 350 CE",
     lat: 50.2833,
     lng: 3.9833,
     era: "english",
     description:
-      "Earliest inferred origin of the paternal line. Y-DNA evidence places the Britton male line in Western Europe — most likely northeastern France, Belgium, or the Netherlands — during the late Roman period.",
+      "Earliest inferred origin of the paternal line. The Britton Y-DNA haplogroup R-BY11801 (YFull Y-351800*), a branch of the very rare R-L151 line S-1194, points to a common ancestor most likely living in modern-day northeastern France, Belgium, or the Netherlands during the late Roman period.",
   },
   {
     id: 2,
+    name: "Migration into England",
+    region: "Entry into Britain — exact route & timing unknown",
+    period: "c. 350 – 1550 CE",
+    lat: 51.30,
+    lng: -1.50,
+    era: "english",
+    skipConnectionFromPrevious: true,
+    description:
+      "It is not yet clear from Y-DNA evidence exactly when the ancestors of the Britton family entered England. Two viable migration paths are shown.\n\nTraditionally the surname Britton is associated with the Norman French followers of William the Conqueror after the Norman Conquest of 1066 — a form of the Breton name tied to Normandy and Brittany. Before Robbie's BigY testing, a distant Y-DNA match with a French \"le Breton\" man suggested our ancestors fit this Norman pattern.\n\nHowever, the finding that we belong to haplogroup S-1194 — present in England since roughly 400–200 BCE or earlier — may suggest the Britton male line was already in Britain long before 1066, potentially predating the Roman Conquest. How and when the family reached North Devon is undocumented; they first appear there with the birth of Adam's children in the 1580s, and even Adam himself may not have been a lifelong Devon resident.",
+  },
+  {
+    id: 3,
     name: "Ilfracombe",
     region: "North Devon, England",
     period: "c. 1550 – 1677",
     lat: 51.2083,
     lng: -4.1167,
     era: "english",
+    skipConnectionFromPrevious: true,
     description:
       "First documented home of Adam Britton (c.1550–1633) and his descendants. The family lived as residents of this North Devon coastal town for over a century.",
   },
   {
-    id: 3,
+    id: 4,
     name: "West Down",
     region: "North Devon, England",
     period: "1677 – 1711",
@@ -62,7 +75,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Humphrey Britton (1650–1717) moved the line inland from Ilfracombe to the parish of West Down.",
   },
   {
-    id: 4,
+    id: 5,
     name: "Braunton",
     region: "North Devon, England",
     period: "1711 – 1756",
@@ -72,7 +85,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Adam Britton (1683–1740) settled the family in Braunton, one of the largest villages in England at the time.",
   },
   {
-    id: 5,
+    id: 6,
     name: "Barnstaple",
     region: "North Devon, England",
     period: "1756 – 1788",
@@ -83,7 +96,7 @@ const SETTLEMENTS: Settlement[] = [
       "Humphry Britton (1717–1777) moved to the market town and port of Barnstaple. This is also the approximate departure point for the later emigration to North America.",
   },
   {
-    id: 6,
+    id: 7,
     name: "Lynton",
     region: "North Devon, England",
     period: "1788 – 1819",
@@ -93,7 +106,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "John Britton (1757–1815) and family relocated east along the Exmoor coast to Lynton.",
   },
   {
-    id: 7,
+    id: 8,
     name: "Bratton Fleming",
     region: "North Devon, England",
     period: "1819 – 1837",
@@ -103,7 +116,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "John Adam Britton (1790–1862) raised his family at Bratton Fleming on the edge of Exmoor.",
   },
   {
-    id: 8,
+    id: 9,
     name: "New York City",
     region: "New York, USA",
     period: "c. 1840s (arrival)",
@@ -114,7 +127,7 @@ const SETTLEMENTS: Settlement[] = [
       "Inferred arrival point in North America. John Edward Britton is believed to have emigrated from the Barnstaple area to the United States in the 1840s, most likely landing in New York City.",
   },
   {
-    id: 9,
+    id: 10,
     name: "Bridgeport, Belmont County",
     region: "Ohio, USA",
     period: "c. 1855 – 1861",
@@ -126,7 +139,7 @@ const SETTLEMENTS: Settlement[] = [
       "First documented North American home of the William Ira Britton line, attested by the 1860 U.S. Census. William Ira served in Co. D, 43rd Ohio Volunteer Infantry from 1861–65. Exact route from the NYC arrival point is undocumented.",
   },
   {
-    id: 10,
+    id: 11,
     name: "West Alexander",
     region: "Washington County, Pennsylvania",
     period: "27 July 1865",
@@ -137,7 +150,7 @@ const SETTLEMENTS: Settlement[] = [
       "Marriage location of William Ira Britton and Mary Elizabeth Miller — an undocumented \"Gretna Green\" style marriage.",
   },
   {
-    id: 11,
+    id: 12,
     name: "Northern Washington County",
     region: "Pennsylvania (exact location unknown)",
     period: "1 January 1867",
@@ -147,7 +160,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Emma Irene Britton. Exact location within northern Washington County is undocumented.",
   },
   {
-    id: 12,
+    id: 13,
     name: "West Middletown",
     region: "Washington County, Pennsylvania",
     period: "25 March 1868",
@@ -157,7 +170,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of William Britton.",
   },
   {
-    id: 13,
+    id: 14,
     name: "Smith Township",
     region: "Washington County, Pennsylvania",
     period: "22 September 1869 – 1870",
@@ -167,7 +180,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Ida May Britton.",
   },
   {
-    id: 14,
+    id: 15,
     name: "Berlin",
     region: "Somerset County, Pennsylvania",
     period: "20 October 1873",
@@ -177,7 +190,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of John Henry Britton.",
   },
   {
-    id: 15,
+    id: 16,
     name: "Bakerstown",
     region: "Allegheny County, Pennsylvania",
     period: "12 June 1875",
@@ -187,7 +200,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Alice Britton.",
   },
   {
-    id: 16,
+    id: 17,
     name: "Cross Creek",
     region: "Washington County, Pennsylvania",
     period: "2 June 1877",
@@ -197,7 +210,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Charles Britton.",
   },
   {
-    id: 17,
+    id: 18,
     name: "Brazil",
     region: "Clay County, Indiana",
     period: "1878",
@@ -208,7 +221,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family left rural Washington County, PA at this time. Documented in pension application file 2, page 67; mentioned throughout in various capacities by numerous individuals.",
   },
   {
-    id: 18,
+    id: 19,
     name: "Huntsville",
     region: "Madison County, Alabama",
     period: "21 March 1880",
@@ -219,7 +232,7 @@ const SETTLEMENTS: Settlement[] = [
       "Son Harry was born here on 21 Mar 1880 (personal testimony in pension file, page 100). Length of stay unclear — probably brief, as William Ira only mentioned AL once in the pension file.",
   },
   {
-    id: 19,
+    id: 20,
     name: "Nashville (District 13)",
     region: "Tennessee",
     period: "1 June 1880",
@@ -230,7 +243,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family was in Nashville at the time of the 1880 U.S. Census, less than three months after son Harry's birth in Huntsville. Length of stay unclear; not mentioned in the pension file.",
   },
   {
-    id: 20,
+    id: 21,
     name: "Brazil",
     region: "Clay County, Indiana",
     period: "15 January 1882 – June 1890",
@@ -241,7 +254,7 @@ const SETTLEMENTS: Settlement[] = [
       "Birthplace of daughter Anna (1882). In 1884 began seeing Jacob F. Smith, M.D. for injuries (pension file 2, p. 28). 15 January 1886 referenced in pension file. 7 Feb 1889 applied for increase in invalid pension (pension file 2, p. 9).",
   },
   {
-    id: 21,
+    id: 22,
     name: "Carroll Township",
     region: "Washington County, Pennsylvania",
     period: "June 1890",
@@ -251,7 +264,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Recorded location at the 1890 U.S. Census, Veterans Schedules.",
   },
   {
-    id: 22,
+    id: 23,
     name: "Elkhorn, Forward Township",
     region: "Allegheny County, Pennsylvania",
     period: "13 January 1891",
@@ -262,7 +275,7 @@ const SETTLEMENTS: Settlement[] = [
       "See pension file p. 23. Further supported by reference to daughter Emma Irene Grell (née Britton) in a Moline, Illinois newspaper celebrating the 25th anniversary of the issuance of a marriage license to Charles Grell and Emma Britton, 24, of Elkhorn, PA.",
   },
   {
-    id: 23,
+    id: 24,
     name: "Brownsville",
     region: "Fayette County, Pennsylvania",
     period: "11 August 1892",
@@ -273,7 +286,7 @@ const SETTLEMENTS: Settlement[] = [
       "Applied for increase in rate of invalid pension (pension file 2, p. 11). His age is given as 66 — the only time his birth year was ever alleged as 1826.",
   },
   {
-    id: 24,
+    id: 25,
     name: "Eleanora, McCalmont Township",
     region: "Jefferson County, Pennsylvania",
     period: "March 1896 – July 1899",
@@ -284,7 +297,7 @@ const SETTLEMENTS: Settlement[] = [
       "William Ira Britton (1896) born here in March. Alice Britton married William James Pierce in November. William Britton (1868) murdered December 1896. 26 June 1897 applied for increase in pension (pension file 2, p. 80). 3 August 1898 applied again (pension file 2, p. 44), filed from Brookville.",
   },
   {
-    id: 25,
+    id: 26,
     name: "Coal Center",
     region: "Washington County, Pennsylvania",
     period: "1900 – c. 1905",
@@ -294,7 +307,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Coal Center from 1900 to about 1905.",
   },
   {
-    id: 26,
+    id: 27,
     name: "Pleasant City",
     region: "Guernsey County, Ohio",
     period: "January 1905 – 1910",
@@ -304,7 +317,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Pleasant City from January 1905 to 1910.",
   },
   {
-    id: 27,
+    id: 28,
     name: "Brilliant",
     region: "Jefferson County, Ohio",
     period: "1910 – c. 1913",
@@ -314,7 +327,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Brilliant from 1910 to about 1913.",
   },
   {
-    id: 28,
+    id: 29,
     name: "Moline",
     region: "Rock Island County, Illinois",
     period: "1913",
@@ -324,7 +337,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Moline in 1913.",
   },
   {
-    id: 29,
+    id: 30,
     name: "Powhatan Point",
     region: "Belmont County, Ohio",
     period: "c. 1914 – 1922",
@@ -334,7 +347,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Powhatan Point from about 1914 to 1922.",
   },
   {
-    id: 30,
+    id: 31,
     name: "Clover Ridge & Beallsville",
     region: "Washington Twp., Belmont Co. & Monroe Co., Ohio",
     period: "1930 – c. 1955",
@@ -345,7 +358,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family residence in Clover Ridge, Washington Township, Belmont County, Ohio, and also in Beallsville, Monroe County, Ohio.",
   },
   {
-    id: 31,
+    id: 32,
     name: "Cuyahoga Falls",
     region: "Summit County, Ohio",
     period: "1955 – c. 1970",
@@ -356,7 +369,7 @@ const SETTLEMENTS: Settlement[] = [
       "Move north after Charles Willis Britton Sr. was discharged from U.S. Army active duty in Busan, Korea.",
   },
   {
-    id: 32,
+    id: 33,
     name: "Hudson",
     region: "Summit County, Ohio",
     period: "1970 – c. 1987",
@@ -367,7 +380,7 @@ const SETTLEMENTS: Settlement[] = [
       "Britton Construction Corporation was formed in Summit County on 15 September 1972 and over the next decade was responsible for many homes and commercial real estate in Hudson and northern Summit County. Charles Willis Britton Sr. died 30 May 1981 in Akron, Ohio.",
   },
   {
-    id: 33,
+    id: 34,
     name: "Bedford",
     region: "Cuyahoga County, Ohio",
     period: "1987 – 2002",
@@ -378,7 +391,7 @@ const SETTLEMENTS: Settlement[] = [
       "James Richard Britton lives in a condo with brother Charles Willis Britton Jr., and eventually with wife Nancy Ann Michaels after 1998.",
   },
   {
-    id: 34,
+    id: 35,
     name: "Parma",
     region: "Cuyahoga County, Ohio",
     period: "2002 – present",
@@ -389,8 +402,39 @@ const SETTLEMENTS: Settlement[] = [
   },
 ];
 
+// Two viable migration paths into England (Node 2 — c. 350–1550 CE). The
+// exact route is undocumented; both are plausible based on Y-DNA evidence
+// and surname history. A third arrow continues from eastern England west
+// to North Devon, where the family first appears in the 1580s.
+const ENGLAND_MIGRATION_PATHS: { id: string; label: string; waypoints: [number, number][] }[] = [
+  {
+    id: "channel-east",
+    label: "Channel crossing from the east → Canterbury",
+    waypoints: [
+      [51.0350, 2.3770], // Dunkirk / NE France coast
+      [51.2802, 1.0789], // Canterbury, Kent
+    ],
+  },
+  {
+    id: "normandy-brighton",
+    label: "Normandy → Brighton (Norman pattern)",
+    waypoints: [
+      [49.4944, 0.1079], // Le Havre / Normandy coast
+      [50.8225, -0.1372], // Brighton, Sussex
+    ],
+  },
+  {
+    id: "east-to-devon",
+    label: "Eastern England → North Devon",
+    waypoints: [
+      [51.2802, 1.0789], // Canterbury
+      [51.2083, -4.1167], // Ilfracombe, North Devon
+    ],
+  },
+];
+
 // Erie Canal historical migration route — the inferred path John Edward Britton
-// likely took from New York City to Ohio in the 1840s, after node 8. This is
+// likely took from New York City (node 9) to Ohio in the 1840s. This is
 // the closing leg of the English Era.
 const ERIE_CANAL_ROUTE: {
   id: "erie-canal";
@@ -583,7 +627,7 @@ function BrittonMapPage() {
                     </span>
                   </button>
                   {/* After node 8, surface the Erie Canal historical route */}
-                  {s.id === 8 && showErieCanal && (
+                  {s.id === 9 && showErieCanal && (
                     <button
                       onClick={selectErie}
                       className={`my-1 ml-3 flex w-[calc(100%-1.5rem)] items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors ${
@@ -779,6 +823,56 @@ function LeafletMap({
           </Marker>
         </>
       )}
+
+      {showErieCanal && (() => {
+        const node2 = SETTLEMENTS.find((x) => x.id === 2)!;
+        const highlight = selected?.id === 2;
+        const color = highlight ? "#10b981" : "#059669";
+        const arrowIcon = L.divIcon({
+          className: "britton-england-arrow",
+          html: `<div style="
+            display:flex;align-items:center;justify-content:center;
+            width:20px;height:20px;border-radius:9999px;
+            background:${color};color:white;font-weight:700;font-size:13px;line-height:1;
+            border:2px solid #064e3b;
+            box-shadow:0 0 0 3px rgba(16,185,129,0.25);
+            font-family:ui-sans-serif,system-ui,sans-serif;
+          ">➤</div>`,
+          iconSize: [20, 20],
+          iconAnchor: [10, 10],
+        });
+        return (
+          <>
+            {ENGLAND_MIGRATION_PATHS.map((path) => {
+              const end = path.waypoints[path.waypoints.length - 1];
+              return (
+                <Fragment key={path.id}>
+                  <Polyline
+                    positions={path.waypoints}
+                    pathOptions={{
+                      color,
+                      weight: highlight ? 4 : 3,
+                      opacity: highlight ? 1 : 0.9,
+                      dashArray: "8 6",
+                      className: highlight ? "britton-leg-active" : undefined,
+                    }}
+                    eventHandlers={{ click: () => onSelectPoint(node2) }}
+                  >
+                    <Tooltip sticky>{path.label} (c. 350–1550 CE — viable path)</Tooltip>
+                  </Polyline>
+                  <Marker
+                    position={end as [number, number]}
+                    icon={arrowIcon}
+                    eventHandlers={{ click: () => onSelectPoint(node2) }}
+                  >
+                    <Tooltip direction="top" offset={[0, -10]}>{path.label}</Tooltip>
+                  </Marker>
+                </Fragment>
+              );
+            })}
+          </>
+        );
+      })()}
 
       {settlements.map((s) => {
         const isSel = selected?.id === s.id;
