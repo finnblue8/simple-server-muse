@@ -13,7 +13,7 @@ export const Route = createFileRoute("/britton-map")({
   component: BrittonMapPage,
 });
 
-type Era = "english" | "william_ira";
+type Era = "english" | "william_ira" | "post_william_ira";
 
 type Settlement = {
   id: number;
