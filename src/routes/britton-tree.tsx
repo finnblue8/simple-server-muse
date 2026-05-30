@@ -78,7 +78,7 @@ const VERT_LABELS: VertLabel[] = [
 
 const SVG_X_OFFSET = 35;
 const SCALE_X = 1.6;
-const SCALE_Y = 1.3;
+const SCALE_Y = 1.75;
 const CARD_W = 150;
 const CARD_H = 104;
 const PAD_X = 80;
