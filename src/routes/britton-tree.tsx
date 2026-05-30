@@ -386,14 +386,6 @@ function BrittonTree() {
         <div className="flex items-center gap-2 text-[10px] opacity-80">
           <span className="hidden md:inline opacity-70">↑↓←→ navigate · Home: root · scroll to zoom · drag to pan</span>
           <button
-            onClick={() => setOrientation(isH ? "vertical" : "horizontal")}
-            className="rounded border px-2 py-0.5 hover:opacity-80"
-            style={{ borderColor: T.panelBorder }}
-            title="Toggle orientation"
-          >
-            {isH ? "Vertical" : "Horizontal"}
-          </button>
-          <button
             onClick={() => setThemeName(themeName === "dark" ? "light" : "dark")}
             className="rounded border px-2 py-0.5 hover:opacity-80"
             style={{ borderColor: T.panelBorder }}
