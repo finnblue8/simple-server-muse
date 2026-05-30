@@ -627,7 +627,7 @@ function BrittonMapPage() {
                     </span>
                   </button>
                   {/* After node 8, surface the Erie Canal historical route */}
-                  {s.id === 8 && showErieCanal && (
+                  {s.id === 9 && showErieCanal && (
                     <button
                       onClick={selectErie}
                       className={`my-1 ml-3 flex w-[calc(100%-1.5rem)] items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors ${
