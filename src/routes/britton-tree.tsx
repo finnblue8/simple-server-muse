@@ -1,8 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import treeData from "@/data/britton-tree.json";
-import { getBrittonRecords, type BrittonNotionRecord } from "@/lib/notion-britton.functions";
+import notionData from "@/data/britton-notion.json";
+
+type BrittonNotionRecord = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  birthDate: string | null;
+  birthLocation: string;
+  deathDate: string | null;
+  deathLocation: string;
+  marriageDate: string | null;
+  marriageLocation: string;
+};
+
 
 
 export const Route = createFileRoute("/britton-tree")({
@@ -203,16 +215,12 @@ function BrittonTree() {
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
 
-  const notionQuery = useQuery({
-    queryKey: ["britton-notion"],
-    queryFn: () => getBrittonRecords(),
-    staleTime: 5 * 60 * 1000,
-  });
   const notionById = useMemo(() => {
     const m = new Map<number, BrittonNotionRecord>();
-    for (const r of notionQuery.data?.records ?? []) m.set(r.id, r);
+    for (const r of notionData as BrittonNotionRecord[]) m.set(r.id, r);
     return m;
-  }, [notionQuery.data]);
+  }, []);
+
 
   const isH = false;
   const px = pxV;
@@ -670,13 +678,10 @@ function BrittonTree() {
                 <div className="mb-2 text-[10px] uppercase tracking-widest opacity-50">
                   Britton Family Database
                 </div>
-                {notionQuery.isLoading && <div className="opacity-70">Loading record…</div>}
-                {notionQuery.isError && (
-                  <div className="text-red-500">Failed to load record from Notion.</div>
+                {!rec && (
+                  <div className="opacity-70">No matching record (ID {cardId}).</div>
                 )}
-                {!notionQuery.isLoading && !notionQuery.isError && !rec && (
-                  <div className="opacity-70">No matching record in Notion (ID {cardId}).</div>
-                )}
+
                 {rec && (
                   <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-xs">
                     <dt className="opacity-60">Name</dt>
