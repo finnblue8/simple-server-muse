@@ -1,8 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import treeData from "@/data/britton-tree.json";
-import { getBrittonRecords, type BrittonNotionRecord } from "@/lib/notion-britton.functions";
+import notionData from "@/data/britton-notion.json";
+
+type BrittonNotionRecord = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  birthDate: string | null;
+  birthLocation: string;
+  deathDate: string | null;
+  deathLocation: string;
+  marriageDate: string | null;
+  marriageLocation: string;
+};
+
 
 
 export const Route = createFileRoute("/britton-tree")({
