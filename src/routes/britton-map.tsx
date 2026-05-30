@@ -599,10 +599,11 @@ function LeafletMap({
         display:flex;align-items:center;justify-content:center;
         width:${isSel ? 30 : 24}px;height:${isSel ? 30 : 24}px;
         border-radius:9999px;
-        background:#dc2626;color:white;
+        background:${isSel ? "#facc15" : "#dc2626"};
+        color:${isSel ? "#1f2937" : "white"};
         font-weight:700;font-size:${isSel ? 13 : 11}px;
-        border:2px solid #7f1d1d;
-        box-shadow:0 0 0 3px rgba(239,68,68,0.25);
+        border:2px solid ${isSel ? "#a16207" : "#7f1d1d"};
+        box-shadow:0 0 0 3px ${isSel ? "rgba(250,204,21,0.35)" : "rgba(239,68,68,0.25)"};
         font-family:ui-sans-serif,system-ui,sans-serif;
         line-height:1;
       ">${n}</div>`,
