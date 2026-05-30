@@ -7,6 +7,7 @@ export const Route = createFileRoute("/britton-map")({
     meta: [
       { title: "Britton Settlement Map" },
       { name: "description", content: "Interactive map of Britton family settlement locations through history." },
+      { name: "referrer", content: "strict-origin-when-cross-origin" },
     ],
   }),
   component: BrittonMapPage,
