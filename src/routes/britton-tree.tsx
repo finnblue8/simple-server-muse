@@ -57,7 +57,7 @@ type VertLabel = {
   position?: "above" | "below";
 };
 const VERT_LABELS: VertLabel[] = [
-  { personId: 0, kind: "ydna", lines: ["Haplogroup R-BY11801 &", "YFull R-Y351800*"] },
+  { personId: 0, kind: "ydna", position: "above", lines: ["Haplogroup R-BY11801 &", "YFull R-Y351800*"] },
   { personId: 8, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
   { personId: 10, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
   { personId: 14, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
