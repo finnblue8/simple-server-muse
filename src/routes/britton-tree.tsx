@@ -57,7 +57,7 @@ type VertLabel = {
   position?: "above" | "below";
 };
 const VERT_LABELS: VertLabel[] = [
-  { personId: 0, kind: "ydna", lines: ["Haplogroup R-BY11801 &", "YFull R-Y351800*"] },
+  { personId: 0, kind: "ydna", position: "above", lines: ["Haplogroup R-BY11801 &", "YFull R-Y351800*"] },
   { personId: 8, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
   { personId: 10, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
   { personId: 14, kind: "ydna", lines: ["Possible origin point", "for Raynham branch"] },
@@ -78,7 +78,7 @@ const VERT_LABELS: VertLabel[] = [
 
 const SVG_X_OFFSET = 35;
 const SCALE_X = 1.6;
-const SCALE_Y = 1.3;
+const SCALE_Y = 1.75;
 const CARD_W = 150;
 const CARD_H = 104;
 const PAD_X = 80;
@@ -448,9 +448,9 @@ function BrittonTree() {
               if (!p) return null;
               const pos = px(p);
               const gap = 28;
-              const isBelow = lbl.position === "below";
-              const y1 = isBelow ? pos.y + CARD_H / 2 : pos.y - CARD_H / 2 - gap;
-              const y2 = isBelow ? pos.y + CARD_H / 2 + gap : pos.y - CARD_H / 2;
+              const isAbove = lbl.position === "above";
+              const y1 = isAbove ? pos.y - CARD_H / 2 - gap : pos.y + CARD_H / 2;
+              const y2 = isAbove ? pos.y - CARD_H / 2 : pos.y + CARD_H / 2 + gap;
               const stroke = lbl.kind === "mrca" ? "#a86a32" : T.ydnaBorder;
               return (
                 <line
@@ -525,8 +525,8 @@ function BrittonTree() {
             const lineH = 14;
             const labelH = lbl.lines.length * lineH + 10;
             const gap = 28;
-            const isBelow = lbl.position === "below";
-            const top = isBelow ? pos.y + CARD_H / 2 + gap : pos.y - CARD_H / 2 - gap - labelH;
+            const isAbove = lbl.position === "above";
+            const top = isAbove ? pos.y - CARD_H / 2 - gap - labelH : pos.y + CARD_H / 2 + gap;
             const color = lbl.kind === "mrca" ? "#a86a32" : T.ydnaBorder;
             return (
               <div
