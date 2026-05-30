@@ -846,7 +846,7 @@ function LeafletMap({
             {ENGLAND_MIGRATION_PATHS.map((path) => {
               const end = path.waypoints[path.waypoints.length - 1];
               return (
-                <span key={path.id}>
+                <Fragment key={path.id}>
                   <Polyline
                     positions={path.waypoints}
                     pathOptions={{
