@@ -215,16 +215,12 @@ function BrittonTree() {
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
 
-  const notionQuery = useQuery({
-    queryKey: ["britton-notion"],
-    queryFn: () => getBrittonRecords(),
-    staleTime: 5 * 60 * 1000,
-  });
   const notionById = useMemo(() => {
     const m = new Map<number, BrittonNotionRecord>();
-    for (const r of notionQuery.data?.records ?? []) m.set(r.id, r);
+    for (const r of notionData as BrittonNotionRecord[]) m.set(r.id, r);
     return m;
-  }, [notionQuery.data]);
+  }, []);
+
 
   const isH = false;
   const px = pxV;
