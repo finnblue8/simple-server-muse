@@ -333,6 +333,60 @@ const SETTLEMENTS: Settlement[] = [
     era: "william_ira",
     description: "Family residence in Powhatan Point from about 1914 to 1922.",
   },
+  {
+    id: 30,
+    name: "Clover Ridge & Beallsville",
+    region: "Washington Twp., Belmont Co. & Monroe Co., Ohio",
+    period: "1930 – c. 1955",
+    lat: 39.8444,
+    lng: -81.0376,
+    era: "post_william_ira",
+    description:
+      "Family residence in Clover Ridge, Washington Township, Belmont County, Ohio, and also in Beallsville, Monroe County, Ohio.",
+  },
+  {
+    id: 31,
+    name: "Cuyahoga Falls",
+    region: "Summit County, Ohio",
+    period: "1955 – c. 1970",
+    lat: 41.1339,
+    lng: -81.4846,
+    era: "post_william_ira",
+    description:
+      "Move north after Charles Willis Britton Sr. was discharged from U.S. Army active duty in Busan, Korea.",
+  },
+  {
+    id: 32,
+    name: "Hudson",
+    region: "Summit County, Ohio",
+    period: "1970 – c. 1987",
+    lat: 41.2400,
+    lng: -81.4404,
+    era: "post_william_ira",
+    description:
+      "Britton Construction Corporation was formed in Summit County on 15 September 1972 and over the next decade was responsible for many homes and commercial real estate in Hudson and northern Summit County. Charles Willis Britton Sr. died 30 May 1981 in Akron, Ohio.",
+  },
+  {
+    id: 33,
+    name: "Bedford",
+    region: "Cuyahoga County, Ohio",
+    period: "1987 – 2002",
+    lat: 41.3931,
+    lng: -81.5368,
+    era: "post_william_ira",
+    description:
+      "James Richard Britton lives in a condo with brother Charles Willis Britton Jr., and eventually with wife Nancy Ann Michaels after 1998.",
+  },
+  {
+    id: 34,
+    name: "Parma",
+    region: "Cuyahoga County, Ohio",
+    period: "2002 – present",
+    lat: 41.4047,
+    lng: -81.7229,
+    era: "post_william_ira",
+    description: "Current family residence in Parma, Cuyahoga County, Ohio.",
+  },
 ];
 
 type EraFilter = "all" | Era;
