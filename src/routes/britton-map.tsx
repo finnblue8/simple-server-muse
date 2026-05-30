@@ -482,7 +482,7 @@ function BrittonMapPage() {
                 </li>
               );
             })}
-            {idx === 0 && null}
+            
           </ol>
           <div className="border-t border-border px-4 py-3 text-sm">
             {selected && (
