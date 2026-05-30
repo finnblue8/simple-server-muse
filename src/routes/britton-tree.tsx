@@ -501,7 +501,13 @@ function BrittonTree() {
             return (
               <button
                 key={p.id}
-                onClick={(e) => { e.stopPropagation(); if (!dragging.current?.moved) setFocusId(p.id); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (dragging.current?.moved) return;
+                  setFocusId(p.id);
+                  setCardId(p.id);
+                }}
+
                 style={{
                   position: "absolute",
                   left: pos.x - CARD_W / 2,
