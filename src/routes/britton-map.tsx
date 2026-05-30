@@ -139,7 +139,7 @@ const SETTLEMENTS: Settlement[] = [
       "First documented North American home of the William Ira Britton line, attested by the 1860 U.S. Census. William Ira served in Co. D, 43rd Ohio Volunteer Infantry from 1861–65. Exact route from the NYC arrival point is undocumented.",
   },
   {
-    id: 10,
+    id: 11,
     name: "West Alexander",
     region: "Washington County, Pennsylvania",
     period: "27 July 1865",
@@ -150,7 +150,7 @@ const SETTLEMENTS: Settlement[] = [
       "Marriage location of William Ira Britton and Mary Elizabeth Miller — an undocumented \"Gretna Green\" style marriage.",
   },
   {
-    id: 11,
+    id: 12,
     name: "Northern Washington County",
     region: "Pennsylvania (exact location unknown)",
     period: "1 January 1867",
@@ -160,7 +160,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Emma Irene Britton. Exact location within northern Washington County is undocumented.",
   },
   {
-    id: 12,
+    id: 13,
     name: "West Middletown",
     region: "Washington County, Pennsylvania",
     period: "25 March 1868",
@@ -170,7 +170,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of William Britton.",
   },
   {
-    id: 13,
+    id: 14,
     name: "Smith Township",
     region: "Washington County, Pennsylvania",
     period: "22 September 1869 – 1870",
@@ -180,7 +180,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Ida May Britton.",
   },
   {
-    id: 14,
+    id: 15,
     name: "Berlin",
     region: "Somerset County, Pennsylvania",
     period: "20 October 1873",
@@ -190,7 +190,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of John Henry Britton.",
   },
   {
-    id: 15,
+    id: 16,
     name: "Bakerstown",
     region: "Allegheny County, Pennsylvania",
     period: "12 June 1875",
@@ -200,7 +200,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Alice Britton.",
   },
   {
-    id: 16,
+    id: 17,
     name: "Cross Creek",
     region: "Washington County, Pennsylvania",
     period: "2 June 1877",
@@ -210,7 +210,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Birthplace of Charles Britton.",
   },
   {
-    id: 17,
+    id: 18,
     name: "Brazil",
     region: "Clay County, Indiana",
     period: "1878",
@@ -221,7 +221,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family left rural Washington County, PA at this time. Documented in pension application file 2, page 67; mentioned throughout in various capacities by numerous individuals.",
   },
   {
-    id: 18,
+    id: 19,
     name: "Huntsville",
     region: "Madison County, Alabama",
     period: "21 March 1880",
@@ -232,7 +232,7 @@ const SETTLEMENTS: Settlement[] = [
       "Son Harry was born here on 21 Mar 1880 (personal testimony in pension file, page 100). Length of stay unclear — probably brief, as William Ira only mentioned AL once in the pension file.",
   },
   {
-    id: 19,
+    id: 20,
     name: "Nashville (District 13)",
     region: "Tennessee",
     period: "1 June 1880",
@@ -243,7 +243,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family was in Nashville at the time of the 1880 U.S. Census, less than three months after son Harry's birth in Huntsville. Length of stay unclear; not mentioned in the pension file.",
   },
   {
-    id: 20,
+    id: 21,
     name: "Brazil",
     region: "Clay County, Indiana",
     period: "15 January 1882 – June 1890",
@@ -254,7 +254,7 @@ const SETTLEMENTS: Settlement[] = [
       "Birthplace of daughter Anna (1882). In 1884 began seeing Jacob F. Smith, M.D. for injuries (pension file 2, p. 28). 15 January 1886 referenced in pension file. 7 Feb 1889 applied for increase in invalid pension (pension file 2, p. 9).",
   },
   {
-    id: 21,
+    id: 22,
     name: "Carroll Township",
     region: "Washington County, Pennsylvania",
     period: "June 1890",
@@ -264,7 +264,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Recorded location at the 1890 U.S. Census, Veterans Schedules.",
   },
   {
-    id: 22,
+    id: 23,
     name: "Elkhorn, Forward Township",
     region: "Allegheny County, Pennsylvania",
     period: "13 January 1891",
@@ -275,7 +275,7 @@ const SETTLEMENTS: Settlement[] = [
       "See pension file p. 23. Further supported by reference to daughter Emma Irene Grell (née Britton) in a Moline, Illinois newspaper celebrating the 25th anniversary of the issuance of a marriage license to Charles Grell and Emma Britton, 24, of Elkhorn, PA.",
   },
   {
-    id: 23,
+    id: 24,
     name: "Brownsville",
     region: "Fayette County, Pennsylvania",
     period: "11 August 1892",
@@ -286,7 +286,7 @@ const SETTLEMENTS: Settlement[] = [
       "Applied for increase in rate of invalid pension (pension file 2, p. 11). His age is given as 66 — the only time his birth year was ever alleged as 1826.",
   },
   {
-    id: 24,
+    id: 25,
     name: "Eleanora, McCalmont Township",
     region: "Jefferson County, Pennsylvania",
     period: "March 1896 – July 1899",
@@ -297,7 +297,7 @@ const SETTLEMENTS: Settlement[] = [
       "William Ira Britton (1896) born here in March. Alice Britton married William James Pierce in November. William Britton (1868) murdered December 1896. 26 June 1897 applied for increase in pension (pension file 2, p. 80). 3 August 1898 applied again (pension file 2, p. 44), filed from Brookville.",
   },
   {
-    id: 25,
+    id: 26,
     name: "Coal Center",
     region: "Washington County, Pennsylvania",
     period: "1900 – c. 1905",
@@ -307,7 +307,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Coal Center from 1900 to about 1905.",
   },
   {
-    id: 26,
+    id: 27,
     name: "Pleasant City",
     region: "Guernsey County, Ohio",
     period: "January 1905 – 1910",
@@ -317,7 +317,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Pleasant City from January 1905 to 1910.",
   },
   {
-    id: 27,
+    id: 28,
     name: "Brilliant",
     region: "Jefferson County, Ohio",
     period: "1910 – c. 1913",
@@ -327,7 +327,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Brilliant from 1910 to about 1913.",
   },
   {
-    id: 28,
+    id: 29,
     name: "Moline",
     region: "Rock Island County, Illinois",
     period: "1913",
@@ -337,7 +337,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Moline in 1913.",
   },
   {
-    id: 29,
+    id: 30,
     name: "Powhatan Point",
     region: "Belmont County, Ohio",
     period: "c. 1914 – 1922",
@@ -347,7 +347,7 @@ const SETTLEMENTS: Settlement[] = [
     description: "Family residence in Powhatan Point from about 1914 to 1922.",
   },
   {
-    id: 30,
+    id: 31,
     name: "Clover Ridge & Beallsville",
     region: "Washington Twp., Belmont Co. & Monroe Co., Ohio",
     period: "1930 – c. 1955",
@@ -358,7 +358,7 @@ const SETTLEMENTS: Settlement[] = [
       "Family residence in Clover Ridge, Washington Township, Belmont County, Ohio, and also in Beallsville, Monroe County, Ohio.",
   },
   {
-    id: 31,
+    id: 32,
     name: "Cuyahoga Falls",
     region: "Summit County, Ohio",
     period: "1955 – c. 1970",
@@ -369,7 +369,7 @@ const SETTLEMENTS: Settlement[] = [
       "Move north after Charles Willis Britton Sr. was discharged from U.S. Army active duty in Busan, Korea.",
   },
   {
-    id: 32,
+    id: 33,
     name: "Hudson",
     region: "Summit County, Ohio",
     period: "1970 – c. 1987",
@@ -380,7 +380,7 @@ const SETTLEMENTS: Settlement[] = [
       "Britton Construction Corporation was formed in Summit County on 15 September 1972 and over the next decade was responsible for many homes and commercial real estate in Hudson and northern Summit County. Charles Willis Britton Sr. died 30 May 1981 in Akron, Ohio.",
   },
   {
-    id: 33,
+    id: 34,
     name: "Bedford",
     region: "Cuyahoga County, Ohio",
     period: "1987 – 2002",
@@ -391,7 +391,7 @@ const SETTLEMENTS: Settlement[] = [
       "James Richard Britton lives in a condo with brother Charles Willis Britton Jr., and eventually with wife Nancy Ann Michaels after 1998.",
   },
   {
-    id: 34,
+    id: 35,
     name: "Parma",
     region: "Cuyahoga County, Ohio",
     period: "2002 – present",
