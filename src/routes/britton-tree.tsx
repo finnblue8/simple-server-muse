@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import treeData from "@/data/britton-tree.json";
+import { getBrittonRecords, type BrittonNotionRecord } from "@/lib/notion-britton.functions";
+
 
 export const Route = createFileRoute("/britton-tree")({
   head: () => ({
@@ -193,11 +196,24 @@ const DARK: Theme = {
 
 function BrittonTree() {
   const [focusId, setFocusId] = useState<number>(ROOT_ID);
+  const [cardId, setCardId] = useState<number | null>(null);
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
+
+  const notionQuery = useQuery({
+    queryKey: ["britton-notion"],
+    queryFn: () => getBrittonRecords(),
+    staleTime: 5 * 60 * 1000,
+  });
+  const notionById = useMemo(() => {
+    const m = new Map<number, BrittonNotionRecord>();
+    for (const r of notionQuery.data?.records ?? []) m.set(r.id, r);
+    return m;
+  }, [notionQuery.data]);
+
   const isH = false;
   const px = pxV;
   const canvasW = CANVAS_W;
@@ -485,7 +501,13 @@ function BrittonTree() {
             return (
               <button
                 key={p.id}
-                onClick={(e) => { e.stopPropagation(); if (!dragging.current?.moved) setFocusId(p.id); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (dragging.current?.moved) return;
+                  setFocusId(p.id);
+                  setCardId(p.id);
+                }}
+
                 style={{
                   position: "absolute",
                   left: pos.x - CARD_W / 2,
@@ -606,6 +628,73 @@ function BrittonTree() {
           ))}
         </div>
       </div>
+
+      {cardId !== null && (() => {
+        const person = BY_ID.get(cardId);
+        if (!person) return null;
+        const rec = notionById.get(cardId);
+        const fmt = (d: string | null) => d ?? "—";
+        return (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0,0,0,0.5)" }}
+            onClick={() => setCardId(null)}
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-md rounded-lg border p-5 shadow-2xl"
+              style={{ background: T.cardBg, color: T.text, borderColor: T.cardBorder }}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <div className="text-[10px] uppercase tracking-widest opacity-50">Generation {person.gen}</div>
+                  <h3 className="text-lg font-semibold">{person.name}</h3>
+                </div>
+                <button
+                  onClick={() => setCardId(null)}
+                  className="rounded px-2 py-0.5 text-sm hover:opacity-70"
+                  style={{ borderColor: T.panelBorder }}
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {person.details.length > 0 && (
+                <div className="mt-2 text-xs italic" style={{ color: T.textSubtle }}>
+                  {person.details.map((d, i) => <div key={i}>{d}</div>)}
+                </div>
+              )}
+
+              <div className="mt-4 border-t pt-3 text-sm" style={{ borderColor: T.panelBorder }}>
+                <div className="mb-2 text-[10px] uppercase tracking-widest opacity-50">
+                  Britton Family Database
+                </div>
+                {notionQuery.isLoading && <div className="opacity-70">Loading record…</div>}
+                {notionQuery.isError && (
+                  <div className="text-red-500">Failed to load record from Notion.</div>
+                )}
+                {!notionQuery.isLoading && !notionQuery.isError && !rec && (
+                  <div className="opacity-70">No matching record in Notion (ID {cardId}).</div>
+                )}
+                {rec && (
+                  <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 text-xs">
+                    <dt className="opacity-60">Name</dt>
+                    <dd>{[rec.firstName, rec.lastName].filter(Boolean).join(" ") || "—"}</dd>
+                    <dt className="opacity-60">Born</dt>
+                    <dd>{fmt(rec.birthDate)}{rec.birthLocation ? ` · ${rec.birthLocation}` : ""}</dd>
+                    <dt className="opacity-60">Married</dt>
+                    <dd>{fmt(rec.marriageDate)}{rec.marriageLocation ? ` · ${rec.marriageLocation}` : ""}</dd>
+                    <dt className="opacity-60">Died</dt>
+                    <dd>{fmt(rec.deathDate)}{rec.deathLocation ? ` · ${rec.deathLocation}` : ""}</dd>
+                  </dl>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </main>
   );
 }
+
