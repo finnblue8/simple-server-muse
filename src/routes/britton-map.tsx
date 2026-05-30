@@ -13,7 +13,7 @@ export const Route = createFileRoute("/britton-map")({
   component: BrittonMapPage,
 });
 
-type Era = "english" | "william_ira";
+type Era = "english" | "william_ira" | "post_william_ira";
 
 type Settlement = {
   id: number;
@@ -333,6 +333,60 @@ const SETTLEMENTS: Settlement[] = [
     era: "william_ira",
     description: "Family residence in Powhatan Point from about 1914 to 1922.",
   },
+  {
+    id: 30,
+    name: "Clover Ridge & Beallsville",
+    region: "Washington Twp., Belmont Co. & Monroe Co., Ohio",
+    period: "1930 – c. 1955",
+    lat: 39.8444,
+    lng: -81.0376,
+    era: "post_william_ira",
+    description:
+      "Family residence in Clover Ridge, Washington Township, Belmont County, Ohio, and also in Beallsville, Monroe County, Ohio.",
+  },
+  {
+    id: 31,
+    name: "Cuyahoga Falls",
+    region: "Summit County, Ohio",
+    period: "1955 – c. 1970",
+    lat: 41.1339,
+    lng: -81.4846,
+    era: "post_william_ira",
+    description:
+      "Move north after Charles Willis Britton Sr. was discharged from U.S. Army active duty in Busan, Korea.",
+  },
+  {
+    id: 32,
+    name: "Hudson",
+    region: "Summit County, Ohio",
+    period: "1970 – c. 1987",
+    lat: 41.2400,
+    lng: -81.4404,
+    era: "post_william_ira",
+    description:
+      "Britton Construction Corporation was formed in Summit County on 15 September 1972 and over the next decade was responsible for many homes and commercial real estate in Hudson and northern Summit County. Charles Willis Britton Sr. died 30 May 1981 in Akron, Ohio.",
+  },
+  {
+    id: 33,
+    name: "Bedford",
+    region: "Cuyahoga County, Ohio",
+    period: "1987 – 2002",
+    lat: 41.3931,
+    lng: -81.5368,
+    era: "post_william_ira",
+    description:
+      "James Richard Britton lives in a condo with brother Charles Willis Britton Jr., and eventually with wife Nancy Ann Michaels after 1998.",
+  },
+  {
+    id: 34,
+    name: "Parma",
+    region: "Cuyahoga County, Ohio",
+    period: "2002 – present",
+    lat: 41.4047,
+    lng: -81.7229,
+    era: "post_william_ira",
+    description: "Current family residence in Parma, Cuyahoga County, Ohio.",
+  },
 ];
 
 type EraFilter = "all" | Era;
@@ -412,6 +466,7 @@ function BrittonMapPage() {
             {eraButton("All", "all")}
             {eraButton("English Era", "english")}
             {eraButton("William Ira Era", "william_ira")}
+            {eraButton("Post-William Ira", "post_william_ira")}
           </div>
           <div className="text-right">
             <Link to="/" className="text-xs underline opacity-80 hover:opacity-100 sm:text-sm">
@@ -544,10 +599,11 @@ function LeafletMap({
         display:flex;align-items:center;justify-content:center;
         width:${isSel ? 30 : 24}px;height:${isSel ? 30 : 24}px;
         border-radius:9999px;
-        background:#dc2626;color:white;
+        background:${isSel ? "#facc15" : "#dc2626"};
+        color:${isSel ? "#1f2937" : "white"};
         font-weight:700;font-size:${isSel ? 13 : 11}px;
-        border:2px solid #7f1d1d;
-        box-shadow:0 0 0 3px rgba(239,68,68,0.25);
+        border:2px solid ${isSel ? "#a16207" : "#7f1d1d"};
+        box-shadow:0 0 0 3px ${isSel ? "rgba(250,204,21,0.35)" : "rgba(239,68,68,0.25)"};
         font-family:ui-sans-serif,system-ui,sans-serif;
         line-height:1;
       ">${n}</div>`,
@@ -569,6 +625,7 @@ function LeafletMap({
       />
       {legs.map((leg) => {
         const isSel = selectedLeg === leg.idx;
+        const isFromSelected = selected?.id === leg.from.id;
         return (
           <Polyline
             key={leg.idx}
@@ -577,10 +634,11 @@ function LeafletMap({
               [leg.to.lat, leg.to.lng],
             ]}
             pathOptions={{
-              color: isSel ? "#ef4444" : "#b91c1c",
-              weight: isSel ? 4 : 2.5,
-              opacity: isSel ? 1 : 0.85,
+              color: isFromSelected ? "#facc15" : isSel ? "#ef4444" : "#b91c1c",
+              weight: isFromSelected ? 4 : isSel ? 4 : 2.5,
+              opacity: isFromSelected || isSel ? 1 : 0.85,
               dashArray: "6 8",
+              className: isFromSelected ? "britton-leg-active" : undefined,
             }}
             eventHandlers={{ click: () => onSelectLeg(leg.idx) }}
           >

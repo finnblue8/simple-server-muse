@@ -278,3 +278,13 @@
 .xmb-subitem.selected::before {
   opacity: 1;
 }
+
+/* Animated dashed migration leg from currently selected settlement */
+@keyframes britton-leg-march {
+  to { stroke-dashoffset: -28; }
+}
+.britton-leg-active {
+  stroke-dasharray: 6 8;
+  animation: britton-leg-march 0.9s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
+}
