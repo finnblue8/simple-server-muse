@@ -196,11 +196,24 @@ const DARK: Theme = {
 
 function BrittonTree() {
   const [focusId, setFocusId] = useState<number>(ROOT_ID);
+  const [cardId, setCardId] = useState<number | null>(null);
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
   const [themeName, setThemeName] = useState<"light" | "dark">("light");
   const T = themeName === "dark" ? DARK : LIGHT;
+
+  const notionQuery = useQuery({
+    queryKey: ["britton-notion"],
+    queryFn: () => getBrittonRecords(),
+    staleTime: 5 * 60 * 1000,
+  });
+  const notionById = useMemo(() => {
+    const m = new Map<number, BrittonNotionRecord>();
+    for (const r of notionQuery.data?.records ?? []) m.set(r.id, r);
+    return m;
+  }, [notionQuery.data]);
+
   const isH = false;
   const px = pxV;
   const canvasW = CANVAS_W;
