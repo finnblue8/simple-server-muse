@@ -1185,42 +1185,8 @@ function BrittonMapPage() {
               );
             })}
           </ol>
-          <div className="border-t border-border px-4 py-3 text-sm">
-            {selected && (
-              <>
-                <div className="text-base font-semibold">{selected.name}</div>
-                <div className="text-xs opacity-70">{selected.region}</div>
-                <div className="mb-2 text-xs opacity-70">{selected.period}</div>
-                <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
-              </>
-            )}
-            {activeLeg && (
-              <>
-                <div className="text-base font-semibold">
-                  {activeLeg.from.name} → {activeLeg.to.name}
-                </div>
-                <div className="mb-2 text-xs opacity-70">
-                  {activeLeg.from.period} → {activeLeg.to.period}
-                </div>
-                <p className="text-sm leading-relaxed opacity-90">
-                  The family relocated from {activeLeg.from.name} ({activeLeg.from.region}) to {activeLeg.to.name} (
-                  {activeLeg.to.region}) between {activeLeg.from.period} and {activeLeg.to.period}.
-                </p>
-              </>
-            )}
-            {selectedRoute === "erie-canal" && (
-              <>
-                <div className="text-base font-semibold text-sky-600 dark:text-sky-400">
-                  {ERIE_CANAL_ROUTE.label}
-                </div>
-                <div className="mb-2 text-xs opacity-70">c. 1840s — closing leg of the English Era</div>
-                <p className="text-sm leading-relaxed opacity-90">{ERIE_CANAL_ROUTE.description}</p>
-              </>
-            )}
-            {!selected && !activeLeg && !selectedRoute && (
-              <p className="text-xs opacity-60">Select a location or migration leg to read more.</p>
-            )}
-          </div>
+
+
         </aside>
       </div>
     </main>
