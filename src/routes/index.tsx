@@ -38,7 +38,7 @@ const categories: XmbCategory[] = [
     label: "Profile",
     iconSrc: iconUsers,
     items: [
-      { label: "About — coming soon" },
+      { label: "About", href: "/about" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/robertjbritton/" },
     ],
   },
