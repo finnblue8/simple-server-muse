@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as BrittonTreeRouteImport } from './routes/britton-tree'
 import { Route as BrittonMapRouteImport } from './routes/britton-map'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const BrittonTreeRoute = BrittonTreeRouteImport.update({
@@ -23,6 +24,11 @@ const BrittonMapRoute = BrittonMapRouteImport.update({
   path: '/britton-map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/britton-map': typeof BrittonMapRoute
   '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/britton-map': typeof BrittonMapRoute
   '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/britton-map': typeof BrittonMapRoute
   '/britton-tree': typeof BrittonTreeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/britton-map' | '/britton-tree'
+  fullPaths: '/' | '/about' | '/britton-map' | '/britton-tree'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/britton-map' | '/britton-tree'
-  id: '__root__' | '/' | '/britton-map' | '/britton-tree'
+  to: '/' | '/about' | '/britton-map' | '/britton-tree'
+  id: '__root__' | '/' | '/about' | '/britton-map' | '/britton-tree'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BrittonMapRoute: typeof BrittonMapRoute
   BrittonTreeRoute: typeof BrittonTreeRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrittonMapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,9 +104,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BrittonMapRoute: BrittonMapRoute,
   BrittonTreeRoute: BrittonTreeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
