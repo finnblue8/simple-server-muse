@@ -1086,7 +1086,44 @@ function BrittonMapPage() {
           ) : (
             <div className="flex h-full items-center justify-center text-sm opacity-60">Loading map…</div>
           )}
+
+          {(selected || activeLeg || selectedRoute === "erie-canal") && (
+            <div className="pointer-events-auto absolute right-3 top-3 z-[1000] max-h-[calc(100%-1.5rem)] w-[360px] max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-border bg-card/95 p-4 text-sm text-card-foreground shadow-xl backdrop-blur">
+              {selected && (
+                <>
+                  <div className="text-base font-semibold">{selected.name}</div>
+                  <div className="text-xs opacity-70">{selected.region}</div>
+                  <div className="mb-2 text-xs opacity-70">{selected.period}</div>
+                  <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
+                </>
+              )}
+              {activeLeg && (
+                <>
+                  <div className="text-base font-semibold">
+                    {activeLeg.from.name} → {activeLeg.to.name}
+                  </div>
+                  <div className="mb-2 text-xs opacity-70">
+                    {activeLeg.from.period} → {activeLeg.to.period}
+                  </div>
+                  <p className="text-sm leading-relaxed opacity-90">
+                    The family relocated from {activeLeg.from.name} ({activeLeg.from.region}) to {activeLeg.to.name} (
+                    {activeLeg.to.region}) between {activeLeg.from.period} and {activeLeg.to.period}.
+                  </p>
+                </>
+              )}
+              {selectedRoute === "erie-canal" && (
+                <>
+                  <div className="text-base font-semibold text-sky-600 dark:text-sky-400">
+                    {ERIE_CANAL_ROUTE.label}
+                  </div>
+                  <div className="mb-2 text-xs opacity-70">c. 1840s — closing leg of the English Era</div>
+                  <p className="text-sm leading-relaxed opacity-90">{ERIE_CANAL_ROUTE.description}</p>
+                </>
+              )}
+            </div>
+          )}
         </div>
+
 
         <aside className="flex w-full flex-col border-t border-border bg-card lg:w-[380px] lg:border-l lg:border-t-0">
           <div className="border-b border-border px-4 py-3">
