@@ -208,7 +208,7 @@ function Index() {
   const translateX = -active * colWidth - colWidth / 2;
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden text-foreground">
+    <main className="xmb-lock relative h-screen w-screen overflow-hidden text-foreground">
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
