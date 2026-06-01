@@ -67,6 +67,29 @@ const PHOTOS_BY_ID: Record<number, Photo[]> = {
       caption: "The Army of the Cumberland swinging around Kennesaw Mountain.",
     },
   ],
+  44: [
+    { src: "/photos/marchtothesea.jpg", caption: "Sherman's March to the Sea by F. O. C. Darley." },
+  ],
+  51: [
+    {
+      src: "/photos/burning.jpg",
+      caption: "The Burning of Columbia, South Carolina, on February 17, 1865, as depicted in Harper's Weekly.",
+    },
+  ],
+  53: [
+    {
+      src: "/photos/bentonville.jpg",
+      caption:
+        "Appeared in the April 22, 1865 issue of Frank Leslie's Illustrated Newspaper. The print shows the Union Army charging the Confederate line and the rebels retreating. From Original Prints, Audio Visual Materials, Special Collections, State Archives of North Carolina.",
+    },
+  ],
+  57: [
+    {
+      src: "/photos/grandreview.jpg",
+      caption:
+        "Grand Review of the Armies on Pennsylvania Avenue in Washington, D.C., heading northwest from the United States Capitol (dome visible in rear) toward the White House at 15th Street N.W., past the U.S. Treasury Department building, at the conclusion of the American Civil War, May 23–24, 1865.",
+    },
+  ],
 };
 
 const SETTLEMENTS: Settlement[] = [
