@@ -110,6 +110,7 @@ function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
 }
 
 function Index() {
+  const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [paths, setPaths] = useState<number[][]>(categories.map(() => [0]));
   const [time, setTime] = useState<Date | null>(null);
@@ -207,8 +208,11 @@ function Index() {
           updatePath(active, path.slice(0, -1));
         }
       } else if (e.key === "Enter" || e.key === " ") {
-        if (selectedItem?.href) window.open(selectedItem.href, "_blank", "noopener");
-        else if (selectedItem?.children) {
+        if (cat.href) {
+          navigate({ to: cat.href });
+        } else if (selectedItem?.href) {
+          window.open(selectedItem.href, "_blank", "noopener");
+        } else if (selectedItem?.children) {
           playCursor();
           updatePath(active, [...path, 0]);
         }
