@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 
 export default function XMBWave() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -30,8 +30,8 @@ export default function XMBWave() {
 
     let rafId = 0;
     let cancelled = false;
-    let splineLayer = null;
-    let particlesLayer = null;
+    let splineLayer: { render: (t: number) => void } | null = null;
+    let particlesLayer: { render: (t: number) => void } | null = null;
 
     let lastT = performance.now();
     let splineTimeSec = 0;
@@ -55,13 +55,14 @@ export default function XMBWave() {
 
     const tryInit = () => {
       if (cancelled) return;
-      if (
-        typeof window.createSplineLayer === "function" &&
-        typeof window.createParticlesLayer === "function"
-      ) {
+      const w = window as unknown as {
+        createSplineLayer?: (gl: WebGL2RenderingContext, c: HTMLCanvasElement) => { render: (t: number) => void };
+        createParticlesLayer?: (gl: WebGL2RenderingContext, c: HTMLCanvasElement) => { render: (t: number) => void };
+      };
+      if (typeof w.createSplineLayer === "function" && typeof w.createParticlesLayer === "function") {
         try {
-          splineLayer = window.createSplineLayer(gl, canvas);
-          particlesLayer = window.createParticlesLayer(gl, canvas);
+          splineLayer = w.createSplineLayer(gl, canvas);
+          particlesLayer = w.createParticlesLayer(gl, canvas);
           lastT = performance.now();
           rafId = requestAnimationFrame(loop);
         } catch (e) {
