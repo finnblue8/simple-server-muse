@@ -287,13 +287,10 @@ function Index() {
                       style={{ filter: "drop-shadow(0 0 6px rgba(0,0,0,0.25))" }}
                     />
                   ) : c.IconComp ? (
-                    <c.IconComp strokeWidth={1.25} className="h-9 w-9" style={{ color: "#CBCBCB" }} />
+                    <c.IconComp strokeWidth={1.25} className="h-9 w-9" />
                   ) : null}
                 </div>
-                <div
-                  className="xmb-label mt-3 text-[11px] uppercase tracking-[0.18em] xmb-text-glow sm:text-xs"
-                  style={{ color: c.key === "research" ? "#CBCBCB" : undefined }}
-                >
+                <div className="xmb-label mt-3 text-[11px] uppercase tracking-[0.18em] xmb-text-glow sm:text-xs">
                   {c.label}
                 </div>
               </div>
