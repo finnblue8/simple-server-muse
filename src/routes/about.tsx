@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import headshot from "@/assets/headshot.webp";
 import logoReadySet from "@/assets/logo-readyset.jpg";
 import logoHomeDepot from "@/assets/logo-home-depot.png";
+import logoAkron from "@/assets/logo-akron.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
