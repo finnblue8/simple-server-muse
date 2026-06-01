@@ -109,7 +109,7 @@ function About() {
           />
           <div className="xmb-text-glow">
             <p className="mt-1 text-3xl font-light tracking-wide sm:text-5xl">Hi, I'm Robbie</p>
-            <h1 className="mt-1 text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
+            <h1 className="mt-4 text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
             <p className="mt-2 text-sm font-light opacity-80 sm:text-base">
               Manager, Marketing &amp; Revenue Enablement · Cleveland, Ohio
             </p>
