@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { FlaskConical } from "lucide-react";
 import iconUsers from "@/assets/icon-users.png";
@@ -29,6 +29,7 @@ type XmbCategory = {
   label: string;
   iconSrc?: string;
   IconComp?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  href?: string;
   items: XmbItem[];
 };
 
@@ -37,10 +38,8 @@ const categories: XmbCategory[] = [
     key: "profile",
     label: "Profile",
     iconSrc: iconUsers,
-    items: [
-      { label: "About", href: "/about" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/robertjbritton/" },
-    ],
+    href: "/about",
+    items: [],
   },
   {
     key: "network",
@@ -111,6 +110,7 @@ function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
 }
 
 function Index() {
+  const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [paths, setPaths] = useState<number[][]>(categories.map(() => [0]));
   const [time, setTime] = useState<Date | null>(null);
@@ -208,8 +208,11 @@ function Index() {
           updatePath(active, path.slice(0, -1));
         }
       } else if (e.key === "Enter" || e.key === " ") {
-        if (selectedItem?.href) window.open(selectedItem.href, "_blank", "noopener");
-        else if (selectedItem?.children) {
+        if (cat.href) {
+          navigate({ to: cat.href });
+        } else if (selectedItem?.href) {
+          window.open(selectedItem.href, "_blank", "noopener");
+        } else if (selectedItem?.children) {
           playCursor();
           updatePath(active, [...path, 0]);
         }
@@ -266,8 +269,12 @@ function Index() {
                 className={`xmb-col flex flex-col items-center ${isActive ? "active" : ""}`}
                 style={{ width: colWidth }}
                 onClick={() => {
-                  changeActive(i);
-                  updatePath(i, [0]);
+                  if (c.href) {
+                    navigate({ to: c.href });
+                  } else {
+                    changeActive(i);
+                    updatePath(i, [0]);
+                  }
                 }}
               >
                 <div className="xmb-icon">
@@ -290,70 +297,72 @@ function Index() {
           })}
         </div>
 
-        <ul
-          className="absolute text-left text-sm font-light sm:text-base"
-          style={{
-            top: 120,
-            left: active * colWidth,
-            width: colWidth,
-          }}
-        >
-          {depth > 0 && (
-            <li
-              className="mb-2 cursor-pointer text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow"
-              onClick={(e) => {
-                e.stopPropagation();
-                playCancel();
-                updatePath(active, path.slice(0, -1));
-              }}
-            >
-              ‹ back
-            </li>
-          )}
-          {currentItems.map((item, j) => {
-            const isSel = j === selectedIdx;
-            const hasChildren = !!item.children;
-            const inner = (
-              <span className="flex items-center justify-center gap-2 text-center">
-                <span>{item.label}</span>
-                {hasChildren && <span className="opacity-60">›</span>}
-              </span>
-            );
-            const handleClick = (e: React.MouseEvent) => {
-              e.stopPropagation();
-              if (item.href) {
-                window.open(item.href, "_blank", "noopener");
-              } else if (hasChildren) {
-                playCursor();
-                updatePath(active, [...path.slice(0, -1), j, 0]);
-              } else {
-                const next = [...path];
-                next[next.length - 1] = j;
-                updatePath(active, next);
-              }
-            };
-            return (
+        {currentItems.length > 0 && (
+          <ul
+            className="absolute text-left text-sm font-light sm:text-base"
+            style={{
+              top: 120,
+              left: active * colWidth,
+              width: colWidth,
+            }}
+          >
+            {depth > 0 && (
               <li
-                key={`${depth}-${j}-${item.label}`}
-                onClick={handleClick}
-                className={`xmb-subitem mb-2 cursor-pointer xmb-text-glow ${isSel ? "selected" : ""}`}
+                className="mb-2 cursor-pointer text-[10px] uppercase tracking-[0.2em] opacity-60 xmb-text-glow"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  playCancel();
+                  updatePath(active, path.slice(0, -1));
+                }}
               >
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {inner}
-                  </a>
-                ) : (
-                  inner
-                )}
+                ‹ back
               </li>
-            );
-          })}
-        </ul>
+            )}
+            {currentItems.map((item, j) => {
+              const isSel = j === selectedIdx;
+              const hasChildren = !!item.children;
+              const inner = (
+                <span className="flex items-center justify-center gap-2 text-center">
+                  <span>{item.label}</span>
+                  {hasChildren && <span className="opacity-60">›</span>}
+                </span>
+              );
+              const handleClick = (e: React.MouseEvent) => {
+                e.stopPropagation();
+                if (item.href) {
+                  window.open(item.href, "_blank", "noopener");
+                } else if (hasChildren) {
+                  playCursor();
+                  updatePath(active, [...path.slice(0, -1), j, 0]);
+                } else {
+                  const next = [...path];
+                  next[next.length - 1] = j;
+                  updatePath(active, next);
+                }
+              };
+              return (
+                <li
+                  key={`${depth}-${j}-${item.label}`}
+                  onClick={handleClick}
+                  className={`xmb-subitem mb-2 cursor-pointer xmb-text-glow ${isSel ? "selected" : ""}`}
+                >
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    inner
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </section>
 
       <footer className="absolute bottom-3 left-0 right-0 z-10 flex items-center justify-center px-4 text-[10px] font-light opacity-70 xmb-text-glow sm:bottom-6 sm:text-xs">
