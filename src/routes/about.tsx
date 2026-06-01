@@ -177,7 +177,7 @@ function About() {
                   {job.roles.map((role) => (
                     <div key={role.title}>
                       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                        <h4 className="text-base font-light sm:text-lg">{role.title}</h4>
+                        <h4 className="text-base font-bold sm:text-lg">{role.title}</h4>
                         <span className="text-xs opacity-70">{role.dates}</span>
                       </div>
                       {role.bullets && (
