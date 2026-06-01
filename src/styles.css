@@ -151,6 +151,11 @@
   body:has(.xmb-lock) {
     overflow: hidden;
     background: transparent;
+  }
+
+  body:has(.xmb-lock),
+  body:has(.xmb-light),
+  .xmb-light {
     color: #CBCBCB;
   }
 }
