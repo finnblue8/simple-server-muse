@@ -4,6 +4,7 @@ export default function XMBWave() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
+    console.log("[XMBWave] mount", { canvas: !!canvasRef.current });
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -12,6 +13,7 @@ export default function XMBWave() {
       alpha: false,
       powerPreference: "high-performance",
     });
+    console.log("[XMBWave] gl context", !!gl);
     if (!gl) {
       console.warn("XMBWave: WebGL2 not available");
       return;
@@ -65,10 +67,12 @@ export default function XMBWave() {
         createSplineLayer?: (gl: WebGL2RenderingContext, c: HTMLCanvasElement) => { render: (t: number) => void };
         createParticlesLayer?: (gl: WebGL2RenderingContext, c: HTMLCanvasElement) => { render: (t: number) => void };
       };
+      console.log("[XMBWave] tryInit", { spline: typeof w.createSplineLayer, particles: typeof w.createParticlesLayer });
       if (typeof w.createSplineLayer === "function" && typeof w.createParticlesLayer === "function") {
         try {
           splineLayer = w.createSplineLayer(gl, canvas);
           particlesLayer = w.createParticlesLayer(gl, canvas);
+          console.log("[XMBWave] layers ready, starting loop");
           lastT = performance.now();
           rafId = requestAnimationFrame(loop);
         } catch (e) {
