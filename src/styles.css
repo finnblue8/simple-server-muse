@@ -215,7 +215,7 @@
   border-radius: 6px;
   background: linear-gradient(180deg, oklch(0.4 0.02 220 / 0.12), oklch(0.3 0.04 230 / 0.04));
   border: 1px solid oklch(0.3 0.02 220 / 0.15);
-  color: oklch(0.2 0 0);
+  color: #CBCBCB;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
