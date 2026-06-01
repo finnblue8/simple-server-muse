@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { FlaskConical } from "lucide-react";
 import iconUsers from "@/assets/icon-users.png";
@@ -29,6 +29,7 @@ type XmbCategory = {
   label: string;
   iconSrc?: string;
   IconComp?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  href?: string;
   items: XmbItem[];
 };
 
@@ -37,10 +38,8 @@ const categories: XmbCategory[] = [
     key: "profile",
     label: "Profile",
     iconSrc: iconUsers,
-    items: [
-      { label: "About", href: "/about" },
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/robertjbritton/" },
-    ],
+    href: "/about",
+    items: [],
   },
   {
     key: "network",
