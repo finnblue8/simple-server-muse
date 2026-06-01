@@ -275,7 +275,7 @@
   transform: translateY(-50%);
   font-size: 0.6em;
   line-height: 1;
-  color: oklch(0.3 0.05 220);
+  color: #CBCBCB;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
