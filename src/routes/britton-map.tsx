@@ -15,6 +15,8 @@ export const Route = createFileRoute("/britton-map")({
 
 type Era = "english" | "william_ira" | "post_william_ira";
 
+type Photo = { src: string; caption?: string };
+
 type Settlement = {
   id: number;
   name: string;
@@ -26,6 +28,45 @@ type Settlement = {
   era: Era;
   /** when true, do NOT draw a line from the previous settlement to this one */
   skipConnectionFromPrevious?: boolean;
+  photos?: Photo[];
+};
+
+const PHOTOS_BY_ID: Record<number, Photo[]> = {
+  14: [
+    {
+      src: "/photos/island10.jpg",
+      caption:
+        "Bombardment and Capture of Island Number Ten on the Mississippi River, April 7, 1862. Colored lithograph published by Currier & Ives, New York, c. 1862. It depicts the bombardment of the Confederate fortifications on Island Number Ten by Federal gunboats and mortar boats. Ships seen include (left to right): Mound City, Louisville, USS Pittsburg, Carondelet, Flagship Benton, Cincinnati, Saint Louis and Conestoga (timberclad). Mortar boats are firing from along the river bank.",
+    },
+  ],
+  18: [
+    { src: "/photos/corinth1.jpg" },
+    { src: "/photos/corinth1-2.jpg", caption: "Halleck's army marches towards Corinth." },
+  ],
+  23: [
+    { src: "/photos/corinth2-2.jpg" },
+    { src: "/photos/corinth2.jpg" },
+  ],
+  32: [
+    { src: "/photos/resac.jpg", caption: "Geary's Second Brigade attacking Confederate positions." },
+  ],
+  33: [
+    {
+      src: "/photos/dallas.jpg",
+      caption:
+        "General Sherman's Campaign — The Rebel Assault on Logan's Position in the Battle at Dallas, May 28, 1864. Sketched by Theodore R. Davis.",
+    },
+  ],
+  34: [
+    { src: "/photos/newhopechurch.jpg", caption: "Confederate entrenchments at New Hope Church." },
+    { src: "/photos/allatoona.jpg", caption: "Battle of Allatoona Pass, 1897 illustration." },
+  ],
+  35: [
+    {
+      src: "/photos/kennesaw.jpg",
+      caption: "The Army of the Cumberland swinging around Kennesaw Mountain.",
+    },
+  ],
 };
 
 const SETTLEMENTS: Settlement[] = [
@@ -1095,6 +1136,23 @@ function BrittonMapPage() {
                   <div className="text-xs opacity-70">{selected.region}</div>
                   <div className="mb-2 text-xs opacity-70">{selected.period}</div>
                   <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
+                  {PHOTOS_BY_ID[selected.id]?.length ? (
+                    <div className="mt-3 space-y-3">
+                      {PHOTOS_BY_ID[selected.id].map((p) => (
+                        <figure key={p.src} className="space-y-1">
+                          <img
+                            src={p.src}
+                            alt={p.caption ?? selected.name}
+                            loading="lazy"
+                            className="w-full rounded border border-border"
+                          />
+                          {p.caption && (
+                            <figcaption className="text-xs italic opacity-70">{p.caption}</figcaption>
+                          )}
+                        </figure>
+                      ))}
+                    </div>
+                  ) : null}
                 </>
               )}
               {activeLeg && (
