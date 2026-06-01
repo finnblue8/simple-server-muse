@@ -45,7 +45,7 @@ const jobs: Job[] = [
           "Incorporate sales and marketing process improvements and SOPs, reducing friction in daily operations and improving go-to-market speed and consistency.",
           "Create sales enablement materials, battlecards, and competitive positioning resources equipping the sales team with the knowledge needed to win and informing broader company strategy.",
         ],
-        note: "Also continue most responsibilities from earlier roles. Skills: Salesforce.com Administration, Data Analysis, +1.",
+        
       },
       {
         title: "Marketing Coordinator",
