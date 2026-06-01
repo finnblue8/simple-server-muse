@@ -231,7 +231,7 @@ function Index() {
   const bgColor = getSeasonalColor(time ?? new Date());
 
   return (
-    <main className="xmb-lock relative h-screen w-screen overflow-hidden text-foreground">
+    <main className="xmb-lock relative h-screen w-screen overflow-hidden">
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
