@@ -207,9 +207,11 @@ function Index() {
 
   const translateX = -active * colWidth - colWidth / 2;
 
+  const bgColor = getSeasonalColor(time ?? new Date());
+
   return (
     <main className="xmb-lock relative h-screen w-screen overflow-hidden text-foreground">
-      <div className="xmb-bg" />
+      <div className="xmb-bg" style={{ background: bgColor, transition: "background 1.5s ease" }} />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
       <div className="xmb-ribbon" style={{ top: "55%", opacity: 0.3 }} />
