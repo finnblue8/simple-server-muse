@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import XMBWave from "@/components/XMBWave";
 
 function NotFoundComponent() {
   return (
@@ -91,6 +92,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    scripts: [
+      { src: "/background-gradients-night.js" },
+      { src: "/background-gradients-day.js" },
+      { src: "/spline-settings.js" },
+      { src: "/particles-settings.js" },
+      { src: "/spline-reverse.js" },
+      { src: "/spline.js" },
+      { src: "/particles.js" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -117,6 +127,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <XMBWave />
       <Outlet />
     </QueryClientProvider>
   );
