@@ -204,7 +204,7 @@
 }
 
 .xmb-text-glow {
-  text-shadow: 0 0 6px oklch(0.2 0 0 / 0.15), 0 0 18px oklch(0.35 0 0 / 0.08);
+  text-shadow: 0 0 6px rgba(255,255,255,0.25), 0 0 18px rgba(255,255,255,0.15);
 }
 
 .xmb-icon {
