@@ -259,7 +259,7 @@
 
 .xmb-subitem:hover {
   opacity: 1;
-  color: oklch(0.1 0 0);
+  color: #CBCBCB;
 }
 
 .xmb-subitem.selected {
