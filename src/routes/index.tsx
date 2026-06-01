@@ -83,6 +83,23 @@ const categories: XmbCategory[] = [
   },
 ];
 
+const MONTH_COLORS = [
+  "#CBCBCB", "#D8BF1A", "#6DB217", "#E17E9A", "#178816", "#9A61C8",
+  "#02CDC7", "#0C76C0", "#B444C0", "#E5A708", "#875B1E", "#E3412A",
+];
+
+function getSeasonalColor(date: Date): string {
+  const hex = MONTH_COLORS[date.getMonth()];
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const h = date.getHours() + date.getMinutes() / 60;
+  // Sun curve: peak at 10am, dark before sunrise and after sunset
+  const brightness = Math.max(0.08, Math.cos(((h - 10) * Math.PI) / 14));
+  const mix = (c: number) => Math.round(c * brightness);
+  return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
+}
+
 function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
   let items: XmbItem[] = cat.items;
   for (const idx of path) {
