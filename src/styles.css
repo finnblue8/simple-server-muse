@@ -150,14 +150,15 @@
 
   body:has(.xmb-lock) {
     overflow: hidden;
+    background: transparent;
   }
 }
 
-/* XMB background — light theme */
+/* XMB background — transparent so the WebGL wave shows through */
 .xmb-bg {
   position: fixed;
   inset: 0;
-  background: #CBCBCB;
+  background: transparent;
   z-index: 0;
 }
 
