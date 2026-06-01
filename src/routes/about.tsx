@@ -127,13 +127,22 @@ function About() {
         <section className="mb-12">
           <h2 className="mb-4 text-xs uppercase tracking-[0.25em] opacity-70 xmb-text-glow">Education</h2>
           <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm xmb-text-glow">
-            <div className="flex items-baseline justify-between gap-4">
-              <h3 className="text-lg font-light sm:text-xl">The University of Akron</h3>
-              <span className="shrink-0 text-xs opacity-70">Aug 2020 – May 2024</span>
+            <div className="flex items-center gap-4">
+              <img
+                src={logoAkron}
+                alt="University of Akron logo"
+                className="h-12 w-12 shrink-0 rounded object-contain bg-white/90 p-1"
+              />
+              <div className="flex-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <h3 className="text-lg font-bold sm:text-xl">The University of Akron</h3>
+                  <span className="shrink-0 text-xs opacity-70">Aug 2020 – May 2024</span>
+                </div>
+                <p className="mt-1 text-sm opacity-90">
+                  Bachelor of Business Administration (BBA), Marketing · Minor: Entrepreneurship · CGPA 3.95
+                </p>
+              </div>
             </div>
-            <p className="mt-1 text-sm opacity-90">
-              Bachelor of Business Administration (BBA), Marketing · Minor: Entrepreneurship · CGPA 3.95
-            </p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm opacity-85">
               <li>American Marketing Association, University of Akron Chapter</li>
               <li>
