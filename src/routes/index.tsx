@@ -94,8 +94,8 @@ function getSeasonalColor(date: Date): string {
   const g = parseInt(hex.slice(3, 5), 16);
   const b = parseInt(hex.slice(5, 7), 16);
   const h = date.getHours() + date.getMinutes() / 60;
-  // Sun curve: peak at 10am, dark before sunrise and after sunset
-  const brightness = Math.max(0.08, Math.cos(((h - 10) * Math.PI) / 14));
+  // Sun curve: peak at 10am, dim but readable before sunrise and after sunset
+  const brightness = Math.max(0.35, Math.cos(((h - 10) * Math.PI) / 14));
   const mix = (c: number) => Math.round(c * brightness);
   return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
 }
