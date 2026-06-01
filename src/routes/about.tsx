@@ -108,7 +108,8 @@ function About() {
             className="h-36 w-36 rounded-full object-cover shadow-xl ring-2 ring-white/30 sm:h-44 sm:w-44"
           />
           <div className="xmb-text-glow">
-            <h1 className="text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
+            <p className="text-sm font-light uppercase tracking-[0.25em] opacity-80 sm:text-base">Hi, I'm Robbie</p>
+            <h1 className="mt-1 text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
             <p className="mt-2 text-sm font-light opacity-80 sm:text-base">
               Manager, Marketing &amp; Revenue Enablement · Cleveland, Ohio
             </p>
