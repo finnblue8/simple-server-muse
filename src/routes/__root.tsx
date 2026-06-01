@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -124,10 +125,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s: { location: { pathname: string } }) => s.location.pathname });
+  const showWave = pathname === "/" || pathname === "/about";
 
   return (
     <QueryClientProvider client={queryClient}>
-      <XMBWave />
+      {showWave && <XMBWave />}
       <Outlet />
     </QueryClientProvider>
   );

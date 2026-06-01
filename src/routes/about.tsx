@@ -90,7 +90,7 @@ const jobs: Job[] = [
 
 function About() {
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden text-foreground">
+    <main className="xmb-light relative min-h-screen w-full overflow-x-hidden">
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />

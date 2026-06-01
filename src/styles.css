@@ -151,7 +151,12 @@
   body:has(.xmb-lock) {
     overflow: hidden;
     background: transparent;
-    color: #000000;
+  }
+
+  body:has(.xmb-lock),
+  body:has(.xmb-light),
+  .xmb-light {
+    color: #CBCBCB;
   }
 }
 
@@ -215,7 +220,7 @@
   border-radius: 6px;
   background: linear-gradient(180deg, oklch(0.4 0.02 220 / 0.12), oklch(0.3 0.04 230 / 0.04));
   border: 1px solid oklch(0.3 0.02 220 / 0.15);
-  color: #000000;
+  color: #CBCBCB;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
@@ -259,12 +264,12 @@
 
 .xmb-subitem:hover {
   opacity: 1;
-  color: #000000;
+  color: #CBCBCB;
 }
 
 .xmb-subitem.selected {
   opacity: 1;
-  color: #000000;
+  color: #CBCBCB;
 }
 
 .xmb-subitem::before {
@@ -275,7 +280,7 @@
   transform: translateY(-50%);
   font-size: 0.6em;
   line-height: 1;
-  color: #000000;
+  color: #CBCBCB;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
