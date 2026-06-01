@@ -78,10 +78,23 @@ export default function XMBWave() {
     };
     tryInit();
 
+    const updatePreset = () => {
+      const s = (window as unknown as { SPLINE_SETTINGS?: { gradientPreset?: string } }).SPLINE_SETTINGS;
+      if (!s) return;
+      const now = new Date();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const hour = now.getHours();
+      const isDay = hour >= 8 && hour < 19;
+      s.gradientPreset = `${month}_${isDay ? "day" : "night"}`;
+    };
+    updatePreset();
+    const presetTimer = window.setInterval(updatePreset, 60_000);
+
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
+      window.clearInterval(presetTimer);
     };
   }, []);
 
