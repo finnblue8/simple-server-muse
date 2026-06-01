@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import headshot from "@/assets/headshot.webp";
 import logoReadySet from "@/assets/logo-readyset.jpg";
 import logoHomeDepot from "@/assets/logo-home-depot.png";
+import logoAkron from "@/assets/logo-akron.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -44,7 +45,7 @@ const jobs: Job[] = [
           "Incorporate sales and marketing process improvements and SOPs, reducing friction in daily operations and improving go-to-market speed and consistency.",
           "Create sales enablement materials, battlecards, and competitive positioning resources equipping the sales team with the knowledge needed to win and informing broader company strategy.",
         ],
-        note: "Also continue most responsibilities from earlier roles. Skills: Salesforce.com Administration, Data Analysis, +1.",
+        
       },
       {
         title: "Marketing Coordinator",
@@ -107,7 +108,8 @@ function About() {
             className="h-36 w-36 rounded-full object-cover shadow-xl ring-2 ring-white/30 sm:h-44 sm:w-44"
           />
           <div className="xmb-text-glow">
-            <h1 className="text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
+            <p className="text-sm font-light uppercase tracking-[0.25em] opacity-80 sm:text-base">Hi, I'm Robbie</p>
+            <h1 className="mt-1 text-3xl font-light tracking-wide sm:text-5xl">Robert Britton</h1>
             <p className="mt-2 text-sm font-light opacity-80 sm:text-base">
               Manager, Marketing &amp; Revenue Enablement · Cleveland, Ohio
             </p>
@@ -125,13 +127,22 @@ function About() {
         <section className="mb-12">
           <h2 className="mb-4 text-xs uppercase tracking-[0.25em] opacity-70 xmb-text-glow">Education</h2>
           <div className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-sm xmb-text-glow">
-            <div className="flex items-baseline justify-between gap-4">
-              <h3 className="text-lg font-light sm:text-xl">The University of Akron</h3>
-              <span className="shrink-0 text-xs opacity-70">Aug 2020 – May 2024</span>
+            <div className="flex items-center gap-4">
+              <img
+                src={logoAkron}
+                alt="University of Akron logo"
+                className="h-12 w-12 shrink-0 rounded object-contain bg-white/90 p-1"
+              />
+              <div className="flex-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <h3 className="text-lg font-bold sm:text-xl">The University of Akron</h3>
+                  <span className="shrink-0 text-xs opacity-70">Aug 2020 – May 2024</span>
+                </div>
+                <p className="mt-1 text-sm opacity-90">
+                  Bachelor of Business Administration (BBA), Marketing · Minor: Entrepreneurship · CGPA 3.95
+                </p>
+              </div>
             </div>
-            <p className="mt-1 text-sm opacity-90">
-              Bachelor of Business Administration (BBA), Marketing · Minor: Entrepreneurship · CGPA 3.95
-            </p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm opacity-85">
               <li>American Marketing Association, University of Akron Chapter</li>
               <li>
@@ -166,7 +177,7 @@ function About() {
                   {job.roles.map((role) => (
                     <div key={role.title}>
                       <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                        <h4 className="text-base font-light sm:text-lg">{role.title}</h4>
+                        <h4 className="text-base font-bold sm:text-lg">{role.title}</h4>
                         <span className="text-xs opacity-70">{role.dates}</span>
                       </div>
                       {role.bullets && (
