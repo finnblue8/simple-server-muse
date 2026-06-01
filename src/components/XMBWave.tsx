@@ -22,8 +22,11 @@ export default function XMBWave() {
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      canvas.width = Math.floor(window.innerWidth * dpr);
-      canvas.height = Math.floor(window.innerHeight * dpr);
+      const w = Math.floor(window.innerWidth * dpr);
+      const h = Math.floor(window.innerHeight * dpr);
+      if (canvas.width !== w) canvas.width = w;
+      if (canvas.height !== h) canvas.height = h;
+      gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -45,6 +48,9 @@ export default function XMBWave() {
       splineTimeSec += dt;
       particlesTimeSec += dt;
       try {
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        gl.clearColor(0, 0, 0, 1);
+        gl.clear(gl.COLOR_BUFFER_BIT);
         splineLayer && splineLayer.render(splineTimeSec);
         particlesLayer && particlesLayer.render(particlesTimeSec);
       } catch (e) {
