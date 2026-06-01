@@ -28,7 +28,7 @@ type XmbCategory = {
   key: string;
   label: string;
   iconSrc?: string;
-  IconComp?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  IconComp?: React.ComponentType<{ className?: string; strokeWidth?: number; style?: React.CSSProperties }>;
   href?: string;
   items: XmbItem[];
 };
