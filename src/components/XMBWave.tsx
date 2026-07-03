@@ -40,7 +40,9 @@ export default function XMBWave() {
     let splineTimeSec = 0;
     let particlesTimeSec = 0;
     let sampleAccum = 0;
-    const samplePixel = new Uint8Array(4);
+    const SAMPLE_POINTS = 9;
+    const samplePixels = new Uint8Array(4 * SAMPLE_POINTS);
+    let smoothR = -1, smoothG = -1, smoothB = -1;
 
     const loop = () => {
       if (cancelled) return;
