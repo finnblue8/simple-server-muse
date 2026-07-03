@@ -1036,6 +1036,7 @@ function BrittonMapPage() {
   const [selectedRoute, setSelectedRoute] = useState<"erie-canal" | null>(null);
   const [dark, setDark] = useState(false);
   const [Lib, setLib] = useState<any>(null);
+  const [lightbox, setLightbox] = useState<{ photos: Photo[]; index: number } | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -1045,6 +1046,24 @@ function BrittonMapPage() {
       setLib({ RL, L: L.default ?? L });
     })();
   }, []);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      else if (e.key === "ArrowLeft")
+        setLightbox((lb) =>
+          lb ? { ...lb, index: (lb.index - 1 + lb.photos.length) % lb.photos.length } : lb,
+        );
+      else if (e.key === "ArrowRight")
+        setLightbox((lb) =>
+          lb ? { ...lb, index: (lb.index + 1) % lb.photos.length } : lb,
+        );
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
 
   const visibleSettlements = useMemo(
     () => SETTLEMENTS.filter((s) => eraFilter === "all" || s.era === eraFilter),
@@ -1101,21 +1120,33 @@ function BrittonMapPage() {
     <main
       className={`${dark ? "dark" : ""} min-h-screen w-full bg-background text-foreground`}
     >
-      <div className="border-b border-border px-4 py-3 sm:px-6">
-        <div className="grid grid-cols-3 items-center gap-4">
-          <div className="min-w-0">
-            <h1 className="truncate text-lg font-semibold sm:text-xl">Britton Family Settlement Map</h1>
-            <p className="truncate text-xs opacity-70 sm:text-sm">
-              Migration from late-Roman Europe to early-20th-century America.
-            </p>
+      <div className="border-b border-border px-3 py-2 sm:px-6 sm:py-3">
+        <div className="flex flex-col gap-2 sm:grid sm:grid-cols-3 sm:items-center sm:gap-4">
+          <div className="flex items-center justify-between gap-2 sm:min-w-0 sm:block">
+            <div className="min-w-0">
+              <h1 className="truncate text-base font-semibold sm:text-xl">Britton Family Settlement Map</h1>
+              <p className="hidden truncate text-xs opacity-70 sm:block sm:text-sm">
+                Migration from late-Roman Europe to early-20th-century America.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 sm:hidden">
+              <button
+                onClick={() => setDark((d) => !d)}
+                className="rounded-full border border-border bg-background px-2 py-1 text-[11px] font-medium hover:bg-muted"
+                aria-label="Toggle dark mode"
+              >
+                {dark ? "☀" : "☾"}
+              </button>
+              <Link to="/" className="text-xs underline opacity-80">← Home</Link>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
             {eraButton("All", "all")}
             {eraButton("English Era", "english")}
             {eraButton("William Ira Era", "william_ira")}
             {eraButton("Post-William Ira", "post_william_ira")}
           </div>
-          <div className="flex items-center justify-end gap-3">
+          <div className="hidden items-center justify-end gap-3 sm:flex">
             <button
               onClick={() => setDark((d) => !d)}
               className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-muted"
@@ -1131,8 +1162,11 @@ function BrittonMapPage() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row" style={{ height: "calc(100vh - 72px)" }}>
-        <div className="relative flex-1 min-h-[400px]">
+      <div
+        className="flex flex-col lg:h-[calc(100dvh-72px)] lg:flex-row"
+      >
+        <div className="relative h-[60dvh] min-h-[320px] flex-none lg:h-auto lg:min-h-[400px] lg:flex-1">
+
           {mounted && Lib ? (
             <LeafletMap
               Lib={Lib}
@@ -1152,32 +1186,33 @@ function BrittonMapPage() {
           )}
 
           {(selected || activeLeg || selectedRoute === "erie-canal") && (
-            <div className="pointer-events-auto absolute right-3 top-3 z-[1000] max-h-[calc(100%-1.5rem)] w-[360px] max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-border bg-card/95 p-4 text-sm text-card-foreground shadow-xl backdrop-blur">
-              {selected && (
-                <>
-                  <div className="text-base font-semibold">{selected.name}</div>
-                  <div className="text-xs opacity-70">{selected.region}</div>
-                  <div className="mb-2 text-xs opacity-70">{selected.period}</div>
-                  <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
-                  {PHOTOS_BY_ID[selected.id]?.length ? (
-                    <div className="mt-3 space-y-3">
-                      {PHOTOS_BY_ID[selected.id].map((p) => (
-                        <figure key={p.src} className="space-y-1">
-                          <img
-                            src={p.src}
-                            alt={p.caption ?? selected.name}
-                            loading="lazy"
-                            className="w-full rounded border border-border"
-                          />
-                          {p.caption && (
-                            <figcaption className="text-xs italic opacity-70">{p.caption}</figcaption>
-                          )}
-                        </figure>
-                      ))}
-                    </div>
-                  ) : null}
-                </>
-              )}
+            <div className="pointer-events-auto absolute right-2 top-2 z-[1000] max-h-[calc(100%-1rem)] w-[92vw] max-w-[360px] overflow-y-auto rounded-lg border border-border bg-card/95 p-3 text-sm text-card-foreground shadow-xl backdrop-blur sm:right-3 sm:top-3 sm:p-4">
+              {selected && (() => {
+                const photos = PHOTOS_BY_ID[selected.id] ?? [];
+                return (
+                  <>
+                    <div className="text-base font-semibold">{selected.name}</div>
+                    <div className="text-xs opacity-70">{selected.region}</div>
+                    <div className="mb-2 text-xs opacity-70">{selected.period}</div>
+                    <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
+                    {photos.length > 0 && (
+                      <div className={`mt-3 grid gap-2 ${photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                        {photos.map((p, i) => (
+                          <button
+                            key={p.src}
+                            type="button"
+                            className="britton-photo-thumb"
+                            onClick={() => setLightbox({ photos, index: i })}
+                            aria-label={p.caption ? `Expand photo: ${p.caption}` : "Expand photo"}
+                          >
+                            <img src={p.src} alt={p.caption ?? selected.name} loading="lazy" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
               {activeLeg && (
                 <>
                   <div className="text-base font-semibold">
@@ -1206,11 +1241,12 @@ function BrittonMapPage() {
         </div>
 
 
+
         <aside className="flex w-full flex-col border-t border-border bg-card lg:w-[380px] lg:border-l lg:border-t-0">
           <div className="border-b border-border px-4 py-3">
             <h2 className="text-sm font-semibold uppercase tracking-wider opacity-80">Timeline</h2>
           </div>
-          <ol className="flex-1 overflow-y-auto px-2 py-2">
+          <ol className="max-h-[60dvh] flex-1 overflow-y-auto px-2 py-2 lg:max-h-none">
             {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
               const leg = legs.find((l) => l.to.id === s.id);
@@ -1270,8 +1306,78 @@ function BrittonMapPage() {
 
         </aside>
       </div>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[2000] flex flex-col bg-black/90 p-2 backdrop-blur-sm sm:p-6"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex items-center justify-between text-xs text-white/80">
+            <span>
+              {lightbox.index + 1} / {lightbox.photos.length}
+            </span>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightbox(null);
+              }}
+              className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-white hover:bg-white/20"
+              aria-label="Close"
+            >
+              ✕ Close
+            </button>
+          </div>
+          <div
+            className="relative flex flex-1 items-center justify-center overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {lightbox.photos.length > 1 && (
+              <button
+                onClick={() =>
+                  setLightbox((lb) =>
+                    lb ? { ...lb, index: (lb.index - 1 + lb.photos.length) % lb.photos.length } : lb,
+                  )
+                }
+                className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/15 p-3 text-2xl text-white hover:bg-white/30 sm:left-4"
+                aria-label="Previous photo"
+              >
+                ‹
+              </button>
+            )}
+            <img
+              src={lightbox.photos[lightbox.index].src}
+              alt={lightbox.photos[lightbox.index].caption ?? ""}
+              className="max-h-full max-w-full object-contain"
+            />
+            {lightbox.photos.length > 1 && (
+              <button
+                onClick={() =>
+                  setLightbox((lb) =>
+                    lb ? { ...lb, index: (lb.index + 1) % lb.photos.length } : lb,
+                  )
+                }
+                className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/15 p-3 text-2xl text-white hover:bg-white/30 sm:right-4"
+                aria-label="Next photo"
+              >
+                ›
+              </button>
+            )}
+          </div>
+          {lightbox.photos[lightbox.index].caption && (
+            <figcaption
+              className="mx-auto mt-2 max-w-3xl px-2 text-center text-xs italic text-white/85 sm:text-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {lightbox.photos[lightbox.index].caption}
+            </figcaption>
+          )}
+        </div>
+      )}
     </main>
   );
+
 }
 
 function LeafletMap({

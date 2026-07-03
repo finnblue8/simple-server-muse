@@ -87,18 +87,37 @@ const MONTH_COLORS = [
   "#02CDC7", "#0C76C0", "#B444C0", "#E5A708", "#875B1E", "#E3412A",
 ];
 
-function getSeasonalColor(date: Date): string {
+function getSeasonalColor(date: Date): { bg: string; r: number; g: number; b: number } {
   const hex = MONTH_COLORS[date.getMonth()];
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+  const r0 = parseInt(hex.slice(1, 3), 16);
+  const g0 = parseInt(hex.slice(3, 5), 16);
+  const b0 = parseInt(hex.slice(5, 7), 16);
   const h = date.getHours() + date.getMinutes() / 60;
-  // Sun curve: peak at 10am, gentle dimming so text stays readable at night
-  const curve = (Math.cos(((h - 10) * Math.PI) / 14) + 1) / 2; // 0..1
-  const brightness = 0.75 + 0.25 * curve; // 0.75..1.0
-  const mix = (c: number) => Math.round(c * brightness);
-  return `rgb(${mix(r)}, ${mix(g)}, ${mix(b)})`;
+  const curve = (Math.cos(((h - 10) * Math.PI) / 14) + 1) / 2;
+  const brightness = 0.75 + 0.25 * curve;
+  const r = Math.round(r0 * brightness);
+  const g = Math.round(g0 * brightness);
+  const b = Math.round(b0 * brightness);
+  return { bg: `rgb(${r}, ${g}, ${b})`, r, g, b };
 }
+
+function getReadableTextColors(r: number, g: number, b: number) {
+  // Perceived luminance (0..255)
+  const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+  if (lum > 160) {
+    return {
+      fg: "#0a0a0a",
+      shadow:
+        "0 0 6px rgba(255,255,255,0.55), 0 0 14px rgba(255,255,255,0.35)",
+    };
+  }
+  return {
+    fg: "#CBCBCB",
+    shadow:
+      "0 0 6px rgba(255,255,255,0.25), 0 0 18px rgba(255,255,255,0.15)",
+  };
+}
+
 
 function getItemsAtPath(cat: XmbCategory, path: number[]): XmbItem[] {
   let items: XmbItem[] = cat.items;
@@ -228,14 +247,35 @@ function Index() {
 
   const translateX = -active * colWidth - colWidth / 2;
 
-  const bgColor = getSeasonalColor(time ?? new Date());
+  const [bgSample, setBgSample] = useState<{ r: number; g: number; b: number } | null>(null);
+  useEffect(() => {
+    const onSample = (e: Event) => {
+      const d = (e as CustomEvent).detail as { r: number; g: number; b: number };
+      setBgSample(d);
+    };
+    window.addEventListener("xmb-bg-sample", onSample);
+    return () => window.removeEventListener("xmb-bg-sample", onSample);
+  }, []);
+
+  const seasonal = getSeasonalColor(time ?? new Date());
+  const source = bgSample ?? seasonal;
+  const textColors = getReadableTextColors(source.r, source.g, source.b);
 
   return (
-    <main className="xmb-lock relative h-screen w-screen overflow-hidden">
+    <main
+      className="xmb-lock relative w-screen overflow-hidden"
+      style={{
+        height: "100dvh",
+        color: textColors.fg,
+        ["--xmb-fg" as string]: textColors.fg,
+        ["--xmb-text-shadow" as string]: textColors.shadow,
+      }}
+    >
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
       <div className="xmb-ribbon" style={{ top: "55%", opacity: 0.3 }} />
+
 
       {/* Top bar: clock */}
       <header className="relative z-10 flex items-center justify-end px-4 pt-4 text-sm font-light xmb-text-glow sm:px-10 sm:pt-6">

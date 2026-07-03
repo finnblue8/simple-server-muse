@@ -39,6 +39,8 @@ export default function XMBWave() {
     let lastT = performance.now();
     let splineTimeSec = 0;
     let particlesTimeSec = 0;
+    let sampleAccum = 0;
+    const samplePixel = new Uint8Array(4);
 
     const loop = () => {
       if (cancelled) return;
@@ -51,11 +53,26 @@ export default function XMBWave() {
         gl.viewport(0, 0, canvas.width, canvas.height);
         splineLayer && splineLayer.render(splineTimeSec);
         particlesLayer && particlesLayer.render(particlesTimeSec);
+
+        sampleAccum += dt;
+        if (sampleAccum > 0.5) {
+          sampleAccum = 0;
+          // Read one pixel roughly at screen center. WebGL origin is bottom-left.
+          const px = Math.floor(canvas.width / 2);
+          const py = Math.floor(canvas.height / 2);
+          gl.readPixels(px, py, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, samplePixel);
+          window.dispatchEvent(
+            new CustomEvent("xmb-bg-sample", {
+              detail: { r: samplePixel[0], g: samplePixel[1], b: samplePixel[2] },
+            }),
+          );
+        }
       } catch (e) {
         console.error("XMBWave render error:", e);
       }
       rafId = requestAnimationFrame(loop);
     };
+
 
     const tryInit = () => {
       if (cancelled) return;
