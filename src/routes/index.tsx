@@ -101,17 +101,22 @@ function getSeasonalColor(date: Date): { bg: string; r: number; g: number; b: nu
   return { bg: `rgb(${r}, ${g}, ${b})`, r, g, b };
 }
 
-function getReadableTextColors(r: number, g: number, b: number) {
-  // Perceived luminance (0..255)
+function getReadableTextColors(r: number, g: number, b: number, prevIsDark: boolean) {
+  // Perceived luminance (0..255) with hysteresis to prevent flicker near threshold.
   const lum = 0.299 * r + 0.587 * g + 0.114 * b;
-  if (lum > 160) {
+  const upper = 170; // switch to dark text above this
+  const lower = 150; // switch back to light text below this
+  const isDark = prevIsDark ? lum <= upper : lum < lower;
+  if (!isDark) {
     return {
+      isDark: false,
       fg: "#0a0a0a",
       shadow:
         "0 0 6px rgba(255,255,255,0.55), 0 0 14px rgba(255,255,255,0.35)",
     };
   }
   return {
+    isDark: true,
     fg: "#CBCBCB",
     shadow:
       "0 0 6px rgba(255,255,255,0.25), 0 0 18px rgba(255,255,255,0.15)",
