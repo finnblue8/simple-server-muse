@@ -1036,6 +1036,7 @@ function BrittonMapPage() {
   const [selectedRoute, setSelectedRoute] = useState<"erie-canal" | null>(null);
   const [dark, setDark] = useState(false);
   const [Lib, setLib] = useState<any>(null);
+  const [lightbox, setLightbox] = useState<{ photos: Photo[]; index: number } | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -1045,6 +1046,24 @@ function BrittonMapPage() {
       setLib({ RL, L: L.default ?? L });
     })();
   }, []);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      else if (e.key === "ArrowLeft")
+        setLightbox((lb) =>
+          lb ? { ...lb, index: (lb.index - 1 + lb.photos.length) % lb.photos.length } : lb,
+        );
+      else if (e.key === "ArrowRight")
+        setLightbox((lb) =>
+          lb ? { ...lb, index: (lb.index + 1) % lb.photos.length } : lb,
+        );
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
 
   const visibleSettlements = useMemo(
     () => SETTLEMENTS.filter((s) => eraFilter === "all" || s.era === eraFilter),
