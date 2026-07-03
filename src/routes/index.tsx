@@ -247,14 +247,35 @@ function Index() {
 
   const translateX = -active * colWidth - colWidth / 2;
 
-  const bgColor = getSeasonalColor(time ?? new Date());
+  const [bgSample, setBgSample] = useState<{ r: number; g: number; b: number } | null>(null);
+  useEffect(() => {
+    const onSample = (e: Event) => {
+      const d = (e as CustomEvent).detail as { r: number; g: number; b: number };
+      setBgSample(d);
+    };
+    window.addEventListener("xmb-bg-sample", onSample);
+    return () => window.removeEventListener("xmb-bg-sample", onSample);
+  }, []);
+
+  const seasonal = getSeasonalColor(time ?? new Date());
+  const source = bgSample ?? seasonal;
+  const textColors = getReadableTextColors(source.r, source.g, source.b);
 
   return (
-    <main className="xmb-lock relative h-screen w-screen overflow-hidden">
+    <main
+      className="xmb-lock relative w-screen overflow-hidden"
+      style={{
+        height: "100dvh",
+        color: textColors.fg,
+        ["--xmb-fg" as string]: textColors.fg,
+        ["--xmb-text-shadow" as string]: textColors.shadow,
+      }}
+    >
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
       <div className="xmb-ribbon" style={{ top: "55%", opacity: 0.3 }} />
+
 
       {/* Top bar: clock */}
       <header className="relative z-10 flex items-center justify-end px-4 pt-4 text-sm font-light xmb-text-glow sm:px-10 sm:pt-6">
