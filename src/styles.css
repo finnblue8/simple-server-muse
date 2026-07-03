@@ -162,9 +162,10 @@
   body:has(.xmb-lock),
   body:has(.xmb-light),
   .xmb-light {
-    color: #CBCBCB;
+    color: var(--xmb-fg, #CBCBCB);
   }
 }
+
 
 /* XMB background — transparent so the WebGL wave shows through */
 .xmb-bg {
