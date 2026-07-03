@@ -216,7 +216,7 @@
 }
 
 .xmb-text-glow {
-  text-shadow: 0 0 6px rgba(255,255,255,0.25), 0 0 18px rgba(255,255,255,0.15);
+  text-shadow: var(--xmb-text-shadow, 0 0 6px rgba(255,255,255,0.25), 0 0 18px rgba(255,255,255,0.15));
 }
 
 .xmb-icon {
@@ -227,7 +227,7 @@
   border-radius: 6px;
   background: linear-gradient(180deg, oklch(0.4 0.02 220 / 0.12), oklch(0.3 0.04 230 / 0.04));
   border: 1px solid oklch(0.3 0.02 220 / 0.15);
-  color: #CBCBCB;
+  color: currentColor;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
@@ -269,14 +269,10 @@
   white-space: nowrap;
 }
 
-.xmb-subitem:hover {
-  opacity: 1;
-  color: #CBCBCB;
-}
-
+.xmb-subitem:hover,
 .xmb-subitem.selected {
   opacity: 1;
-  color: #CBCBCB;
+  color: currentColor;
 }
 
 .xmb-subitem::before {
@@ -287,7 +283,7 @@
   transform: translateY(-50%);
   font-size: 0.6em;
   line-height: 1;
-  color: #CBCBCB;
+  color: currentColor;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
@@ -295,6 +291,48 @@
 .xmb-subitem.selected::before {
   opacity: 1;
 }
+
+/* Settlement Map photo thumbnails: click to expand with magnifier hover */
+.britton-photo-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: zoom-in;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0;
+}
+.britton-photo-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.britton-photo-thumb::after {
+  content: "🔍";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  font-size: 28px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+.britton-photo-thumb:hover img,
+.britton-photo-thumb:focus-visible img {
+  transform: scale(1.03);
+  filter: brightness(0.7);
+}
+.britton-photo-thumb:hover::after,
+.britton-photo-thumb:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 
 /* Animated dashed migration leg from currently selected settlement */
 @keyframes britton-leg-march {
