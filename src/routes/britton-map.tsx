@@ -1246,7 +1246,7 @@ function BrittonMapPage() {
           <div className="border-b border-border px-4 py-3">
             <h2 className="text-sm font-semibold uppercase tracking-wider opacity-80">Timeline</h2>
           </div>
-          <ol className="flex-1 overflow-y-auto px-2 py-2">
+          <ol className="max-h-[60dvh] flex-1 overflow-y-auto px-2 py-2 lg:max-h-none">
             {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
               const leg = legs.find((l) => l.to.id === s.id);
