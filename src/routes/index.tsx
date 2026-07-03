@@ -264,7 +264,9 @@ function Index() {
 
   const seasonal = getSeasonalColor(time ?? new Date());
   const source = bgSample ?? seasonal;
-  const textColors = getReadableTextColors(source.r, source.g, source.b);
+  const prevIsDarkRef = useRef(true);
+  const textColors = getReadableTextColors(source.r, source.g, source.b, prevIsDarkRef.current);
+  prevIsDarkRef.current = textColors.isDark;
 
   return (
     <main
