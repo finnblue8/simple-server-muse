@@ -59,13 +59,34 @@ export default function XMBWave() {
         sampleAccum += dt;
         if (sampleAccum > 0.5) {
           sampleAccum = 0;
-          // Read one pixel roughly at screen center. WebGL origin is bottom-left.
-          const px = Math.floor(canvas.width / 2);
-          const py = Math.floor(canvas.height / 2);
-          gl.readPixels(px, py, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, samplePixel);
+          // Sample a 3x3 grid around the center to reduce noise from the animated wave.
+          const cx = Math.floor(canvas.width / 2);
+          const cy = Math.floor(canvas.height / 2);
+          const step = Math.max(20, Math.floor(Math.min(canvas.width, canvas.height) / 12));
+          let sr = 0, sg = 0, sb = 0, n = 0;
+          for (let dy = -1; dy <= 1; dy++) {
+            for (let dx = -1; dx <= 1; dx++) {
+              const px = Math.min(canvas.width - 1, Math.max(0, cx + dx * step));
+              const py = Math.min(canvas.height - 1, Math.max(0, cy + dy * step));
+              gl.readPixels(px, py, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, samplePixels);
+              sr += samplePixels[0];
+              sg += samplePixels[1];
+              sb += samplePixels[2];
+              n++;
+            }
+          }
+          const ar = sr / n, ag = sg / n, ab = sb / n;
+          // Exponential smoothing to prevent flicker.
+          if (smoothR < 0) { smoothR = ar; smoothG = ag; smoothB = ab; }
+          else {
+            const a = 0.15;
+            smoothR = smoothR * (1 - a) + ar * a;
+            smoothG = smoothG * (1 - a) + ag * a;
+            smoothB = smoothB * (1 - a) + ab * a;
+          }
           window.dispatchEvent(
             new CustomEvent("xmb-bg-sample", {
-              detail: { r: samplePixel[0], g: samplePixel[1], b: samplePixel[2] },
+              detail: { r: Math.round(smoothR), g: Math.round(smoothG), b: Math.round(smoothB) },
             }),
           );
         }
