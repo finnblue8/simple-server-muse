@@ -1163,10 +1163,10 @@ function BrittonMapPage() {
       </div>
 
       <div
-        className="flex flex-col lg:flex-row"
-        style={{ height: "calc(100dvh - 72px)" }}
+        className="flex flex-col lg:h-[calc(100dvh-72px)] lg:flex-row"
       >
-        <div className="relative flex-1 min-h-[320px] sm:min-h-[400px]">
+        <div className="relative h-[60dvh] min-h-[320px] flex-none lg:h-auto lg:min-h-[400px] lg:flex-1">
+
           {mounted && Lib ? (
             <LeafletMap
               Lib={Lib}
