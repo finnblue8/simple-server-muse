@@ -1120,21 +1120,33 @@ function BrittonMapPage() {
     <main
       className={`${dark ? "dark" : ""} min-h-screen w-full bg-background text-foreground`}
     >
-      <div className="border-b border-border px-4 py-3 sm:px-6">
-        <div className="grid grid-cols-3 items-center gap-4">
-          <div className="min-w-0">
-            <h1 className="truncate text-lg font-semibold sm:text-xl">Britton Family Settlement Map</h1>
-            <p className="truncate text-xs opacity-70 sm:text-sm">
-              Migration from late-Roman Europe to early-20th-century America.
-            </p>
+      <div className="border-b border-border px-3 py-2 sm:px-6 sm:py-3">
+        <div className="flex flex-col gap-2 sm:grid sm:grid-cols-3 sm:items-center sm:gap-4">
+          <div className="flex items-center justify-between gap-2 sm:min-w-0 sm:block">
+            <div className="min-w-0">
+              <h1 className="truncate text-base font-semibold sm:text-xl">Britton Family Settlement Map</h1>
+              <p className="hidden truncate text-xs opacity-70 sm:block sm:text-sm">
+                Migration from late-Roman Europe to early-20th-century America.
+              </p>
+            </div>
+            <div className="flex items-center gap-2 sm:hidden">
+              <button
+                onClick={() => setDark((d) => !d)}
+                className="rounded-full border border-border bg-background px-2 py-1 text-[11px] font-medium hover:bg-muted"
+                aria-label="Toggle dark mode"
+              >
+                {dark ? "☀" : "☾"}
+              </button>
+              <Link to="/" className="text-xs underline opacity-80">← Home</Link>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="-mx-1 flex flex-nowrap items-center gap-2 overflow-x-auto px-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
             {eraButton("All", "all")}
             {eraButton("English Era", "english")}
             {eraButton("William Ira Era", "william_ira")}
             {eraButton("Post-William Ira", "post_william_ira")}
           </div>
-          <div className="flex items-center justify-end gap-3">
+          <div className="hidden items-center justify-end gap-3 sm:flex">
             <button
               onClick={() => setDark((d) => !d)}
               className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-muted"
@@ -1150,8 +1162,11 @@ function BrittonMapPage() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row" style={{ height: "calc(100vh - 72px)" }}>
-        <div className="relative flex-1 min-h-[400px]">
+      <div
+        className="flex flex-col lg:flex-row"
+        style={{ height: "calc(100dvh - 72px)" }}
+      >
+        <div className="relative flex-1 min-h-[320px] sm:min-h-[400px]">
           {mounted && Lib ? (
             <LeafletMap
               Lib={Lib}
@@ -1171,32 +1186,33 @@ function BrittonMapPage() {
           )}
 
           {(selected || activeLeg || selectedRoute === "erie-canal") && (
-            <div className="pointer-events-auto absolute right-3 top-3 z-[1000] max-h-[calc(100%-1.5rem)] w-[360px] max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-lg border border-border bg-card/95 p-4 text-sm text-card-foreground shadow-xl backdrop-blur">
-              {selected && (
-                <>
-                  <div className="text-base font-semibold">{selected.name}</div>
-                  <div className="text-xs opacity-70">{selected.region}</div>
-                  <div className="mb-2 text-xs opacity-70">{selected.period}</div>
-                  <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
-                  {PHOTOS_BY_ID[selected.id]?.length ? (
-                    <div className="mt-3 space-y-3">
-                      {PHOTOS_BY_ID[selected.id].map((p) => (
-                        <figure key={p.src} className="space-y-1">
-                          <img
-                            src={p.src}
-                            alt={p.caption ?? selected.name}
-                            loading="lazy"
-                            className="w-full rounded border border-border"
-                          />
-                          {p.caption && (
-                            <figcaption className="text-xs italic opacity-70">{p.caption}</figcaption>
-                          )}
-                        </figure>
-                      ))}
-                    </div>
-                  ) : null}
-                </>
-              )}
+            <div className="pointer-events-auto absolute right-2 top-2 z-[1000] max-h-[calc(100%-1rem)] w-[92vw] max-w-[360px] overflow-y-auto rounded-lg border border-border bg-card/95 p-3 text-sm text-card-foreground shadow-xl backdrop-blur sm:right-3 sm:top-3 sm:p-4">
+              {selected && (() => {
+                const photos = PHOTOS_BY_ID[selected.id] ?? [];
+                return (
+                  <>
+                    <div className="text-base font-semibold">{selected.name}</div>
+                    <div className="text-xs opacity-70">{selected.region}</div>
+                    <div className="mb-2 text-xs opacity-70">{selected.period}</div>
+                    <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
+                    {photos.length > 0 && (
+                      <div className={`mt-3 grid gap-2 ${photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                        {photos.map((p, i) => (
+                          <button
+                            key={p.src}
+                            type="button"
+                            className="britton-photo-thumb"
+                            onClick={() => setLightbox({ photos, index: i })}
+                            aria-label={p.caption ? `Expand photo: ${p.caption}` : "Expand photo"}
+                          >
+                            <img src={p.src} alt={p.caption ?? selected.name} loading="lazy" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
               {activeLeg && (
                 <>
                   <div className="text-base font-semibold">
@@ -1223,6 +1239,7 @@ function BrittonMapPage() {
             </div>
           )}
         </div>
+
 
 
         <aside className="flex w-full flex-col border-t border-border bg-card lg:w-[380px] lg:border-l lg:border-t-0">
