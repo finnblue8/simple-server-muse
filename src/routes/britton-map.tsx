@@ -1306,8 +1306,78 @@ function BrittonMapPage() {
 
         </aside>
       </div>
+
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[2000] flex flex-col bg-black/90 p-2 backdrop-blur-sm sm:p-6"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex items-center justify-between text-xs text-white/80">
+            <span>
+              {lightbox.index + 1} / {lightbox.photos.length}
+            </span>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightbox(null);
+              }}
+              className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-white hover:bg-white/20"
+              aria-label="Close"
+            >
+              ✕ Close
+            </button>
+          </div>
+          <div
+            className="relative flex flex-1 items-center justify-center overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {lightbox.photos.length > 1 && (
+              <button
+                onClick={() =>
+                  setLightbox((lb) =>
+                    lb ? { ...lb, index: (lb.index - 1 + lb.photos.length) % lb.photos.length } : lb,
+                  )
+                }
+                className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/15 p-3 text-2xl text-white hover:bg-white/30 sm:left-4"
+                aria-label="Previous photo"
+              >
+                ‹
+              </button>
+            )}
+            <img
+              src={lightbox.photos[lightbox.index].src}
+              alt={lightbox.photos[lightbox.index].caption ?? ""}
+              className="max-h-full max-w-full object-contain"
+            />
+            {lightbox.photos.length > 1 && (
+              <button
+                onClick={() =>
+                  setLightbox((lb) =>
+                    lb ? { ...lb, index: (lb.index + 1) % lb.photos.length } : lb,
+                  )
+                }
+                className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/15 p-3 text-2xl text-white hover:bg-white/30 sm:right-4"
+                aria-label="Next photo"
+              >
+                ›
+              </button>
+            )}
+          </div>
+          {lightbox.photos[lightbox.index].caption && (
+            <figcaption
+              className="mx-auto mt-2 max-w-3xl px-2 text-center text-xs italic text-white/85 sm:text-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {lightbox.photos[lightbox.index].caption}
+            </figcaption>
+          )}
+        </div>
+      )}
     </main>
   );
+
 }
 
 function LeafletMap({
