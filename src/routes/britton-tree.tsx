@@ -332,6 +332,76 @@ function BrittonTree() {
     return () => el.removeEventListener("wheel", onWheel);
   }, []);
 
+  // Touch pinch-to-zoom + single-finger pan
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    let pinch: { dist: number; cx: number; cy: number } | null = null;
+    let pan: { x: number; y: number; moved: boolean } | null = null;
+
+    const dist = (a: Touch, b: Touch) => Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+    const rectPt = (x: number, y: number) => {
+      const r = el.getBoundingClientRect();
+      return { x: x - r.left, y: y - r.top };
+    };
+
+    const onStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const [a, b] = [e.touches[0], e.touches[1]];
+        const c = rectPt((a.clientX + b.clientX) / 2, (a.clientY + b.clientY) / 2);
+        pinch = { dist: dist(a, b), cx: c.x, cy: c.y };
+        pan = null;
+      } else if (e.touches.length === 1) {
+        const t = e.touches[0];
+        pan = { x: t.clientX - txRef.current, y: t.clientY - tyRef.current, moved: false };
+      }
+    };
+    const onMove = (e: TouchEvent) => {
+      if (pinch && e.touches.length === 2) {
+        e.preventDefault();
+        const [a, b] = [e.touches[0], e.touches[1]];
+        const d = dist(a, b);
+        const c = rectPt((a.clientX + b.clientX) / 2, (a.clientY + b.clientY) / 2);
+        const factor = d / pinch.dist;
+        zoomFromViewportPoint(c.x, c.y, factor);
+        // account for pan of pinch center
+        const dx = c.x - pinch.cx;
+        const dy = c.y - pinch.cy;
+        const nTx = txRef.current + dx;
+        const nTy = tyRef.current + dy;
+        txRef.current = nTx; tyRef.current = nTy;
+        setTx(nTx); setTy(nTy);
+        pinch = { dist: d, cx: c.x, cy: c.y };
+      } else if (pan && e.touches.length === 1) {
+        e.preventDefault();
+        const t = e.touches[0];
+        const nx = t.clientX - pan.x;
+        const ny = t.clientY - pan.y;
+        if (Math.abs(nx - txRef.current) + Math.abs(ny - tyRef.current) > 3) pan.moved = true;
+        txRef.current = nx; tyRef.current = ny;
+        setTx(nx); setTy(ny);
+      }
+    };
+    const onEnd = (e: TouchEvent) => {
+      if (e.touches.length < 2) pinch = null;
+      if (e.touches.length === 0) pan = null;
+    };
+
+    el.addEventListener("touchstart", onStart, { passive: false });
+    el.addEventListener("touchmove", onMove, { passive: false });
+    el.addEventListener("touchend", onEnd);
+    el.addEventListener("touchcancel", onEnd);
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+      el.removeEventListener("touchend", onEnd);
+      el.removeEventListener("touchcancel", onEnd);
+    };
+  }, []);
+
+
+
   const zoomFromCenter = (factor: number) => {
     const el = viewportRef.current;
     if (!el) return;
@@ -434,7 +504,7 @@ function BrittonTree() {
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
-        style={{ background: T.canvasBg }}
+        style={{ background: T.canvasBg, touchAction: "none" }}
       >
         <div
           style={{
