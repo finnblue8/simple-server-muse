@@ -135,7 +135,13 @@ export default function XMBWave() {
       const month = String(now.getMonth() + 1).padStart(2, "0");
       const hour = now.getHours();
       const isDay = hour >= 8 && hour < 19;
-      s.gradientPreset = `${month}_${isDay ? "day" : "night"}`;
+      const next = `${month}_${isDay ? "day" : "night"}`;
+      if (s.gradientPreset !== next) {
+        s.gradientPreset = next;
+        window.dispatchEvent(
+          new CustomEvent("xmb-preset-change", { detail: { preset: next } }),
+        );
+      }
     };
     updatePreset();
     const presetTimer = window.setInterval(updatePreset, 60_000);
