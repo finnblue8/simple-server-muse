@@ -270,7 +270,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
+  white-space: normal;
   position: relative;
   padding-left: 18px;
   padding-right: 18px;
@@ -278,7 +278,7 @@
 }
 
 .xmb-subitem > * {
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .xmb-subitem:hover,
