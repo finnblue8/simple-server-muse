@@ -398,6 +398,9 @@ function BrittonTree() {
       el.removeEventListener("touchend", onEnd);
       el.removeEventListener("touchcancel", onEnd);
     };
+  }, []);
+
+
 
   const zoomFromCenter = (factor: number) => {
     const el = viewportRef.current;
