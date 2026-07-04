@@ -304,7 +304,14 @@
   opacity: 1;
 }
 
-/* Settlement Map photo thumbnails: click to expand with magnifier hover */
+/* Hide scrollbar for horizontal filmstrips */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 .britton-photo-thumb {
   position: relative;
   display: block;
