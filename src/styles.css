@@ -269,9 +269,11 @@
   transition: opacity 0.2s ease, color 0.2s ease;
   display: flex;
   align-items: center;
+  justify-content: center;
   white-space: nowrap;
   position: relative;
   padding-left: 18px;
+  padding-right: 18px;
   line-height: 1.2;
 }
 
