@@ -351,8 +351,9 @@ function Index() {
             className="absolute text-left text-sm font-light sm:text-base"
             style={{
               top: 120,
-              left: active * colWidth,
-              width: colWidth,
+              left: active * colWidth + colWidth / 2,
+              transform: "translateX(-50%)",
+              width: `min(320px, calc(100vw - 32px))`,
             }}
           >
             {depth > 0 && (
