@@ -1197,67 +1197,81 @@ function BrittonMapPage() {
             <div className="flex h-full items-center justify-center text-sm opacity-60">Loading map…</div>
           )}
 
-          {(selected || activeLeg || selectedRoute === "erie-canal") && (
-            <div className="pointer-events-auto absolute right-2 top-2 z-[1000] max-h-[calc(100%-1rem)] w-[86vw] max-w-[360px] overflow-y-auto rounded-lg border border-border bg-card/95 p-3 pr-9 text-sm text-card-foreground shadow-xl backdrop-blur sm:right-3 sm:top-3 sm:p-4 sm:pr-10">
-              <button
-                type="button"
-                onClick={() => { setSelected(null); setSelectedLeg(null); setSelectedRoute(null); }}
-                className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background/80 text-base leading-none text-foreground/80 shadow-sm hover:bg-background hover:text-foreground"
-                aria-label="Close details"
-              >
-                ×
-              </button>
-              {selected && (() => {
-                const photos = PHOTOS_BY_ID[selected.id] ?? [];
-                return (
-                  <>
-                    <div className="text-base font-semibold">{selected.name}</div>
-                    <div className="text-xs opacity-70">{selected.region}</div>
-                    <div className="mb-2 text-xs opacity-70">{selected.period}</div>
-                    <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
-                    {photos.length > 0 && (
-                      <div className={`mt-3 grid gap-2 ${photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
-                        {photos.map((p, i) => (
-                          <button
-                            key={p.src}
-                            type="button"
-                            className="britton-photo-thumb"
-                            onClick={() => setLightbox({ photos, index: i })}
-                            aria-label={p.caption ? `Expand photo: ${p.caption}` : "Expand photo"}
-                          >
-                            <img src={p.src} alt={p.caption ?? selected.name} loading="lazy" />
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                );
-              })()}
-              {activeLeg && (
-                <>
-                  <div className="text-base font-semibold">
-                    {activeLeg.from.name} → {activeLeg.to.name}
+          {(selected || activeLeg || selectedRoute === "erie-canal") && (() => {
+            const headerTitle = selected
+              ? selected.name
+              : activeLeg
+              ? `${activeLeg.from.name} → ${activeLeg.to.name}`
+              : ERIE_CANAL_ROUTE.label;
+            const headerSub = selected
+              ? selected.region
+              : activeLeg
+              ? `${activeLeg.from.period} → ${activeLeg.to.period}`
+              : "c. 1840s — English Era";
+            return (
+              <div className="pointer-events-auto absolute inset-x-2 bottom-2 z-[1000] max-h-[75%] overflow-hidden rounded-lg border border-border bg-card/95 text-sm text-card-foreground shadow-xl backdrop-blur sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:max-h-[calc(100%-1.5rem)] sm:w-[360px]">
+                {/* Header bar — always visible */}
+                <div className="flex items-start gap-2 border-b border-border/60 px-3 py-2 sm:px-4 sm:py-3">
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate text-sm font-semibold sm:text-base">{headerTitle}</div>
+                    <div className="truncate text-[11px] opacity-70 sm:text-xs">{headerSub}</div>
                   </div>
-                  <div className="mb-2 text-xs opacity-70">
-                    {activeLeg.from.period} → {activeLeg.to.period}
-                  </div>
-                  <p className="text-sm leading-relaxed opacity-90">
-                    The family relocated from {activeLeg.from.name} ({activeLeg.from.region}) to {activeLeg.to.name} (
-                    {activeLeg.to.region}) between {activeLeg.from.period} and {activeLeg.to.period}.
-                  </p>
-                </>
-              )}
-              {selectedRoute === "erie-canal" && (
-                <>
-                  <div className="text-base font-semibold text-sky-600 dark:text-sky-400">
-                    {ERIE_CANAL_ROUTE.label}
-                  </div>
-                  <div className="mb-2 text-xs opacity-70">c. 1840s — closing leg of the English Era</div>
-                  <p className="text-sm leading-relaxed opacity-90">{ERIE_CANAL_ROUTE.description}</p>
-                </>
-              )}
-            </div>
-          )}
+                  <button
+                    type="button"
+                    onClick={() => setDetailsExpanded((v) => !v)}
+                    className="rounded-full border border-border bg-background/80 px-2 py-1 text-[11px] font-medium hover:bg-background sm:hidden"
+                    aria-label={detailsExpanded ? "Hide details" : "Show details"}
+                  >
+                    {detailsExpanded ? "Hide ▴" : "Details ▾"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => { setSelected(null); setSelectedLeg(null); setSelectedRoute(null); }}
+                    className="flex h-7 w-7 flex-none items-center justify-center rounded-full border border-border bg-background/80 text-base leading-none text-foreground/80 shadow-sm hover:bg-background hover:text-foreground"
+                    aria-label="Close details"
+                  >
+                    ×
+                  </button>
+                </div>
+                {/* Body — hidden on mobile until expanded, always shown on desktop */}
+                <div className={`${detailsExpanded ? "block" : "hidden"} sm:block max-h-[60vh] overflow-y-auto px-3 py-3 sm:max-h-[calc(100vh-10rem)] sm:px-4`}>
+                  {selected && (() => {
+                    const photos = PHOTOS_BY_ID[selected.id] ?? [];
+                    return (
+                      <>
+                        <div className="mb-2 text-xs opacity-70">{selected.period}</div>
+                        <p className="text-sm leading-relaxed opacity-90">{selected.description}</p>
+                        {photos.length > 0 && (
+                          <div className={`mt-3 grid gap-2 ${photos.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+                            {photos.map((p, i) => (
+                              <button
+                                key={p.src}
+                                type="button"
+                                className="britton-photo-thumb"
+                                onClick={() => setLightbox({ photos, index: i })}
+                                aria-label={p.caption ? `Expand photo: ${p.caption}` : "Expand photo"}
+                              >
+                                <img src={p.src} alt={p.caption ?? selected.name} loading="lazy" />
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    );
+                  })()}
+                  {activeLeg && (
+                    <p className="text-sm leading-relaxed opacity-90">
+                      The family relocated from {activeLeg.from.name} ({activeLeg.from.region}) to {activeLeg.to.name} (
+                      {activeLeg.to.region}) between {activeLeg.from.period} and {activeLeg.to.period}.
+                    </p>
+                  )}
+                  {selectedRoute === "erie-canal" && (
+                    <p className="text-sm leading-relaxed opacity-90">{ERIE_CANAL_ROUTE.description}</p>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
         </div>
 
 
