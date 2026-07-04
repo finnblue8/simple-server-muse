@@ -133,8 +133,9 @@ export default function XMBWave() {
       if (!s) return;
       const now = new Date();
       const month = String(now.getMonth() + 1).padStart(2, "0");
-      // Default to the night palette so the XMB background stays dark.
-      s.gradientPreset = `${month}_night`;
+      const hour = now.getHours();
+      const isDay = hour >= 8 && hour < 19;
+      s.gradientPreset = `${month}_${isDay ? "day" : "night"}`;
     };
     updatePreset();
     const presetTimer = window.setInterval(updatePreset, 60_000);
