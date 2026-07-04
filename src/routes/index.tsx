@@ -301,11 +301,15 @@ function Index() {
     return () => window.removeEventListener("xmb-bg-sample", onSample);
   }, []);
 
+  const preset = useXmbPreset();
   const seasonal = getSeasonalColor(time ?? new Date());
   const source = bgSample ?? seasonal;
   const prevIsDarkRef = useRef(true);
-  const textColors = getReadableTextColors(source.r, source.g, source.b, prevIsDarkRef.current);
-  prevIsDarkRef.current = textColors.isDark;
+  const presetColors = preset ? getPresetTextColors(preset) : null;
+  const textColors = presetColors
+    ? { ...presetColors, isDark: presetColors.fg === "#ffffff" }
+    : getReadableTextColors(source.r, source.g, source.b, prevIsDarkRef.current);
+  if (!presetColors) prevIsDarkRef.current = textColors.isDark;
 
   return (
     <main
