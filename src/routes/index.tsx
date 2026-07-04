@@ -348,7 +348,7 @@ function Index() {
 
         {currentItems.length > 0 && (
           <ul
-            className="absolute text-left text-sm font-light sm:text-base"
+            className="absolute list-none pl-0 text-center text-sm font-light sm:text-base"
             style={{
               top: 120,
               left: active * colWidth + colWidth / 2,
