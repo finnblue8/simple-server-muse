@@ -1364,16 +1364,18 @@ function BrittonMapPage() {
                     <button
                       onClick={() => selectPoint(s)}
                       className={`flex flex-1 w-full flex-col items-start gap-2 rounded-xl border border-border bg-card p-3 text-left transition-colors lg:flex-row lg:items-start lg:gap-3 lg:rounded lg:border-0 lg:bg-transparent lg:p-2 ${
-                        isSel ? "bg-accent text-accent-foreground" : "hover:bg-muted"
+                        isSel
+                          ? "bg-accent text-accent-foreground max-lg:ring-2 max-lg:ring-primary"
+                          : "hover:bg-muted"
                       }`}
                     >
                       <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
                         {number}
                       </span>
                       <span className="flex min-w-0 flex-1 flex-col">
-                        <span className="line-clamp-2 text-sm font-medium">{s.name}</span>
-                        <span className="line-clamp-2 text-xs opacity-70">{s.region}</span>
-                        <span className="line-clamp-1 text-xs opacity-70">{s.period}</span>
+                        <span className="line-clamp-2 text-sm font-medium lg:line-clamp-none">{s.name}</span>
+                        <span className="line-clamp-2 text-xs opacity-70 lg:line-clamp-none">{s.region}</span>
+                        <span className="line-clamp-1 text-xs opacity-70 lg:line-clamp-none">{s.period}</span>
                       </span>
                     </button>
                     {s.id === 9 && showErieCanal && (
