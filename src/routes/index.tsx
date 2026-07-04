@@ -372,8 +372,8 @@ function Index() {
               const isSel = j === selectedIdx;
               const hasChildren = !!item.children;
               const inner = (
-                <span className="flex items-center justify-center gap-2 text-center">
-                  <span>{item.label}</span>
+                <span className="flex items-center justify-center gap-2 text-center break-words">
+                  <span className="break-words">{item.label}</span>
                   {hasChildren && <span className="opacity-60">›</span>}
                 </span>
               );
