@@ -373,7 +373,7 @@ function Index() {
               const hasChildren = !!item.children;
               const inner = (
                 <span className="flex items-center justify-center gap-2 text-center break-words">
-                  <span className="break-words">{item.label}</span>
+                  <span className="break-words text-center">{item.label}</span>
                   {hasChildren && <span className="opacity-60">›</span>}
                 </span>
               );
