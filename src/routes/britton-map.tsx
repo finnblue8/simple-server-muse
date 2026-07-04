@@ -1333,67 +1333,69 @@ function BrittonMapPage() {
 
 
         <aside className="flex w-full flex-col border-t border-border bg-card lg:w-[380px] lg:border-l lg:border-t-0">
-          <div className="border-b border-border px-4 py-3">
-            <h2 className="text-sm font-semibold uppercase tracking-wider opacity-80">Timeline</h2>
+          <div className="border-b border-border px-4 py-2 lg:px-4 lg:py-3">
+            <div className="flex items-center justify-between">
+              <h2 className="text-sm font-semibold uppercase tracking-wider opacity-80">Timeline</h2>
+              <span className="text-[10px] opacity-60 lg:hidden">{visibleSettlements.length} events</span>
+            </div>
           </div>
-          <ol className="max-h-[60dvh] flex-1 overflow-y-auto px-2 py-2 lg:max-h-none">
+          <ol className="flex flex-1 snap-x snap-mandatory flex-row gap-3 overflow-x-auto px-3 py-3 lg:flex-col lg:gap-0 lg:overflow-y-auto lg:overflow-x-visible lg:px-2 lg:py-2 lg:snap-align-none no-scrollbar">
             {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
               const leg = legs.find((l) => l.to.id === s.id);
               const legSel = leg && selectedLeg === leg.idx;
               const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
               return (
-                <li key={s.id}>
-                  {leg && (
+                <li key={s.id} id={`timeline-card-${s.id}`} className="w-[260px] flex-shrink-0 snap-start lg:w-full lg:flex-none lg:snap-align-none">
+                  <div className="flex h-full flex-col gap-1">
+                    {leg && (
+                      <button
+                        onClick={() => selectLeg(leg.idx)}
+                        className={`flex w-full items-center gap-1 rounded px-2 py-1 text-left text-[10px] transition-colors lg:my-1 lg:ml-3 lg:w-[calc(100%-1.5rem)] lg:text-xs ${
+                          legSel ? "bg-accent text-accent-foreground" : "opacity-60 hover:bg-muted hover:opacity-100"
+                        }`}
+                      >
+                        <span className="text-[10px]">↳</span>
+                        <span className="truncate italic">
+                          Migration: {leg.from.name} → {leg.to.name}
+                        </span>
+                      </button>
+                    )}
                     <button
-                      onClick={() => selectLeg(leg.idx)}
-                      className={`my-1 ml-3 flex w-[calc(100%-1.5rem)] items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors ${
-                        legSel ? "bg-accent text-accent-foreground" : "opacity-60 hover:bg-muted hover:opacity-100"
+                      onClick={() => selectPoint(s)}
+                      className={`flex flex-1 w-full flex-col items-start gap-2 rounded-xl border border-border bg-card p-3 text-left transition-colors lg:flex-row lg:items-start lg:gap-3 lg:rounded lg:border-0 lg:bg-transparent lg:p-2 ${
+                        isSel ? "bg-accent text-accent-foreground" : "hover:bg-muted"
                       }`}
                     >
-                      <span className="text-[10px]">↳</span>
-                      <span className="italic">
-                        Migration: {leg.from.name} → {leg.to.name}
+                      <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
+                        {number}
+                      </span>
+                      <span className="flex min-w-0 flex-1 flex-col">
+                        <span className="line-clamp-2 text-sm font-medium">{s.name}</span>
+                        <span className="line-clamp-2 text-xs opacity-70">{s.region}</span>
+                        <span className="line-clamp-1 text-xs opacity-70">{s.period}</span>
                       </span>
                     </button>
-                  )}
-                  <button
-                    onClick={() => selectPoint(s)}
-                    className={`flex w-full items-start gap-3 rounded px-2 py-2 text-left transition-colors ${
-                      isSel ? "bg-accent text-accent-foreground" : "hover:bg-muted"
-                    }`}
-                  >
-                    <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
-                      {number}
-                    </span>
-                    <span className="flex-1">
-                      <span className="block text-sm font-medium">{s.name}</span>
-                      <span className="block text-xs opacity-70">{s.region}</span>
-                      <span className="block text-xs opacity-70">{s.period}</span>
-                    </span>
-                  </button>
-                  {/* After node 8, surface the Erie Canal historical route */}
-                  {s.id === 9 && showErieCanal && (
-                    <button
-                      onClick={selectErie}
-                      className={`my-1 ml-3 flex w-[calc(100%-1.5rem)] items-center gap-2 rounded px-2 py-1 text-left text-xs transition-colors ${
-                        selectedRoute === "erie-canal"
-                          ? "bg-accent text-accent-foreground"
-                          : "opacity-70 hover:bg-muted hover:opacity-100"
-                      }`}
-                    >
-                      <span className="text-[10px]">⇢</span>
-                      <span className="italic text-sky-600 dark:text-sky-400">
-                        Erie Canal route → Ohio (English Era ends)
-                      </span>
-                    </button>
-                  )}
+                    {s.id === 9 && showErieCanal && (
+                      <button
+                        onClick={selectErie}
+                        className={`flex w-full items-center gap-1 rounded px-2 py-1 text-left text-[10px] transition-colors lg:my-1 lg:ml-3 lg:w-[calc(100%-1.5rem)] lg:text-xs ${
+                          selectedRoute === "erie-canal"
+                            ? "bg-accent text-accent-foreground"
+                            : "opacity-70 hover:bg-muted hover:opacity-100"
+                        }`}
+                      >
+                        <span className="text-[10px]">⇢</span>
+                        <span className="truncate italic text-sky-600 dark:text-sky-400">
+                          Erie Canal route → Ohio
+                        </span>
+                      </button>
+                    )}
+                  </div>
                 </li>
               );
             })}
           </ol>
-
-
         </aside>
       </div>
 
