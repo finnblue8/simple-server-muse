@@ -1133,6 +1133,24 @@ function BrittonMapPage() {
     return out;
   }, [visibleSettlements]);
 
+  // On mobile, keep the active timeline card centered in the horizontal filmstrip.
+  useEffect(() => {
+    if (typeof window === "undefined" || window.innerWidth >= 1024) return;
+    let id: string | null = null;
+    if (selected) {
+      id = `timeline-card-${selected.id}`;
+    } else if (selectedLeg != null) {
+      const leg = legs.find((l) => l.idx === selectedLeg);
+      if (leg) id = `timeline-card-${leg.to.id}`;
+    } else if (selectedRoute === "erie-canal") {
+      id = "timeline-card-9";
+    }
+    const el = id ? document.getElementById(id) : null;
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  }, [selected, selectedLeg, selectedRoute, legs]);
+
   const showErieCanal = eraFilter === "all" || eraFilter === "english";
 
   const selectLeg = (legIdx: number) => {
