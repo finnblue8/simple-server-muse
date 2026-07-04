@@ -76,6 +76,7 @@ const categories: XmbCategory[] = [
         children: [
           { label: "Family Tree", href: "/britton-tree" },
           { label: "Settlement Map", href: "/britton-map" },
+          { label: "R-Y351800 YTree", href: "https://www.yfull.com/tree/r-y351800*/" },
         ],
       },
     ],
