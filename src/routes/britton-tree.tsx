@@ -504,7 +504,7 @@ function BrittonTree() {
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
-        style={{ background: T.canvasBg }}
+        style={{ background: T.canvasBg, touchAction: "none" }}
       >
         <div
           style={{
