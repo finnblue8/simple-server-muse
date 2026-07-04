@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useMemo, useState } from "react";
+import eleanoraAsset from "@/assets/eleanora.png.asset.json";
 import "leaflet/dist/leaflet.css";
 
 export const Route = createFileRoute("/britton-map")({
