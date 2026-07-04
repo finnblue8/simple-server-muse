@@ -1212,7 +1212,7 @@ function BrittonMapPage() {
       <div
         className="flex flex-col lg:h-[calc(100dvh-72px)] lg:flex-row"
       >
-        <div className="relative h-[60dvh] min-h-[320px] flex-none lg:h-auto lg:min-h-[400px] lg:flex-1">
+        <div className="relative h-[45dvh] min-h-[280px] flex-none lg:h-auto lg:min-h-[400px] lg:flex-1">
 
           {mounted && Lib ? (
             <LeafletMap
