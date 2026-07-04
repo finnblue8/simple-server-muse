@@ -1041,9 +1041,10 @@ function BrittonMapPage() {
   const [selected, setSelected] = useState<Settlement | null>(SETTLEMENTS[0]);
   const [selectedLeg, setSelectedLeg] = useState<number | null>(null);
   const [selectedRoute, setSelectedRoute] = useState<"erie-canal" | null>(null);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [Lib, setLib] = useState<any>(null);
   const [lightbox, setLightbox] = useState<{ photos: Photo[]; index: number } | null>(null);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
 
   useEffect(() => {
     setMounted(true);
