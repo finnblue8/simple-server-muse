@@ -1193,7 +1193,15 @@ function BrittonMapPage() {
           )}
 
           {(selected || activeLeg || selectedRoute === "erie-canal") && (
-            <div className="pointer-events-auto absolute right-2 top-2 z-[1000] max-h-[calc(100%-1rem)] w-[92vw] max-w-[360px] overflow-y-auto rounded-lg border border-border bg-card/95 p-3 text-sm text-card-foreground shadow-xl backdrop-blur sm:right-3 sm:top-3 sm:p-4">
+            <div className="pointer-events-auto absolute right-2 top-2 z-[1000] max-h-[calc(100%-1rem)] w-[86vw] max-w-[360px] overflow-y-auto rounded-lg border border-border bg-card/95 p-3 pr-9 text-sm text-card-foreground shadow-xl backdrop-blur sm:right-3 sm:top-3 sm:p-4 sm:pr-10">
+              <button
+                type="button"
+                onClick={() => { setSelected(null); setSelectedLeg(null); setSelectedRoute(null); }}
+                className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background/80 text-base leading-none text-foreground/80 shadow-sm hover:bg-background hover:text-foreground"
+                aria-label="Close details"
+              >
+                ×
+              </button>
               {selected && (() => {
                 const photos = PHOTOS_BY_ID[selected.id] ?? [];
                 return (
