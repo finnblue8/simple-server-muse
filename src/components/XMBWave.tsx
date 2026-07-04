@@ -20,16 +20,26 @@ export default function XMBWave() {
     gl.getExtension("OES_texture_float_linear");
     gl.getExtension("EXT_color_buffer_float");
 
+    let lastW = 0;
+    let lastH = 0;
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = Math.floor(window.innerWidth * dpr);
-      const h = Math.floor(window.innerHeight * dpr);
-      if (canvas.width !== w) canvas.width = w;
-      if (canvas.height !== h) canvas.height = h;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      // On mobile, URL bar show/hide changes innerHeight and causes the
+      // WebGL canvas to visibly jump/reflow. Ignore height-only changes.
+      if (lastW === vw && Math.abs(vh - lastH) < 200) return;
+      lastW = vw;
+      lastH = vh;
+      const w = Math.floor(vw * dpr);
+      const h = Math.floor(vh * dpr);
+      canvas.width = w;
+      canvas.height = h;
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
     window.addEventListener("resize", resize);
+
 
     let rafId = 0;
     let cancelled = false;
