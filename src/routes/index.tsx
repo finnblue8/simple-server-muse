@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { FlaskConical } from "lucide-react";
 import iconUsers from "@/assets/icon-users.png";
 import iconNetwork from "@/assets/icon-network.png";
