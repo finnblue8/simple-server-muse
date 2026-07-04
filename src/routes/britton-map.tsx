@@ -1071,6 +1071,10 @@ function BrittonMapPage() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [lightbox]);
+  useEffect(() => {
+    setDetailsExpanded(false);
+  }, [selected?.id, selectedLeg, selectedRoute]);
+
 
 
   const visibleSettlements = useMemo(
