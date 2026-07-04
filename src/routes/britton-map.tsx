@@ -91,6 +91,12 @@ const PHOTOS_BY_ID: Record<number, Photo[]> = {
         "Grand Review of the Armies on Pennsylvania Avenue in Washington, D.C., heading northwest from the United States Capitol (dome visible in rear) toward the White House at 15th Street N.W., past the U.S. Treasury Department building, at the conclusion of the American Civil War, May 23–24, 1865.",
     },
   ],
+  74: [
+    {
+      src: eleanoraAsset.url,
+      caption: "Historical view of Eleanora, McCalmont Township, Jefferson County, Pennsylvania.",
+    },
+  ],
 };
 
 const SETTLEMENTS: Settlement[] = [
