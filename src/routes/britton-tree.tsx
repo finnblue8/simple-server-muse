@@ -212,7 +212,7 @@ function BrittonTree() {
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
-  const [themeName, setThemeName] = useState<"light" | "dark">("light");
+  const [themeName, setThemeName] = useState<"light" | "dark">("dark");
   const T = themeName === "dark" ? DARK : LIGHT;
 
   const notionById = useMemo(() => {

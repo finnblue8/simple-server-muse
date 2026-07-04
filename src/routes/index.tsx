@@ -351,8 +351,9 @@ function Index() {
             className="absolute text-left text-sm font-light sm:text-base"
             style={{
               top: 120,
-              left: active * colWidth,
-              width: colWidth,
+              left: active * colWidth + colWidth / 2,
+              transform: "translateX(-50%)",
+              width: `min(320px, calc(100vw - 32px))`,
             }}
           >
             {depth > 0 && (
@@ -371,8 +372,8 @@ function Index() {
               const isSel = j === selectedIdx;
               const hasChildren = !!item.children;
               const inner = (
-                <span className="flex items-center justify-center gap-2 text-center">
-                  <span>{item.label}</span>
+                <span className="flex items-center justify-center gap-2 text-center break-words">
+                  <span className="break-words">{item.label}</span>
                   {hasChildren && <span className="opacity-60">›</span>}
                 </span>
               );
