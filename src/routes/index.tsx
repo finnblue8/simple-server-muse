@@ -59,7 +59,7 @@ const categories: XmbCategory[] = [
           { label: "Who are The Rusyns?", href: "https://en.wikipedia.org/wiki/Rusyns" },
           { label: "Medzilaborce District 1869 Hungarian Census", href: "https://bit.ly/census-1869" },
           { label: "Medzilaborce District 1930 Czechoslovak Census", href: "https://bit.ly/census-1930" },
-          { label: "Find-A-Grave virtual cemetery", href: "https://www.findagrave.com/user/profile/49960056" },
+          { label: "Find-A-Grave virtual cemetery", href: "https://www.findagrave.com/virtual-cemetery/search/49960056" },
           {
             label: "Maps of immigrant destinations",
             children: [
