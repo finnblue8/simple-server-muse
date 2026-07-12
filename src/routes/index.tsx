@@ -494,6 +494,17 @@ function Index() {
       <footer className="absolute bottom-3 left-0 right-0 z-10 flex items-center justify-center px-4 text-[10px] font-light opacity-70 xmb-text-glow sm:bottom-6 sm:text-xs">
         <span className="text-center">← → navigate · ↑ ↓ select · enter to open · esc to go back</span>
       </footer>
+
+      <div className="absolute bottom-3 left-3 z-10 text-[9px] font-light opacity-60 xmb-text-glow sm:bottom-6 sm:left-6 sm:text-[10px]">
+        <a
+          href="https://github.com/linkev/PlayStation-3-XMB"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:opacity-80"
+        >
+          Main menu waves by linkev
+        </a>
+      </div>
     </main>
   );
 }
