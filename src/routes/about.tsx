@@ -3,6 +3,7 @@ import headshot from "@/assets/headshot.webp";
 import logoReadySet from "@/assets/logo-readyset.jpg";
 import logoHomeDepot from "@/assets/logo-home-depot.png";
 import logoAkron from "@/assets/logo-akron.jpg";
+import { getPresetTextColors, useXmbPreset } from "@/lib/xmb-text";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
