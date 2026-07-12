@@ -1380,12 +1380,23 @@ function BrittonMapPage() {
                         </span>
                       </span>
                       {PHOTOS_BY_ID[s.id]?.[0] && (
-                        <img
-                          src={PHOTOS_BY_ID[s.id]![0].src}
-                          alt=""
-                          loading="lazy"
-                          className="mt-1 h-24 w-full flex-none rounded-md object-cover lg:hidden"
-                        />
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const photos = PHOTOS_BY_ID[s.id] ?? [];
+                            if (photos.length) setLightbox({ photos, index: 0 });
+                          }}
+                          className="mt-1 h-24 w-full flex-none overflow-hidden rounded-md lg:hidden"
+                          aria-label="Expand photo"
+                        >
+                          <img
+                            src={PHOTOS_BY_ID[s.id]![0].src}
+                            alt=""
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                          />
+                        </button>
                       )}
                     </button>
                     {s.id === 9 && showErieCanal && (
