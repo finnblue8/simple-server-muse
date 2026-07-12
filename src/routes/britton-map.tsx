@@ -1369,14 +1369,24 @@ function BrittonMapPage() {
                           : "hover:bg-muted"
                       }`}
                     >
-                      <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
-                        {number}
+                      <span className="flex w-full items-start gap-2 lg:contents">
+                        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
+                          {number}
+                        </span>
+                        <span className="flex min-w-0 flex-1 flex-col">
+                          <span className="line-clamp-2 text-sm font-medium lg:line-clamp-none">{s.name}</span>
+                          <span className="line-clamp-2 text-xs opacity-70 lg:line-clamp-none">{s.region}</span>
+                          <span className="line-clamp-1 text-xs opacity-70 lg:line-clamp-none">{s.period}</span>
+                        </span>
                       </span>
-                      <span className="flex min-w-0 flex-1 flex-col">
-                        <span className="line-clamp-2 text-sm font-medium lg:line-clamp-none">{s.name}</span>
-                        <span className="line-clamp-2 text-xs opacity-70 lg:line-clamp-none">{s.region}</span>
-                        <span className="line-clamp-1 text-xs opacity-70 lg:line-clamp-none">{s.period}</span>
-                      </span>
+                      {PHOTOS_BY_ID[s.id]?.[0] && (
+                        <img
+                          src={PHOTOS_BY_ID[s.id]![0].src}
+                          alt=""
+                          loading="lazy"
+                          className="mt-1 h-24 w-full flex-none rounded-md object-cover lg:hidden"
+                        />
+                      )}
                     </button>
                     {s.id === 9 && showErieCanal && (
                       <button
@@ -1544,6 +1554,12 @@ function LeafletMap({
     ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
     : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
+  const focusTarget: [number, number] | null = selected
+    ? [selected.lat, selected.lng]
+    : erieSelected
+    ? (ERIE_CANAL_ROUTE.waypoints[ERIE_CANAL_ROUTE.waypoints.length - 1] as [number, number])
+    : null;
+
   return (
     <MapContainer
       center={[45, -40] as [number, number]}
@@ -1551,6 +1567,7 @@ function LeafletMap({
       scrollWheelZoom
       style={{ height: "100%", width: "100%", background: dark ? "#0b1220" : undefined }}
     >
+      <MapFocus target={focusTarget} Lib={Lib} />
       <TileLayer
         key={dark ? "dark" : "light"}
         attribution={tileAttribution}
@@ -1683,4 +1700,15 @@ function LeafletMap({
       })}
     </MapContainer>
   );
+}
+
+function MapFocus({ target, Lib }: { target: [number, number] | null; Lib: any }) {
+  const map = Lib.RL.useMap();
+  useEffect(() => {
+    if (!target) return;
+    const currentZoom = map.getZoom();
+    const zoom = Math.max(currentZoom, 5);
+    map.flyTo(target, zoom, { duration: 0.9 });
+  }, [target?.[0], target?.[1]]);
+  return null;
 }

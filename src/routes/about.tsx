@@ -3,6 +3,7 @@ import headshot from "@/assets/headshot.webp";
 import logoReadySet from "@/assets/logo-readyset.jpg";
 import logoHomeDepot from "@/assets/logo-home-depot.png";
 import logoAkron from "@/assets/logo-akron.jpg";
+import { getPresetTextColors, useXmbPreset } from "@/lib/xmb-text";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -89,8 +90,19 @@ const jobs: Job[] = [
 ];
 
 function About() {
+  const preset = useXmbPreset();
+  const presetColors = preset ? getPresetTextColors(preset) : null;
+  const fg = presetColors?.fg ?? "#ffffff";
+  const shadow = presetColors?.shadow ?? "0 0 6px rgba(0,0,0,0.55), 0 0 14px rgba(0,0,0,0.35)";
   return (
-    <main className="xmb-light relative min-h-screen w-full overflow-x-hidden">
+    <main
+      className="xmb-light relative min-h-screen w-full overflow-x-hidden"
+      style={{
+        color: fg,
+        ["--xmb-fg" as string]: fg,
+        ["--xmb-text-shadow" as string]: shadow,
+      }}
+    >
       <div className="xmb-bg" />
       <div className="xmb-wave" />
       <div className="xmb-ribbon" style={{ top: "30%" }} />
