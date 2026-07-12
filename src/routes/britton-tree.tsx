@@ -715,7 +715,16 @@ function BrittonTree() {
         const person = BY_ID.get(cardId);
         if (!person) return null;
         const rec = notionById.get(cardId);
-        const fmt = (d: string | null) => d ?? "—";
+        const fmt = (d: string | null) => {
+          if (!d) return "—";
+          const m = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/.exec(d);
+          if (!m) return d;
+          const [, y, mo, da] = m;
+          const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+          if (mo && da) return `${parseInt(da, 10)} ${months[parseInt(mo, 10) - 1]} ${y}`;
+          if (mo) return `${months[parseInt(mo, 10) - 1]} ${y}`;
+          return y;
+        };
         return (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
