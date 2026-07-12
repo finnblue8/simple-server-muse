@@ -1544,6 +1544,12 @@ function LeafletMap({
     ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
     : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
+  const focusTarget: [number, number] | null = selected
+    ? [selected.lat, selected.lng]
+    : erieSelected
+    ? (ERIE_CANAL_ROUTE.waypoints[ERIE_CANAL_ROUTE.waypoints.length - 1] as [number, number])
+    : null;
+
   return (
     <MapContainer
       center={[45, -40] as [number, number]}
@@ -1551,6 +1557,7 @@ function LeafletMap({
       scrollWheelZoom
       style={{ height: "100%", width: "100%", background: dark ? "#0b1220" : undefined }}
     >
+      <MapFocus target={focusTarget} Lib={Lib} />
       <TileLayer
         key={dark ? "dark" : "light"}
         attribution={tileAttribution}
