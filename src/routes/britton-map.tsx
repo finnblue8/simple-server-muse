@@ -1342,8 +1342,6 @@ function BrittonMapPage() {
           <ol className="flex flex-1 snap-x snap-mandatory flex-row gap-3 overflow-x-auto px-3 py-3 lg:flex-col lg:gap-0 lg:overflow-y-auto lg:overflow-x-visible lg:px-2 lg:py-2 lg:snap-align-none no-scrollbar">
             {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
-              const leg = legs.find((l) => l.to.id === s.id);
-              const legSel = leg && selectedLeg === leg.idx;
               const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
               return (
                 <li key={s.id} id={`timeline-card-${s.id}`} className="w-[260px] flex-shrink-0 snap-start lg:w-full lg:flex-none lg:snap-align-none">
