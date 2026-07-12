@@ -1342,25 +1342,10 @@ function BrittonMapPage() {
           <ol className="flex flex-1 snap-x snap-mandatory flex-row gap-3 overflow-x-auto px-3 py-3 lg:flex-col lg:gap-0 lg:overflow-y-auto lg:overflow-x-visible lg:px-2 lg:py-2 lg:snap-align-none no-scrollbar">
             {visibleSettlements.map((s) => {
               const isSel = selected?.id === s.id;
-              const leg = legs.find((l) => l.to.id === s.id);
-              const legSel = leg && selectedLeg === leg.idx;
               const number = SETTLEMENTS.findIndex((x) => x.id === s.id) + 1;
               return (
                 <li key={s.id} id={`timeline-card-${s.id}`} className="w-[260px] flex-shrink-0 snap-start lg:w-full lg:flex-none lg:snap-align-none">
                   <div className="flex h-full flex-col gap-1">
-                    {leg && (
-                      <button
-                        onClick={() => selectLeg(leg.idx)}
-                        className={`flex w-full items-center gap-1 rounded px-2 py-1 text-left text-[10px] transition-colors lg:my-1 lg:ml-3 lg:w-[calc(100%-1.5rem)] lg:text-xs ${
-                          legSel ? "bg-accent text-accent-foreground" : "opacity-60 hover:bg-muted hover:opacity-100"
-                        }`}
-                      >
-                        <span className="text-[10px]">↳</span>
-                        <span className="truncate italic">
-                          Migration: {leg.from.name} → {leg.to.name}
-                        </span>
-                      </button>
-                    )}
                     <button
                       onClick={() => selectPoint(s)}
                       className={`flex flex-1 w-full flex-col items-start gap-2 rounded-xl border border-border bg-card p-3 text-left transition-colors lg:flex-row lg:items-start lg:gap-3 lg:rounded lg:border-0 lg:bg-transparent lg:p-2 ${
