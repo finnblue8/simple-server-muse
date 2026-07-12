@@ -1691,3 +1691,14 @@ function LeafletMap({
     </MapContainer>
   );
 }
+
+function MapFocus({ target, Lib }: { target: [number, number] | null; Lib: any }) {
+  const map = Lib.RL.useMap();
+  useEffect(() => {
+    if (!target) return;
+    const currentZoom = map.getZoom();
+    const zoom = Math.max(currentZoom, 5);
+    map.flyTo(target, zoom, { duration: 0.9 });
+  }, [target?.[0], target?.[1]]);
+  return null;
+}
