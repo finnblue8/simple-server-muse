@@ -1369,14 +1369,24 @@ function BrittonMapPage() {
                           : "hover:bg-muted"
                       }`}
                     >
-                      <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
-                        {number}
+                      <span className="flex w-full items-start gap-2 lg:contents">
+                        <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-red-600 text-[11px] font-bold text-white ring-2 ring-red-600/30">
+                          {number}
+                        </span>
+                        <span className="flex min-w-0 flex-1 flex-col">
+                          <span className="line-clamp-2 text-sm font-medium lg:line-clamp-none">{s.name}</span>
+                          <span className="line-clamp-2 text-xs opacity-70 lg:line-clamp-none">{s.region}</span>
+                          <span className="line-clamp-1 text-xs opacity-70 lg:line-clamp-none">{s.period}</span>
+                        </span>
                       </span>
-                      <span className="flex min-w-0 flex-1 flex-col">
-                        <span className="line-clamp-2 text-sm font-medium lg:line-clamp-none">{s.name}</span>
-                        <span className="line-clamp-2 text-xs opacity-70 lg:line-clamp-none">{s.region}</span>
-                        <span className="line-clamp-1 text-xs opacity-70 lg:line-clamp-none">{s.period}</span>
-                      </span>
+                      {PHOTOS_BY_ID[s.id]?.[0] && (
+                        <img
+                          src={PHOTOS_BY_ID[s.id]![0].src}
+                          alt=""
+                          loading="lazy"
+                          className="mt-1 h-24 w-full flex-none rounded-md object-cover lg:hidden"
+                        />
+                      )}
                     </button>
                     {s.id === 9 && showErieCanal && (
                       <button
