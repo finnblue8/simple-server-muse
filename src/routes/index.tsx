@@ -277,6 +277,8 @@ function Index() {
     : getReadableTextColors(source.r, source.g, source.b, prevIsDarkRef.current);
   if (!presetColors) prevIsDarkRef.current = textColors.isDark;
 
+  const touchRef = useRef<{ x: number; y: number } | null>(null);
+
   return (
     <main
       className="xmb-lock relative w-screen overflow-hidden"
@@ -285,6 +287,34 @@ function Index() {
         color: textColors.fg,
         ["--xmb-fg" as string]: textColors.fg,
         ["--xmb-text-shadow" as string]: textColors.shadow,
+      }}
+      onTouchStart={(e) => {
+        const t = e.touches[0];
+        touchRef.current = { x: t.clientX, y: t.clientY };
+      }}
+      onTouchEnd={(e) => {
+        const start = touchRef.current;
+        if (!start) return;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - start.x;
+        const dy = t.clientY - start.y;
+        touchRef.current = null;
+        if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) {
+          if (selectedItem?.children) {
+            playCursor();
+            updatePath(active, [...path, 0]);
+          } else {
+            changeActive(Math.min(categories.length - 1, active + 1));
+          }
+        } else {
+          if (depth > 0) {
+            playCancel();
+            updatePath(active, path.slice(0, -1));
+          } else {
+            changeActive(Math.max(0, active - 1));
+          }
+        }
       }}
     >
       <div className="xmb-bg" />
