@@ -10,9 +10,9 @@ import { getPresetTextColors, useXmbPreset } from "@/lib/xmb-text";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Robert Britton's site - about me and personal projects" },
+      { title: "Robert Britton's site" },
       { name: "description", content: "Personal website and home server landing page." },
-      { property: "og:title", content: "Robert Britton's site - about me and personal projects" },
+      { property: "og:title", content: "Robert Britton's site" },
       { property: "og:description", content: "Personal website and home server landing page." },
     ],
   }),
@@ -332,7 +332,8 @@ function Index() {
 
       {/* Page header */}
       <div className="pointer-events-none absolute left-0 right-0 top-4 z-10 flex flex-col items-center px-4 text-center xmb-text-glow sm:top-6">
-        <h1 className="text-lg font-light tracking-wide sm:text-2xl">Robert Britton's site - about me and personal projects</h1>
+        <h1 className="text-lg font-light tracking-wide sm:text-2xl">Robert Britton's site</h1>
+        <p className="text-xs font-light opacity-80 sm:text-sm">about me and personal projects</p>
         <p className="mt-1 text-[11px] font-light opacity-70 sm:text-xs">
           Navigate tabs with arrow keys, mouse, or swipe on mobile.
         </p>
