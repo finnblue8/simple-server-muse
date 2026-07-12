@@ -406,7 +406,11 @@ function Index() {
                 <li
                   key={`${depth}-${j}-${item.label}`}
                   onClick={handleClick}
-                  className={`xmb-subitem mb-2 cursor-pointer xmb-text-glow ${isSel ? "selected" : ""}`}
+                  className={`xmb-subitem mb-2 cursor-pointer rounded-md border px-3 py-2 backdrop-blur-sm transition-all xmb-text-glow ${
+                    isSel
+                      ? "selected border-white/50 bg-white/15 shadow-[0_0_12px_rgba(255,255,255,0.25)]"
+                      : "border-white/15 bg-white/[0.06] hover:border-white/30 hover:bg-white/10"
+                  }`}
                 >
                   {item.href ? (
                     <a
