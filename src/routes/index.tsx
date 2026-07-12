@@ -10,9 +10,9 @@ import { getPresetTextColors, useXmbPreset } from "@/lib/xmb-text";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Robert Britton's site - about me and personal projects" },
+      { title: "Robert Britton's site" },
       { name: "description", content: "Personal website and home server landing page." },
-      { property: "og:title", content: "Robert Britton's site - about me and personal projects" },
+      { property: "og:title", content: "Robert Britton's site" },
       { property: "og:description", content: "Personal website and home server landing page." },
     ],
   }),
