@@ -1,10 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FlaskConical } from "lucide-react";
 import iconUsers from "@/assets/icon-users.png";
 import iconNetwork from "@/assets/icon-network.png";
 import sndCursor from "@/assets/snd_cursor.mp3";
 import sndCancel from "@/assets/snd_cancel.mp3";
+import { getPresetTextColors, useXmbPreset } from "@/lib/xmb-text";
 
 export const Route = createFileRoute("/")({
   head: () => ({
