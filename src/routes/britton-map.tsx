@@ -1,15 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useMemo, useState } from "react";
-import eleanoraAsset from "@/assets/eleanora.png.asset.json";
-import ilfracombeAsset from "@/assets/ilfracombe.jpg.asset.json";
-import ilfracombe2Asset from "@/assets/ilfracombe2.jpg.asset.json";
-import westdownAsset from "@/assets/westdown.jpg.asset.json";
-import barnstapleAsset from "@/assets/barnstaple.webp.asset.json";
-import lyntonAsset from "@/assets/lynton.jpg.asset.json";
-import brattonflemingAsset from "@/assets/brattonfleming.jpg.asset.json";
-import brattonfleming2Asset from "@/assets/brattonfleming2.jpg.asset.json";
-import eriecanalAsset from "@/assets/eriecanal.gif.asset.json";
 import "leaflet/dist/leaflet.css";
+
 
 export const Route = createFileRoute("/britton-map")({
   head: () => ({
@@ -42,28 +34,28 @@ type Settlement = {
 
 const PHOTOS_BY_ID: Record<number, Photo[]> = {
   3: [
-    { src: ilfracombeAsset.url },
+    { src: "/photos/ilfracombe.jpg" },
     {
-      src: ilfracombe2Asset.url,
+      src: "/photos/ilfracombe2.jpg",
       caption:
         "Church of The Holy Trinity, Ilfracombe, built in 1322 on the site of an old Saxon church dating to 1263, the original family church.",
     },
   ],
   4: [
-    { src: westdownAsset.url, caption: "Church of St. Calixtus, West Down" },
+    { src: "/photos/westdown.jpg", caption: "Church of St. Calixtus, West Down" },
   ],
-  6: [{ src: barnstapleAsset.url }],
-  7: [{ src: lyntonAsset.url }],
+  6: [{ src: "/photos/barnstaple.webp" }],
+  7: [{ src: "/photos/lynton.jpg" }],
   8: [
-    { src: brattonflemingAsset.url },
+    { src: "/photos/brattonfleming.jpg" },
     {
-      src: brattonfleming2Asset.url,
+      src: "/photos/brattonfleming2.jpg",
       caption: "Church of St. Peter, Bratton Fleming, attended by John Adam Britton and family.",
     },
   ],
   9: [
     {
-      src: eriecanalAsset.url,
+      src: "/photos/eriecanal.gif",
       caption:
         "The Erie Canal is a historic canal in upstate New York that runs east–west between the Hudson River and Lake Erie. Completed in 1825, the canal was the first navigable waterway connecting the Atlantic Ocean to the upper Great Lakes above Niagara Falls, vastly reducing the costs of transporting people and goods across the Appalachians. The Erie Canal accelerated the settlement of the Great Lakes region, the westward expansion of the United States, and the economic ascendancy of New York state.",
     },
@@ -128,7 +120,7 @@ const PHOTOS_BY_ID: Record<number, Photo[]> = {
   ],
   74: [
     {
-      src: eleanoraAsset.url,
+      src: "/photos/eleanora.png",
       caption: "Historical view of Eleanora, McCalmont Township, Jefferson County, Pennsylvania.",
     },
   ],
