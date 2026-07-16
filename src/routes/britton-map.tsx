@@ -1,15 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Fragment, useEffect, useMemo, useState } from "react";
-import eleanoraAsset from "@/assets/eleanora.png.asset.json";
-import ilfracombeAsset from "@/assets/ilfracombe.jpg.asset.json";
-import ilfracombe2Asset from "@/assets/ilfracombe2.jpg.asset.json";
-import westdownAsset from "@/assets/westdown.jpg.asset.json";
-import barnstapleAsset from "@/assets/barnstaple.webp.asset.json";
-import lyntonAsset from "@/assets/lynton.jpg.asset.json";
-import brattonflemingAsset from "@/assets/brattonfleming.jpg.asset.json";
-import brattonfleming2Asset from "@/assets/brattonfleming2.jpg.asset.json";
-import eriecanalAsset from "@/assets/eriecanal.gif.asset.json";
 import "leaflet/dist/leaflet.css";
+
 
 export const Route = createFileRoute("/britton-map")({
   head: () => ({
