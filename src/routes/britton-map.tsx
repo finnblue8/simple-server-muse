@@ -1257,9 +1257,14 @@ function BrittonMapPage() {
               ? `${activeLeg.from.period} → ${activeLeg.to.period}`
               : "c. 1840s — English Era";
             return (
-              <div className="pointer-events-auto absolute inset-x-2 bottom-2 z-[1000] max-h-[75%] overflow-hidden rounded-lg border border-border bg-card/95 text-sm text-card-foreground shadow-xl backdrop-blur sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:max-h-[calc(100%-1.5rem)] sm:w-[360px]">
+              <div
+                className="pointer-events-auto absolute inset-x-2 bottom-2 z-[1000] flex max-h-[75%] flex-col overflow-hidden rounded-lg border border-border bg-card/95 text-sm text-card-foreground shadow-xl backdrop-blur sm:inset-x-auto sm:bottom-auto sm:right-3 sm:top-3 sm:max-h-[calc(100%-1.5rem)] sm:w-[360px]"
+                onTouchStartCapture={(e) => e.stopPropagation()}
+                onTouchMoveCapture={(e) => e.stopPropagation()}
+                onWheelCapture={(e) => e.stopPropagation()}
+              >
                 {/* Header bar — always visible */}
-                <div className="flex items-start gap-2 border-b border-border/60 px-3 py-2 sm:px-4 sm:py-3">
+                <div className="flex flex-none items-start gap-2 border-b border-border/60 px-3 py-2 sm:px-4 sm:py-3">
                   <div className="min-w-0 flex-1">
                     <div className="truncate text-sm font-semibold sm:text-base">{headerTitle}</div>
                     <div className="truncate text-[11px] opacity-70 sm:text-xs">{headerSub}</div>
@@ -1282,7 +1287,10 @@ function BrittonMapPage() {
                   </button>
                 </div>
                 {/* Body — hidden on mobile until expanded, always shown on desktop */}
-                <div className={`${detailsExpanded ? "block" : "hidden"} sm:block max-h-[60vh] overflow-y-auto px-3 py-3 sm:max-h-[calc(100vh-10rem)] sm:px-4`}>
+                <div
+                  className={`${detailsExpanded ? "block" : "hidden"} sm:block min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 sm:px-4`}
+                  style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
+                >
                   {selected && (() => {
                     const photos = PHOTOS_BY_ID[selected.id] ?? [];
                     return (
